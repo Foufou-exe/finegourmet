@@ -4,6 +4,13 @@ import csv
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, trim, regexp_replace
 
+# Obtenir le dossier où se trouve `nettoyage.py`
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Définir les chemins relatifs au script
+input_folder = os.path.join(script_dir)  # Tous les fichiers CSV sont dans le même dossier
+output_file = os.path.join(script_dir, "sfcc_cleaned.csv")  # Fichier nettoyé dans le même dossier
+
 def clean_sfcc_data(input_folder, output_file):
     """
     Nettoie et fusionne tous les fichiers CSV SFCC d'un dossier en un seul fichier propre en utilisant Spark.
@@ -11,9 +18,6 @@ def clean_sfcc_data(input_folder, output_file):
     - Conserve les accents (UTF-8 avec BOM)
     - Assure une fin de ligne CRLF (\r\n) sans double saut de ligne
     """
-
-    input_folder = os.path.abspath(input_folder)
-    output_file = os.path.abspath(output_file)
 
     # Vérifier si le dossier d'entrée existe
     if not os.path.exists(input_folder):
@@ -62,7 +66,9 @@ def clean_sfcc_data(input_folder, output_file):
             merged_df = merged_df.withColumn("quantity", col("quantity").cast("int"))
 
         # Supprimer les valeurs manquantes critiques
-        merged_df = merged_df.dropna(subset=["transaction_date", "product_id"])
+        columns_to_check = [col for col in ["transaction_date", "product_id"] if col in merged_df.columns]
+        if columns_to_check:
+            merged_df = merged_df.dropna(subset=columns_to_check)
 
         # Sauvegarde des données nettoyées dans un fichier temporaire Spark
         temp_output_folder = os.path.join(input_folder, "temp_output")
@@ -108,8 +114,5 @@ def convert_to_utf8_bom_crlf(temp_output_folder, output_file):
 
     print(f"✅ Fichier final enregistré sous : {output_file}")
 
-# Exemple d'utilisation
-input_folder = "C:/Users/leon/GitHub/finegourmet/Data/salesforces"
-output_file = "C:/Users/leon/GitHub/finegourmet/Data/salesforces/sfcc_cleaned.csv"
-
+# Exécuter le nettoyage avec les chemins relatifs au fichier `nettoyage.py`
 clean_sfcc_data(input_folder, output_file)
