@@ -65,10 +65,6 @@ def clean_sfcc_data(input_folder, output_file):
         if 'quantity' in merged_df.columns:
             merged_df = merged_df.withColumn("quantity", col("quantity").cast("int"))
 
-        # Supprimer les valeurs manquantes critiques
-        columns_to_check = [col for col in ["transaction_date", "product_id"] if col in merged_df.columns]
-        if columns_to_check:
-            merged_df = merged_df.dropna(subset=columns_to_check)
 
         # Sauvegarde des données nettoyées dans un fichier temporaire Spark
         temp_output_folder = os.path.join(input_folder, "temp_output")
