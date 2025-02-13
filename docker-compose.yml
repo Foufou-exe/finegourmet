@@ -8,8 +8,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: finegourmet
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      MYSQL_USER: finegourmet
+      MYSQL_PASSWORD: finegourmet
     ports:
       - "3306:3306"
     volumes:
