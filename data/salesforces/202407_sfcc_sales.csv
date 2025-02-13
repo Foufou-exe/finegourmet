@@ -1,0 +1,24 @@
+sale_id,transaction_date,product_id,customer_id,customer_last_name,customer_first_name,customer_email,customer_address,customer_phone,email_optin,sms_optin
+Sx4i6n,2024-07-05,P156915,7103495,Ouzbedine,Mohamed,mohamed.ouzbedine@gmail.com,"8 Rue de la Mairie, 87520 Oradour-sur-Glane",0641670246,true,false
+S35ov3,2024-07-16,P697023,2489137,Dupuis,Jean,jean.dupuis@orange.fr,"33 Rue Saint-André des Arts, 75006 Paris",,false,false
+Sop61z,2024-07-27,P268131,1011622,Lemoine,Emma,emma.lemoine@wanadoo.fr,"60 Rue de la Pompe, 95200 Sarcelles",0646279145,true,false
+S27qh9,2024-07-07,P709248,2763401,Bénard,Romain,romain.benard@orange.fr,"12 Rue de Libourne, 75012 Paris",011473374,false,false
+S78sm7,2024-07-18,P370356,3467223,Martin,Lea,l.martin@gmail.com,"18 Rue Paganini, 06000 Nice",0644633310,true,false
+Spd94q,2024-07-28, P811465,4589431,Guillaume,David,david.guillaume@gmail.com,"4 Rue de Marignan, 28240 Bretoncelles",0417969745,false,false
+Sa8v6b,2024-07-09, P482573,1254688,Boucher,Arnaud,a.boucher@orange.fr,"18 Chem. de Saint-Hubert, 34970 Lattes",,true,false
+Sjv25f,2024-07-20, P923689,7352016,Smith,Jack,jack.smith@yahoo.fr,"9 Chem. Canto Cigalo, 13210 Saint-Rémy-de-Provence",,true,false
+S4vfv4,2024-07-31, P594797,4564563,Blin,Maxime,maxime.blin@hotmail.com,"45 Rue Leyteire, 33000 Bordeaux",0765164710,false,true
+Sm1bnk,2024-07-11, P165805,1582451,Dugue,Yvone,y.dugue@gmail.com,"17 Rue de la Pointe, 72100 Le Mans",0745855256,true,false
+S97gw8,2024-07-24,P745937,6167313,Gendousi,Myriam,m.gend@free.fr,"2 Pl. Gambetta, 32600 L'Isle-Jourdain",0673686410,false,false
+Sc2b7k,2024-07-24,P629715,5484931,Fils,Ugo,u.fils@free.fr,"2 Rue des Étuves, 13100 Aix-en-Provence",0757555745,true,true
+S16gx9,2024-07-28,P925746,3000622,Delmondo,Oscar,oscar.delmondo@wanadoo.fr,"60 Av. de la Fosse des Pressoirs, 77700 Magny-le-Hongre",0585269145,true,false
+S60ks8,2024-07-18,P266975,5453621,Chastel,Éloïse,eloise.chastel@orange.fr,"20 Rue du Portail Boquier, 84000 Avignon",,true,false
+S83uc9,2024-07-03,P718138,2489137,Dupuis,Jean,jean.dupuis@gmail.com,"33 Rue Saint-André des Arts, 75006 Paris",,true,true
+Scy25k,2024-07-15,P389246,1628324,Lavigne,Gaspard,gaspard.lavigne@orange.fr,"2 Rue des Buisses, 59800 Lille",0723254719,false,true
+S12th2,2024-07-26,P820354,	9542610,Fontaine,Octave,octave.fontaine@sfr.fr,"41 All. Saint-Symphorien, 57000 Metz",0754733075,true,false
+S61lj6,2024-07-08,P491462,8542391,Carpentier,Isolde,isolde.carpentier@gmail.com,"25 Rte de l'Abbaye, 78720 Cernay-la-ville",0754777019,false,true
+S0p2q7,2024-07-29,P932579,4520195,Roussel,Agathe,agathe.roussel@orange.fr,"91 Rue de la Halle, 18000 Bourges",0611763580,false,false
+S4t7z4,2024-07-22,P174795,5281489,Lemoine,Paul,paul.lemoine@free.fr,"73 Av. Valéry Giscard d'Estaing, 80000 Amiens",0745679145,false,true
+S9v5w9,2024-07-03,P615803,2102756,Bertz,Karl,karl.bertz@yahoo.fr,"7 Pl. de la Capelle, 12100 Millau",,true,false
+Sl003y,2024-07-14,P286911,6585422,Ulios,Icare,icare.ulios@free.fr,"10 Bd de la Croisette, 06400 Cannes",0789695745,true,true
+S5fga8,2024-07-29,P727028,7114585,Martin,Philippe,philippe.martin@gmail.com,"12 avenue des Lilas, 95100 Argenteuil",0677412369,false,false

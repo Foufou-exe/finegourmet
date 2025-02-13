@@ -1,0 +1,25 @@
+sale_id,transaction_date,product_id,customer_id,customer_last_name,customer_first_name,customer_email,customer_address,customer_phone,email_optin,sms_optin
+Sm1q5k,2024-04-03,P576917,8123497,Girard,Laura,laura.girard@sfr.fr,"6 Rue Royale, 75008 Paris",0776543210,true,false
+S9b5h9,2024-04-15,P147025,2593701,David,Émilie,emilie.david@gmail.com,"14 Rue de la Pompe, 75116 Paris",,true,false
+S7f9o6,2024-04-26,P688133,1762934,Robert,Alexandre,alexandre.robert@outlook.com,"20 Rue du Bac, 75007 Paris",,false,true
+Sx6a2n,2024-04-07,P259241,6121582,Delaunay,Thibault,thibault.delaunay@yahoo.fr,"27 Chem. du Thym, 34400 Lunel",0746465278,true,false
+S3h5v7,2024-04-18,P790358,6830542,Durand,Julie,julie.durand@free.fr,"3 Rue de l'Université, 75007 Paris",0798765432,false,false
+So9q3z,2024-04-29,P361466,9157208,Morel,Lucas,lucas.morel@sfr.fr,"7 Boulevard Saint-Germain, 75005 Paris",,false,true
+S2b6h4,2024-04-10,P802574,6201467,Moretti,Luca,luca.moretti@gmail.com,"18 Chem. du Sapeur, 30900 Nîmes",0622467046,true,false
+S7k4m1,2024-04-20,P473682,1293212,Bertrand,Quentin,quentin.bertrand@yahoo.fr,"38 Av. de l'Arborescente, 85500 Les Herbiers",,false,true
+Sp1n7q,2024-04-01,P914799,1205945,Ivanov,Dmitri,dmitri.ivanov@outlook.com,"5 Rue Lamonnoye, 21000 Dijon",0645957502,true,false
+Sa8v1b,2024-04-12,P585807,7458231,Gauthier,Hugo,hugo.gauthier@free.fr,"9 Quai Voltaire, 75007 Paris",,false,true
+Sj6x8f,2024-04-23,P156915,4102657,Petrov,Zara,zara.petrov@sfr.fr,"12bis Bd du Pêcher, 26200 Montélimar",0715149502,true,false
+S778v9,2024-04-04,P697023,1354856,Vigneron,Adèle,adele.vigneron@gmail.com,"14 Rue Vauban, 59100 Roubaix",0674332545,false,true
+Sm1q3k,2024-04-14,P268131,1093586,Chevalier,Manon,manon.chevalier@yahoo.fr,"4 Rue des Beaux-Arts, 75006 Paris",0678901234,true,false
+S9bp57,2024-04-25,P709248,6240857,Perrier,Gabriel,gabriel.perrier@outlook.com,"19 Rue de Lille, 75007 Paris",,false,true
+S75jo2,2024-04-06,P370356,9725130,Leroux,Inès,ines.leroux@free.fr,"28 Rue Jacob, 75006 Paris",0789012345,true,false
+Sxc14n,2024-04-17,P811464,3401785,Renaud,Arthur,arthur.renaud@sfr.fr,"5 Quai Malaquais, 75006 Paris",,true,true
+S3drv5,2024-04-28,P482573,3485219,Larson,Nicky,xyz@gmail.com,"82 Rue Achille Bege, 34090 Montpellier",,false,true
+So9q1z,2024-04-09,P923689,2138704,Garcia,Mathis,mathis.garcia@yahoo.fr,"30 Rue Mazarine, 75006 Paris",,false,true
+S2zzh2,2024-04-19,P594797,7634025,Denis,Flavie,flavie.denis@outlook.com,"2 Bd Solférino, 86000 Poitiers",,false,false
+S7kfm8,2024-04-30,P165805,4081256,Cousin,Raphaël,raphael.cousin@free.fr,"6 Rue de Tournon, 75006 Paris",,true,true
+Sp553q,2024-04-11,P606913,7819024,Faure,Capucine,capucine.faure@sfr.fr,"24 Rue de Fleurus, 75006 Paris",0711223344,true,true
+Sa6h6b,2024-04-02,P277021,2358631,Jubil,Eric,jub34@gmail.com,"8 Rue Achille Bege, 34090 Montpellier",0615964744,false,true
+Sj9x6f,2024-04-22,P718138,	5491328,Rochefort,Sidonie,sidonie.rochefort@gmail.com,"12 Rue du Clos Martin, 88160 Ramonchamp",,true,false
+S4a2o8,2024-04-04,P389246,1592753,Morin,Jean,jean.morin@orange.fr,"6 Rue Edouard Vaillant, 33150 Cenon",0515975328,false,false

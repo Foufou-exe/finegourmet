@@ -1,0 +1,19 @@
+sale_id,transaction_date,product_id,customer_id,customer_last_name,customer_first_name,customer_email,customer_address,customer_phone,email_optin,sms_optin
+Sj9x8f,2024-05-23,P697023,1203456,Gallagher,Niamh,niamh.gallagher@sfr.fr,"6b Rte de Lyon, 84000 Avignon",0645854013,true,false
+S4z8v9,2024-05-04,P361466,5317820,Marchand,Louis,louis.marchand@gmail.com,"13 Rue Bonaparte, 75006 Paris",,false,true
+Smkq2k,2024-05-14,P802574,1093586,Chevalier,Manon,manon.chevalier@yahoo.fr,"4 Rue des Beaux-Arts, 75006 Paris",0678901234,true,false
+Sw25h7,2024-05-25,P709248,6240857,Perrier,Gabriel,gabriel.perrier@outlook.com,"19 Rue de Lille, 75007 Paris",,false,true
+S7f9o2,2024-05-06,P370356,9725130,Leroux,Inès,ines.leroux@free.fr,"28 Rue Jacob, 75006 Paris",0789012345,true,false
+Sxv54n,2024-05-17,P811464,3401785,Renaud,Arthur,arthur.renaud@sfr.fr,"5 Quai Malaquais, 75006 Paris",,true,true
+S3h5v5,2024-05-28,P482573,3521034,Willy,Arnold,arnold.willy@gmail.com,"1 Bd de Bruxelles, 30000 Nîmes",,false,true
+Sov51z,2024-05-09,P923689,2138704,Garcia,Mathis,mathis.garcia@yahoo.fr,"30 Rue Mazarine, 75006 Paris",,false,true
+S2bch2,2024-05-19,P594797,1603248,Boucher,Célia,celia.boucher@outlook.com,"22 Av. du Président Wilson, 86100 Châtellerault",,false,false
+Sfk4m8,2024-05-30,P165805,4081256,Cousin,Raphaël,raphael.cousin@free.fr,"6 Rue de Tournon, 75006 Paris",,true,false
+Sp1n3q,2024-05-11,P606913,6354556,Lemoine,Gaspard,gaspard.lemoine@sfr.fr,"64 Bd Henry Vasnier, 51100 Reims",0734857645,true,true
+Sa7b2b,2024-05-02,P277021,4584569,McKol,Rose,rose.mckol@free.fr,"4 Rue Hyacinthe Le Bleis, 29120 Pont-l'Abbé",0725257896,false,true
+Sk7m2p,2024-05-22,P718138,1011622,Lemoine,Emma,emma.lemoine@wanadoo.fr,"60 Rue de la Pompe, 95200 Sarcelles",0646279145,false,true
+Ss3n7q,2024-05-13,P389246,4985032,Lefranc,Amaury,amaury.lefranc@sfr.fr,"33 Rte de Boulangère, 04140 Selonnet",0756353412,true,true
+Sb2h6v,2024-05-03,P820354,1259551,Brun,Damien,damien.brun@outlook.com,"11 Rue du Moulin de Bord, 36200 Argenton-sur-Creuse",0678121234,true,false
+Sj9x4f,2024-05-24,P491462,6533518,Fournier,Léonard,leonard.fournier@orange.fr,"39 Rue Quintefol, 37600 Loches",0615753015,false,true
+S4z8v7,2024-05-15,P932579,1853665,Picard,Célestine,celestine.picard@gmail.com,"77 Rue Evariste Galois, 87200 Saint-Junien",0741296608,true,false
+Sb38n9, 2024-05-28, P277021,4189623,Philippe,Martin,philippe.martin@gmail.com,"12 avenue des Lilas 95100 Argenteuil",0677412369,false,true

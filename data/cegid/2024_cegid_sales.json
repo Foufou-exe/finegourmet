@@ -1,0 +1,2691 @@
+[
+    {
+        "sale_id": "PA01240100001",
+        "email": null,
+        "transaction_date": "2024-01-05",
+        "product_name": "Confiture Artisanale Abricot",
+        "quantity": 2,
+        "price": 21.8
+    },
+    {
+        "sale_id": "PA02240100001",
+        "email": "isabelle.dupont@gmail.com",
+        "transaction_date": "2024-01-12",
+        "product_name": "Fromage de Chèvre Affiné",
+        "quantity": 1,
+        "price": 18.2
+    },
+    {
+        "sale_id": "PA03240100001",
+        "email": null,
+        "transaction_date": "2024-01-18",
+        "product_name": "Huile d'Olive Extra Vierge Bio",
+        "quantity": 3,
+        "price": 68.4
+    },
+    {
+        "sale_id": "BO01240100001",
+        "email": null,
+        "transaction_date": "2024-01-25",
+        "product_name": "Vin Rouge Bordeaux Supérieur 2018",
+        "quantity": 1,
+        "price": 28.5
+    },
+    {
+        "sale_id": "BO02240100001",
+        "email": "thomas.lefebvre@yahoo.fr",
+        "transaction_date": "2024-01-03",
+        "product_name": "Pâté de Campagne Traditionnel",
+        "quantity": 2,
+        "price": 31.5
+    },
+    {
+        "sale_id": "MO01240100001",
+        "email": null,
+        "transaction_date": "2024-01-08",
+        "product_name": "Miel de Lavande de Provence",
+        "quantity": 1,
+        "price": 14.95
+    },
+    {
+        "sale_id": "LY01240100001",
+        "email": null,
+        "transaction_date": "2024-01-15",
+        "product_name": "Terrine de Foie Gras de Canard",
+        "quantity": 1,
+        "price": 45
+    },
+    {
+        "sale_id": "LY02240100001",
+        "email": "sophie.moreau@outlook.com",
+        "transaction_date": "2024-01-22",
+        "product_name": "Assortiment de Macarons",
+        "quantity": 4,
+        "price": 119.96
+    },
+    {
+        "sale_id": "MA01240100001",
+        "email": null,
+        "transaction_date": "2024-01-29",
+        "product_name": "Chocolat Noir 70% Madagascar",
+        "quantity": 3,
+        "price": 37.5
+    },
+    {
+        "sale_id": "LI01240100001",
+        "email": null,
+        "transaction_date": "2024-01-11",
+        "product_name": "Coffret Découverte Thés Rares",
+        "quantity": 1,
+        "price": 35
+    },
+    {
+        "sale_id": "RE01240100001",
+        "email": null,
+        "transaction_date": "2024-01-06",
+        "product_name": "Jambon Ibérique de Bellota",
+        "quantity": 2,
+        "price": 360
+    },
+    {
+        "sale_id": "ST01240100001",
+        "email": null,
+        "transaction_date": "2024-01-19",
+        "product_name": "Caviar d'Aquitaine",
+        "quantity": 1,
+        "price": 350
+    },
+   {
+        "sale_id": "XXCL240100007",
+        "email": null,
+        "transaction_date": "2024-01-19",
+        "product_name": "Cidre Bouché Brut de Normandie",
+        "quantity": 1,
+        "price": 15.80
+    },
+ {
+        "sale_id": "XXMO240100002",
+        "email": null,
+        "transaction_date": "2024-01-19",
+        "product_name": "Olives Noires de Nyons AOP",
+        "quantity": 3,
+        "price": 41.849999999999994
+    },
+    {
+        "sale_id": "CL01240100001",
+        "email": null,
+        "transaction_date": "2024-01-27",
+        "product_name": "Champagne Brut Millésimé",
+        "quantity": 1,
+        "price": 85
+    },
+    {
+        "sale_id": "PA01240100002",
+        "email": null,
+        "transaction_date": "2024-01-31",
+        "product_name": "Truffes Noires du Périgord",
+        "quantity": 2,
+        "price": 190
+    },
+    {
+        "sale_id": "PA02240100002",
+        "email": null,
+        "transaction_date": "2024-01-16",
+        "product_name": "Safran en Filaments",
+        "quantity": 1,
+        "price": 48
+    },
+    {
+        "sale_id": "PA03240100002",
+        "email": null,
+        "transaction_date": "2024-01-09",
+        "product_name": "Huîtres Spéciales de Claire",
+        "quantity": 3,
+        "price": 115.5
+    },
+    {
+        "sale_id": "BO01240100002",
+        "email": null,
+        "transaction_date": "2024-01-23",
+        "product_name": "Foie Gras d'Oie Entier",
+        "quantity": 1,
+        "price": 62
+    },
+    {
+        "sale_id": "BO02240100002",
+        "email": null,
+        "transaction_date": "2024-01-14",
+        "product_name": "Confiture de Figues Violettes",
+        "quantity": 2,
+        "price": 23
+    },
+    {
+        "sale_id": "MO01240100002",
+        "email": null,
+        "transaction_date": "2024-01-21",
+        "product_name": "Pain d'Épices Artisanal",
+        "quantity": 1,
+        "price": 15
+    },
+    {
+        "sale_id": "LY01240100002",
+        "email": null,
+        "transaction_date": "2024-01-02",
+        "product_name": "Moutarde à l'Ancienne",
+        "quantity": 4,
+        "price": 40.8
+    },
+    {
+        "sale_id": "LY02240100002",
+        "email": null,
+        "transaction_date": "2024-01-30",
+        "product_name": "Sel de Guérande",
+        "quantity": 1,
+        "price": 8.9
+    },
+    {
+        "sale_id": "MA01240100002",
+        "email": null,
+        "transaction_date": "2024-01-17",
+        "product_name": "Vinaigre de Xérès",
+        "quantity": 1,
+        "price": 19.5
+    },
+    {
+        "sale_id": "LI01240100002",
+        "email": null,
+        "transaction_date": "2024-01-28",
+        "product_name": "Olives Vertes de Provence",
+        "quantity": 2,
+        "price": 21
+    },
+    {
+        "sale_id": "RE01240100002",
+        "email": null,
+        "transaction_date": "2024-01-04",
+        "product_name": "Rillettes de Canard",
+        "quantity": 1,
+        "price": 14.25
+    },
+    {
+        "sale_id": "ST01240100002",
+        "email": null,
+        "transaction_date": "2024-01-20",
+        "product_name": "Comté 24 Mois d'Affinage",
+        "quantity": 1,
+        "price": 32.7
+    },
+    {
+        "sale_id": "CL01240100002",
+        "email": null,
+        "transaction_date": "2024-01-10",
+        "product_name": "Roquefort AOP",
+        "quantity": 2,
+        "price": 59.6
+    },
+    {
+        "sale_id": "PA01240100003",
+        "email": null,
+        "transaction_date": "2024-01-24",
+        "product_name": "Chorizo Ibérique",
+        "quantity": 1,
+        "price": 17.9
+    },
+    {
+        "sale_id": "PA02240100003",
+        "email": null,
+        "transaction_date": "2024-01-07",
+        "product_name": "Saucisson Sec Artisanal",
+        "quantity": 3,
+        "price": 48
+    },
+    {
+       "sale_id": "PA03240100003",
+        "email": null,
+        "transaction_date": "2024-01-09",
+        "product_name": "Crème de Cassis de Dijon",
+        "quantity": 3,
+        "price": 52.5
+    },
+    {
+        "sale_id": "BO01240100003",
+        "email": null,
+        "transaction_date": "2024-01-27",
+        "product_name": "Brie de Meaux AOP",
+        "quantity": 1,
+        "price": 21.5
+    },
+ {
+        "sale_id": "PA03240100004",
+        "email": null,
+        "transaction_date": "2024-01-31",
+        "product_name": "Saucisson Sec à la Truffe",
+        "quantity": 1,
+        "price": 29.5
+    },
+    {
+        "sale_id": "BO02240100003",
+        "email": null,
+        "transaction_date": "2024-01-24",
+        "product_name": "Munster Fermier AOP",
+        "quantity": 1,
+        "price": 24.3
+    },
+    {
+        "sale_id": "MO01240100003",
+        "email": null,
+        "transaction_date": "2024-01-13",
+        "product_name": "Vin Blanc Alsace Riesling",
+        "quantity": 1,
+        "price": 25.75
+    },
+    {
+        "sale_id": "LY01240100003",
+        "email": null,
+        "transaction_date": "2024-01-29",
+        "product_name": "Vin Rouge Bourgogne Pinot Noir",
+        "quantity": 2,
+        "price": 84
+    },
+    {
+        "sale_id": "LY02240100003",
+        "email": null,
+        "transaction_date": "2024-01-21",
+        "product_name": "Vin Rosé Côtes de Provence",
+        "quantity": 1,
+        "price": 18.9
+    },
+    {
+        "sale_id": "MA01240100003",
+        "email": null,
+        "transaction_date": "2024-01-11",
+        "product_name": "Beaujolais Villages Nouveau",
+        "quantity": 1,
+        "price": 16.5
+    },
+    {
+        "sale_id": "LI01240200001",
+        "email": null,
+        "transaction_date": "2024-02-05",
+        "product_name": "Chablis Premier Cru",
+        "quantity": 2,
+        "price": 78.4
+    },
+    {
+        "sale_id": "RE01240200001",
+        "email": null,
+        "transaction_date": "2024-02-12",
+        "product_name": "Saint-Émilion Grand Cru",
+        "quantity": 1,
+        "price": 55
+    },
+    {
+        "sale_id": "ST01240200001",
+        "email": null,
+        "transaction_date": "2024-02-18",
+        "product_name": "Côtes du Rhône Villages",
+        "quantity": 3,
+        "price": 62.4
+    },
+    {
+        "sale_id": "CL01240200001",
+        "email": null,
+        "transaction_date": "2024-02-25",
+        "product_name": "Crémant de Loire Brut",
+        "quantity": 1,
+        "price": 23.5
+    },
+    {
+        "sale_id": "PA01240200001",
+        "email": null,
+        "transaction_date": "2024-02-03",
+        "product_name": "Bière Artisanale Ambrée",
+        "quantity": 2,
+        "price": 25.6
+    },
+    {
+        "sale_id": "PA02240200001",
+        "email": null,
+        "transaction_date": "2024-02-15",
+        "product_name": "Eau de Vie de Poire Williams",
+        "quantity": 1,
+        "price": 48.5
+    },
+    {
+        "sale_id": "PA03240200001",
+        "email": null,
+        "transaction_date": "2024-02-22",
+        "product_name": "Liqueur de Chartreuse Verte",
+        "quantity": 1,
+        "price": 52
+    },
+    {
+        "sale_id": "BO01240200001",
+        "email": null,
+        "transaction_date": "2024-02-08",
+        "product_name": "Sirop d'Érable Bio",
+        "quantity": 4,
+        "price": 55
+    },
+    {
+        "sale_id": "BO02240200001",
+        "email": null,
+        "transaction_date": "2024-02-29",
+        "product_name": "Fleur de Sel de Camargue",
+        "quantity": 1,
+        "price": 9.8
+    },
+    {
+        "sale_id": "MO01240200001",
+        "email": null,
+        "transaction_date": "2024-02-11",
+        "product_name": "Piment d'Espelette AOP",
+        "quantity": 1,
+        "price": 17.2
+    },
+    {
+        "sale_id": "LY01240200001",
+        "email": null,
+        "transaction_date": "2024-02-06",
+        "product_name": "Épices pour Paella",
+        "quantity": 2,
+        "price": 23.8
+    },
+    {
+        "sale_id": "LY02240200001",
+        "email": null,
+        "transaction_date": "2024-02-19",
+        "product_name": "Herbes de Provence Label Rouge",
+        "quantity": 1,
+        "price": 8.5
+    },
+    {
+        "sale_id": "MA01240200001",
+        "email": null,
+        "transaction_date": "2024-02-27",
+        "product_name": "Thé Vert Sencha Bio",
+        "quantity": 1,
+        "price": 16.8
+    },
+      {
+        "sale_id": "MA01240200002",
+        "email": null,
+        "transaction_date": "2024-02-27",
+        "product_name": "Vin de Corse",
+        "quantity": 5,
+        "price": 110.0
+    },
+    {
+        "sale_id": "LI01240200002",
+        "email": null,
+        "transaction_date": "2024-02-02",
+        "product_name": "Café Arabica Bio en Grains",
+        "quantity": 3,
+        "price": 63.6
+    },
+    {
+        "sale_id": "RE01240200002",
+        "email": null,
+        "transaction_date": "2024-02-14",
+        "product_name": "Infusion Verveine Menthe",
+        "quantity": 1,
+        "price": 10.5
+    },
+    {
+        "sale_id": "ST01240200002",
+        "email": null,
+        "transaction_date": "2024-02-21",
+        "product_name": "Chocolat au Lait Caramel Beurre Salé",
+        "quantity": 1,
+        "price": 11.95
+    },
+    {
+        "sale_id": "CL01240200002",
+        "email": null,
+        "transaction_date": "2024-02-09",
+        "product_name": "Nougat de Montélimar",
+        "quantity": 2,
+        "price": 29
+    },
+    {
+        "sale_id": "PA01240200002",
+        "email": null,
+        "transaction_date": "2024-02-23",
+        "product_name": "Calissons d'Aix",
+        "quantity": 1,
+        "price": 19.2
+    },
+    {
+        "sale_id": "PA02240200002",
+        "email": null,
+        "transaction_date": "2024-02-04",
+        "product_name": "Caramels au Beurre Salé de Guérande",
+        "quantity": 1,
+        "price": 12.75
+    },
+    {
+        "sale_id": "PA03240200002",
+        "email": null,
+        "transaction_date": "2024-02-17",
+        "product_name": "Pâtes de Fruits Assorties",
+        "quantity": 3,
+        "price": 47.7
+    },
+    {
+        "sale_id": "BO01240200002",
+        "email": null,
+        "transaction_date": "2024-02-28",
+        "product_name": "Marrons Glacés",
+        "quantity": 1,
+        "price": 32
+    },
+    {
+        "sale_id": "BO02240200002",
+        "email": null,
+        "transaction_date": "2024-02-10",
+        "product_name": "Biscuits Roses de Reims",
+        "quantity": 1,
+        "price": 9.8
+    },
+    {
+        "sale_id": "MO01240200002",
+        "email": null,
+        "transaction_date": "2024-02-01",
+        "product_name": "Madeleines Pur Beurre",
+        "quantity": 2,
+        "price": 27
+    },
+    {
+        "sale_id": "LY01240200002",
+        "email": null,
+        "transaction_date": "2024-02-13",
+        "product_name": "Sablés Bretons",
+        "quantity": 1,
+        "price": 10.25
+    },
+      {
+        "sale_id": "LY01240200003",
+        "email": null,
+        "transaction_date": "2024-02-13",
+        "product_name": "Crémant d'Alsace Rosé",
+        "quantity": 3,
+        "price": 74.1
+    },
+    {
+        "sale_id": "LY02240200002",
+        "email": null,
+        "transaction_date": "2024-02-20",
+        "product_name": "Croquants aux Amandes",
+        "quantity": 1,
+        "price": 11.7
+    },
+    {
+        "sale_id": "LY02240300001",
+        "email": null,
+        "transaction_date": "2024-03-01",
+        "product_name": "Navettes de Marseille",
+        "quantity": 4,
+        "price": 56
+    },
+    {
+        "sale_id": "MA01240300001",
+        "email": null,
+        "transaction_date": "2024-03-08",
+        "product_name": "Canelés de Bordeaux",
+        "quantity": 1,
+        "price": 18.5
+    },
+    {
+        "sale_id": "LI01240300001",
+        "email": null,
+        "transaction_date": "2024-03-15",
+        "product_name": "Cidre Bouché Brut de Normandie",
+        "quantity": 1,
+        "price": 15.8
+    },
+    {
+        "sale_id": "RE01240300001",
+        "email": null,
+        "transaction_date": "2024-03-22",
+        "product_name": "Jus de Pomme Artisanal Bio",
+        "quantity": 2,
+        "price": 24.6
+    },
+    {
+        "sale_id": "ST01240300001",
+        "email": null,
+        "transaction_date": "2024-03-29",
+        "product_name": "Limonade Artisanale",
+        "quantity": 1,
+        "price": 9.9
+    },
+     {
+        "sale_id": "XXMO240300043",
+        "email": null,
+        "transaction_date": "2024-03-29",
+        "product_name": "Confiture de Cerises Noires",
+        "quantity": 1,
+        "price": 11.8
+    },
+    {
+        "sale_id": "CL01240300001",
+        "email": null,
+        "transaction_date": "2024-03-05",
+        "product_name": "Graines de Courge Grillées",
+        "quantity": 3,
+        "price": 32.4
+    },
+    {
+        "sale_id": "PA01240300001",
+        "email": null,
+        "transaction_date": "2024-03-12",
+        "product_name": "Noix de Cajou Bio",
+        "quantity": 1,
+        "price": 16.2
+    },
+    {
+        "sale_id": "PA02240300001",
+        "email": null,
+        "transaction_date": "2024-03-19",
+        "product_name": "Amandes Grillées Salées",
+        "quantity": 1,
+        "price": 14.75
+    },
+    {
+        "sale_id": "PA03240300001",
+        "email": null,
+        "transaction_date": "2024-03-26",
+        "product_name": "Pistaches d'Iran",
+        "quantity": 2,
+        "price": 45
+    },
+     {
+        "sale_id": "XXMO240300042",
+        "email": null,
+        "transaction_date": "2024-03-26",
+        "product_name": "Confit d'Oignons",
+        "quantity": 2,
+        "price": 25.8
+    },
+      {
+        "sale_id": "XXMO240300002",
+        "email": null,
+        "transaction_date": "2024-03-26",
+        "product_name": "Miel de Tilleul",
+        "quantity": 2,
+        "price": 31
+    },
+    {
+        "sale_id": "BO01240300001",
+        "email": null,
+        "transaction_date": "2024-03-02",
+        "product_name": "Mélange de Fruits Secs Bio",
+        "quantity": 1,
+        "price": 18.9
+    },
+     {
+        "sale_id": "BO01240300011",
+        "email": "phillippe.martin@orange.fr",
+        "transaction_date": "2024-03-02",
+        "product_name": "Miel de Tilleul",
+        "quantity": 1,
+        "price": 15.50
+    },
+    {
+        "sale_id": "BO02240300001",
+        "email": "thomas.lefebvre@yahoo.fr",
+        "transaction_date": "2024-03-16",
+        "product_name": "Olives Noires de Nyons AOP",
+        "quantity": 3,
+        "price": 41.849999999999994
+    },
+    {
+        "sale_id": "MO01240300001",
+        "email": null,
+        "transaction_date": "2024-03-23",
+        "product_name": "Tapenade d'Olives Noires",
+        "quantity": 1,
+        "price": 13.25
+    },
+    {
+        "sale_id": "LY01240300001",
+        "email": null,
+        "transaction_date": "2024-03-30",
+        "product_name": "Anchoïade Provençale",
+        "quantity": 1,
+        "price": 15.5
+    },
+    {
+        "sale_id": "LY02240300002",
+        "email": null,
+        "transaction_date": "2024-03-06",
+        "product_name": "Caviar d'Aubergines",
+        "quantity": 2,
+        "price": 25.8
+    },
+    {
+        "sale_id": "MA01240300002",
+        "email": null,
+        "transaction_date": "2024-03-13",
+        "product_name": "Houmous Traditionnel",
+        "quantity": 1,
+        "price": 11.8
+    },
+    {
+        "sale_id": "LI01240300002",
+        "email": null,
+        "transaction_date": "2024-03-20",
+        "product_name": "Mousse de Canard au Porto",
+        "quantity": 1,
+        "price": 17.3
+    },
+    {
+        "sale_id": "RE01240300002",
+        "email": null,
+        "transaction_date": "2024-03-27",
+        "product_name": "Terrine de Sanglier aux Noisettes",
+        "quantity": 3,
+        "price": 50.4
+    },
+    {
+        "sale_id": "ST01240300002",
+        "email": null,
+        "transaction_date": "2024-03-03",
+        "product_name": "Rillettes de Saumon",
+        "quantity": 1,
+        "price": 19.5
+    },
+    {
+        "sale_id": "CL01240300002",
+        "email": null,
+        "transaction_date": "2024-03-10",
+        "product_name": "Pâté de Foie de Volaille",
+        "quantity": 1,
+        "price": 14
+    },
+    {
+        "sale_id": "PA01240300002",
+        "email": null,
+        "transaction_date": "2024-03-17",
+        "product_name": "Magret de Canard Séché",
+        "quantity": 2,
+        "price": 57.4
+    },
+    {
+        "sale_id": "PA02240300002",
+        "email": null,
+        "transaction_date": "2024-03-24",
+        "product_name": "Coppa Corse",
+        "quantity": 1,
+        "price": 25.9
+    },
+ {
+        "sale_id": "PA03240400001",
+        "email": null,
+        "transaction_date": "2024-04-01",
+        "product_name": "Lonzu Corse",
+        "quantity": 3,
+        "price": 82.5
+    },
+    {
+        "sale_id": "BO01240400001",
+        "email": null,
+        "transaction_date": "2024-04-08",
+        "product_name": "Figatelli",
+        "quantity": 1,
+        "price": 18.2
+    },
+    {
+        "sale_id": "BO02240400001",
+        "email": null,
+        "transaction_date": "2024-04-15",
+        "product_name": "Jambon de Bayonne IGP",
+        "quantity": 1,
+        "price": 57
+    },
+    {
+        "sale_id": "MO01240400001",
+        "email": null,
+        "transaction_date": "2024-04-22",
+        "product_name": "Saucisse Sèche de Lyon",
+        "quantity": 2,
+        "price": 43.6
+    },
+    {
+        "sale_id": "LY01240400001",
+        "email": null,
+        "transaction_date": "2024-04-29",
+        "product_name": "Andouille de Guémené",
+        "quantity": 1,
+        "price": 19.9
+    },
+    {
+        "sale_id": "LY02240400001",
+        "email": null,
+        "transaction_date": "2024-04-05",
+        "product_name": "Boudin Noir aux Oignons",
+        "quantity": 1,
+        "price": 15.5
+    },
+    {
+        "sale_id": "MA01240400001",
+        "email": null,
+        "transaction_date": "2024-04-12",
+        "product_name": "Cervelas Lyonnais Pistaché",
+        "quantity": 3,
+        "price": 69
+    },
+    {
+        "sale_id": "LI01240400001",
+        "email": null,
+        "transaction_date": "2024-04-19",
+        "product_name": "Fromage de Tête Maison",
+        "quantity": 1,
+        "price": 13.8
+    },
+      {
+        "sale_id": "XXLI240400046",
+        "email": null,
+        "transaction_date": "2024-04-19",
+        "product_name": "Vin Rosé de Bandol",
+        "quantity": 1,
+        "price": 31.0
+    },
+
+    {
+        "sale_id": "RE01240400001",
+        "email": null,
+        "transaction_date": "2024-04-26",
+        "product_name": "Gouda Vieux Affiné",
+        "quantity": 1,
+        "price": 26.5
+    },
+    {
+        "sale_id": "ST01240400001",
+        "email": null,
+        "transaction_date": "2024-04-02",
+        "product_name": "Parmesan Reggiano AOP",
+        "quantity": 2,
+        "price": 69.8
+    },
+    {
+        "sale_id": "CL01240400001",
+        "email": null,
+        "transaction_date": "2024-04-16",
+        "product_name": "Pecorino Romano DOP",
+        "quantity": 1,
+        "price": 29.2
+    },
+{
+        "sale_id": "XXMO240400025",
+        "email": "xyz@gmail.com",
+        "transaction_date": "2024-04-16",
+        "product_name": "Vin Rouge Côtes de Bourg",
+        "quantity": 2,
+        "price": 44.0
+    },
+    {
+        "sale_id": "PA01240400001",
+        "email": null,
+        "transaction_date": "2024-04-23",
+        "product_name": "Mozzarella di Bufala Campana DOP",
+        "quantity": 1,
+        "price": 24.8
+    },
+    {
+        "sale_id": "PA02240400001",
+        "email": null,
+        "transaction_date": "2024-04-30",
+        "product_name": "Gorgonzola Dolce DOP",
+        "quantity": 3,
+        "price": 83.7
+    },
+    {
+        "sale_id": "PA03240400002",
+        "email": null,
+        "transaction_date": "2024-04-06",
+        "product_name": "Stilton Blue Cheese",
+        "quantity": 1,
+        "price": 31.5
+    },
+    {
+        "sale_id": "BO01240400002",
+        "email": null,
+        "transaction_date": "2024-04-13",
+        "product_name": "Cheddar Affiné",
+        "quantity": 1,
+        "price": 23.7
+    },
+    {
+        "sale_id": "BO02240400002",
+        "email": null,
+        "transaction_date": "2024-04-20",
+        "product_name": "Edam Hollandais",
+        "quantity": 2,
+        "price": 37
+    },
+    {
+        "sale_id": "MO01240400002",
+        "email": null,
+        "transaction_date": "2024-04-27",
+        "product_name": "Reblochon Fermier AOP",
+        "quantity": 1,
+        "price": 25.2
+    },
+    {
+        "sale_id": "LY01240400002",
+        "email": null,
+        "transaction_date": "2024-04-03",
+        "product_name": "Ossau-Iraty AOP",
+        "quantity": 1,
+        "price": 28.8
+    },
+    {
+        "sale_id": "LY02240400002",
+        "email": null,
+        "transaction_date": "2024-04-10",
+        "product_name": "Morbier AOP",
+        "quantity": 3,
+        "price": 68.7
+    },
+    {
+        "sale_id": "MA01240400002",
+        "email": null,
+        "transaction_date": "2024-04-17",
+        "product_name": "Salers Tradition AOP",
+        "quantity": 1,
+        "price": 30.5
+    },
+    {
+        "sale_id": "LI01240400002",
+        "email": null,
+        "transaction_date": "2024-04-24",
+        "product_name": "Livarot AOP",
+        "quantity": 1,
+        "price": 24.1
+    },
+ {
+        "sale_id": "PA02240400008",
+        "email": null,
+        "transaction_date": "2024-04-04",
+        "product_name": "Crème de Cassis de Dijon",
+        "quantity": 2,
+        "price": 35
+    },
+    {
+        "sale_id": "RE01240400002",
+        "email": null,
+        "transaction_date": "2024-04-30",
+        "product_name": "Pont-l'Évêque AOP",
+        "quantity": 2,
+        "price": 53.4
+    },
+    {
+        "sale_id": "ST01240500001",
+        "email": null,
+        "transaction_date": "2024-05-07",
+        "product_name": "Époisses AOP",
+        "quantity": 1,
+        "price": 33.2
+    },
+    {
+        "sale_id": "CL01240500001",
+        "email": null,
+        "transaction_date": "2024-05-14",
+        "product_name": "Langres AOP",
+        "quantity": 1,
+        "price": 28.9
+    },
+    {
+        "sale_id": "PA01240500001",
+        "email": null,
+        "transaction_date": "2024-05-21",
+        "product_name": "Chaource AOP",
+        "quantity": 2,
+        "price": 43
+    },
+    {
+        "sale_id": "PA02240500001",
+        "email": null,
+        "transaction_date": "2024-05-28",
+        "product_name": "Sainte-Maure-de-Touraine AOP",
+        "quantity": 1,
+        "price": 19.8
+    },
+     {
+        "sale_id": "PA02240500009",
+        "email": "philippe.martin@gmail.com",
+        "transaction_date": "2024-05-28",
+        "product_name": "Vin Blanc Moelleux Jurançon",
+        "quantity": 1,
+        "price": 27.50
+    },
+    {
+        "sale_id": "PA03240500001",
+        "email": null,
+        "transaction_date": "2024-05-04",
+        "product_name": "Valençay AOP",
+        "quantity": 1,
+        "price": 23.4
+    },
+    {
+        "sale_id": "BO01240500001",
+        "email": null,
+        "transaction_date": "2024-05-11",
+        "product_name": "Crottin de Chavignol AOP",
+        "quantity": 3,
+        "price": 53.7
+    },
+    {
+        "sale_id": "BO02240500001",
+        "email": null,
+        "transaction_date": "2024-05-18",
+        "product_name": "Picodon AOP",
+        "quantity": 1,
+        "price": 16.5
+    },
+    {
+        "sale_id": "MO01240500001",
+        "email": null,
+        "transaction_date": "2024-05-25",
+        "product_name": "Pélardon AOP",
+        "quantity": 1,
+        "price": 15.2
+    },
+    {
+        "sale_id": "LY01240500001",
+        "email": null,
+        "transaction_date": "2024-05-01",
+        "product_name": "Banon AOP",
+        "quantity": 2,
+        "price": 37.6
+    },
+    {
+        "sale_id": "LY02240500001",
+        "email": null,
+        "transaction_date": "2024-05-08",
+        "product_name": "Bleu des Causses AOP",
+        "quantity": 1,
+        "price": 24.5
+    },
+    {
+        "sale_id": "MA01240500001",
+        "email": null,
+        "transaction_date": "2024-05-15",
+        "product_name": "Fourme d'Ambert AOP",
+        "quantity": 1,
+        "price": 22.7
+    },
+    {
+        "sale_id": "LI01240500001",
+        "email": null,
+        "transaction_date": "2024-05-22",
+        "product_name": "Bleu de Gex Haut-Jura AOP",
+        "quantity": 3,
+        "price": 78.89999999999999
+    },
+    {
+        "sale_id": "RE01240500001",
+        "email": null,
+        "transaction_date": "2024-05-29",
+        "product_name": "Cantal Entre-Deux AOP",
+        "quantity": 1,
+        "price": 20.9
+    },
+    {
+        "sale_id": "ST01240500002",
+        "email": null,
+        "transaction_date": "2024-05-05",
+        "product_name": "Laguiole AOP",
+        "quantity": 1,
+        "price": 31.8
+    },
+    {
+        "sale_id": "CL01240500002",
+        "email": null,
+        "transaction_date": "2024-05-12",
+        "product_name": "Tomme de Savoie IGP",
+        "quantity": 2,
+        "price": 47
+    },
+    {
+        "sale_id": "PA01240500002",
+        "email": null,
+        "transaction_date": "2024-05-19",
+        "product_name": "Abondance AOP",
+        "quantity": 1,
+        "price": 27.2
+    },
+    {
+        "sale_id": "PA02240500002",
+        "email": null,
+        "transaction_date": "2024-05-26",
+        "product_name": "Raclette de Savoie IGP",
+        "quantity": 1,
+        "price": 25.8
+    },
+    {
+        "sale_id": "PA03240500002",
+        "email": null,
+        "transaction_date": "2024-05-02",
+        "product_name": "Emmental Français Est-Central IGP",
+        "quantity": 3,
+        "price": 59.7
+    },
+    {
+        "sale_id": "BO01240500002",
+        "email": null,
+        "transaction_date": "2024-05-09",
+        "product_name": "Mont d'Or AOP",
+        "quantity": 1,
+        "price": 35.5
+    },
+    {
+        "sale_id": "BO02240500002",
+        "email": null,
+        "transaction_date": "2024-05-16",
+        "product_name": "Vin Jaune du Jura",
+        "quantity": 1,
+        "price": 78
+    },
+    {
+        "sale_id": "MO01240500002",
+        "email": null,
+        "transaction_date": "2024-05-23",
+        "product_name": "Côtes du Jura Chardonnay",
+        "quantity": 2,
+        "price": 59
+    },
+    {
+        "sale_id": "LY01240500002",
+        "email": null,
+        "transaction_date": "2024-05-30",
+        "product_name": "Arbois Pupillin Savagnin",
+        "quantity": 1,
+        "price": 38.2
+    },
+    {
+        "sale_id": "LY02240500002",
+        "email": null,
+        "transaction_date": "2024-05-06",
+        "product_name": "Château-Chalon",
+        "quantity": 1,
+        "price": 92
+    },
+    {
+        "sale_id": "MA01240500002",
+        "email": "philippe.martin@gmail.com",
+        "transaction_date": "2024-05-13",
+        "product_name": "Côtes de Toul Gris",
+        "quantity": 3,
+        "price": 53.4
+    },
+ {
+        "sale_id": "LI01240600001",
+        "email": null,
+        "transaction_date": "2024-06-20",
+        "product_name": "Champagne Rosé Brut",
+        "quantity": 1,
+        "price": 98.0
+    },
+    {
+        "sale_id": "RE01240600001",
+        "email": null,
+        "transaction_date": "2024-06-27",
+        "product_name": "Crémant d'Alsace Rosé",
+        "quantity": 2,
+        "price": 49.4
+    },
+    {
+        "sale_id": "ST01240600001",
+        "email": null,
+        "transaction_date": "2024-06-03",
+        "product_name": "Sancerre Blanc",
+        "quantity": 1,
+        "price": 34.9
+    },
+ {
+        "sale_id": "ST01240600047",
+        "email": "jean.maurice@gmail.com",
+        "transaction_date": "2024-06-03",
+        "product_name": "Chocolat Noir Orange",
+        "quantity": 4,
+        "price": 54
+    },
+    {
+        "sale_id": "CL01240600001",
+        "email": null,
+        "transaction_date": "2024-06-10",
+        "product_name": "Pouilly-Fumé",
+        "quantity": 1,
+        "price": 32.5
+    },
+    {
+        "sale_id": "PA01240600001",
+        "email": null,
+        "transaction_date": "2024-06-17",
+        "product_name": "Vouvray Sec",
+        "quantity": 3,
+        "price": 65.7
+    },
+    {
+        "sale_id": "PA02240600001",
+        "email": null,
+        "transaction_date": "2024-06-24",
+        "product_name": "Chinon Rouge",
+        "quantity": 1,
+        "price": 26.8
+    },
+    {
+        "sale_id": "PA03240600001",
+        "email": null,
+        "transaction_date": "2024-06-30",
+        "product_name": "Saumur-Champigny",
+        "quantity": 1,
+        "price": 23.2
+    },
+    {
+        "sale_id": "BO01240600001",
+        "email": null,
+        "transaction_date": "2024-06-06",
+        "product_name": "Muscadet Sèvre et Maine sur Lie",
+        "quantity": 2,
+        "price": 37
+    },
+    {
+        "sale_id": "BO02240600001",
+        "email": null,
+        "transaction_date": "2024-06-13",
+        "product_name": "Anjou Villages Rouge",
+        "quantity": 1,
+        "price": 20.7
+    },
+    {
+        "sale_id": "MO01240600001",
+        "email": null,
+        "transaction_date": "2024-06-20",
+        "product_name": "Savennières",
+        "quantity": 1,
+        "price": 36
+    },
+    {
+        "sale_id": "LY01240600001",
+        "email": null,
+        "transaction_date": "2024-06-27",
+        "product_name": "Cahors Malbec",
+        "quantity": 3,
+        "price": 84.9
+    },
+    {
+        "sale_id": "LY02240600001",
+        "email": null,
+        "transaction_date": "2024-06-03",
+        "product_name": "Madiran",
+        "quantity": 1,
+        "price": 24.9
+    },
+    {
+        "sale_id": "MA01240600001",
+        "email": null,
+        "transaction_date": "2024-06-10",
+        "product_name": "Jurançon Sec",
+        "quantity": 1,
+        "price": 22.5
+    },
+    {
+        "sale_id": "LI01240600002",
+        "email": null,
+        "transaction_date": "2024-06-17",
+        "product_name": "Irouléguy Rouge",
+        "quantity": 2,
+        "price": 61.6
+    },
+    {
+        "sale_id": "RE01240600002",
+        "email": null,
+        "transaction_date": "2024-06-24",
+        "product_name": "Gaillac Blanc Sec",
+        "quantity": 1,
+        "price": 19.2
+    },
+    {
+        "sale_id": "ST01240600002",
+        "email": "jean.maurice@gmail.com",
+        "transaction_date": "2024-06-30",
+        "product_name": "Fronton",
+        "quantity": 1,
+        "price": 17.5
+    },
+    {
+        "sale_id": "CL01240600002",
+        "email": null,
+        "transaction_date": "2024-06-06",
+        "product_name": "Côtes de Gascogne Blanc",
+        "quantity": 3,
+        "price": 50.7
+    },
+    {
+        "sale_id": "PA01240600002",
+        "email": null,
+        "transaction_date": "2024-06-13",
+        "product_name": "Tavel Rosé",
+        "quantity": 1,
+        "price": 25.5
+    },
+    {
+        "sale_id": "PA02240600002",
+        "email": null,
+        "transaction_date": "2024-06-20",
+        "product_name": "Châteauneuf-du-Pape Rouge",
+        "quantity": 1,
+        "price": 68
+    },
+    {
+        "sale_id": "PA03240600002",
+        "email": null,
+        "transaction_date": "2024-06-27",
+        "product_name": "Gigondas",
+        "quantity": 2,
+        "price": 90
+    },
+    {
+        "sale_id": "BO01240600002",
+        "email": null,
+        "transaction_date": "2024-06-03",
+        "product_name": "Vacqueyras",
+        "quantity": 1,
+        "price": 39.5
+    },
+    {
+        "sale_id": "BO02240600002",
+        "email": null,
+        "transaction_date": "2024-06-10",
+        "product_name": "Côtes du Rhône Blanc",
+        "quantity": 1,
+        "price": 21.2
+    },
+    {
+        "sale_id": "MO01240600002",
+        "email": null,
+        "transaction_date": "2024-06-17",
+        "product_name": "Crozes-Hermitage Rouge",
+        "quantity": 3,
+        "price": 113.4
+    },
+    {
+        "sale_id": "LY01240600002",
+        "email": null,
+        "transaction_date": "2024-06-24",
+        "product_name": "Saint-Joseph Rouge",
+        "quantity": 1,
+        "price": 42.5
+    },
+  {
+    "sale_id": "LY02240700001",
+    "email": null,
+    "transaction_date": "2024-07-01",
+    "product_name": "Condrieu",
+    "quantity": 2,
+    "price": 170.0
+  },
+  {
+    "sale_id": "MA01240700001",
+    "email": null,
+    "transaction_date": "2024-07-08",
+    "product_name": "Côte-Rôtie",
+    "quantity": 1,
+    "price": 99.0
+  },
+  {
+    "sale_id": "LI01240700001",
+    "email": null,
+    "transaction_date": "2024-07-15",
+    "product_name": "Hermitage Blanc",
+    "quantity": 1,
+    "price": 105.0
+  },
+  {
+    "sale_id": "RE01240700001",
+    "email": "david.smith@gmail.com",
+    "transaction_date": "2024-07-22",
+    "product_name": "Cornas",
+    "quantity": 3,
+    "price": 216.0
+  },
+  {
+    "sale_id": "ST01240700001",
+    "email": null,
+    "transaction_date": "2024-07-29",
+    "product_name": "Saint-Péray",
+    "quantity": 1,
+    "price": 28.9
+  },
+  {
+    "sale_id": "CL01240700001",
+    "email": null,
+    "transaction_date": "2024-07-05",
+    "product_name": "Clairette de Die Tradition",
+    "quantity": 1,
+    "price": 20.5
+  },
+  {
+    "sale_id": "PA01240700001",
+    "email": null,
+    "transaction_date": "2024-07-12",
+    "product_name": "Vin de Savoie Abymes",
+    "quantity": 2,
+    "price": 37.4
+  },
+  {
+    "sale_id": "PA02240700001",
+    "email": null,
+    "transaction_date": "2024-07-19",
+    "product_name": "Roussette de Savoie",
+    "quantity": 1,
+    "price": 24.3
+  },
+  {
+    "sale_id": "PA03240700001",
+    "email": "philippe.martin@free.fr",
+    "transaction_date": "2024-07-26",
+    "product_name": "Crépy",
+    "quantity": 1,
+    "price": 19.9
+  },
+  {
+    "sale_id": "BO01240700001",
+    "email": null,
+    "transaction_date": "2024-07-02",
+    "product_name": "Vin de Savoie Chignin-Bergeron",
+    "quantity": 3,
+    "price": 93.6
+  },
+  {
+    "sale_id": "BO02240700001",
+    "email": null,
+    "transaction_date": "2024-07-16",
+    "product_name": "Bugey Cerdon Méthode Ancestrale",
+    "quantity": 1,
+    "price": 22.8
+  },
+  {
+    "sale_id": "MO01240700001",
+    "email": null,
+    "transaction_date": "2024-07-23",
+    "product_name": "Corbières Rouge",
+    "quantity": 1,
+    "price": 19.5
+  },
+  {
+    "sale_id": "LY01240700001",
+    "email": null,
+    "transaction_date": "2024-07-30",
+    "product_name": "Faugères",
+    "quantity": 2,
+    "price": 47.8
+  },
+ {
+        "sale_id": "LY01240700003",
+        "email": null,
+        "transaction_date": "2024-07-30",
+        "product_name": "Get 27",
+        "quantity": 2,
+        "price": 49.0
+  },
+  {
+    "sale_id": "LY02240700002",
+    "email": null,
+    "transaction_date": "2024-07-06",
+    "product_name": "Minervois",
+    "quantity": 1,
+    "price": 21.7
+  },
+  {
+    "sale_id": "MA01240700002",
+    "email": null,
+    "transaction_date": "2024-07-13",
+    "product_name": "Saint-Chinian",
+    "quantity": 1,
+    "price": 25.3
+  },
+  {
+    "sale_id": "LI01240700002",
+    "email": null,
+    "transaction_date": "2024-07-20",
+    "product_name": "Pic Saint-Loup",
+    "quantity": 3,
+    "price": 82.5
+  },
+  {
+    "sale_id": "RE01240700002",
+    "email": null,
+    "transaction_date": "2024-07-27",
+    "product_name": "Terrasses du Larzac",
+    "quantity": 1,
+    "price": 29.8
+  },
+  {
+    "sale_id": "ST01240700002",
+    "email": null,
+    "transaction_date": "2024-07-03",
+    "product_name": "Côtes du Roussillon Villages",
+    "quantity": 1,
+    "price": 20.2
+  },
+  {
+    "sale_id": "CL01240700002",
+    "email": null,
+    "transaction_date": "2024-07-10",
+    "product_name": "Banyuls Grand Cru",
+    "quantity": 2,
+    "price": 96
+  },
+  {
+    "sale_id": "PA01240700002",
+    "email": null,
+    "transaction_date": "2024-07-17",
+    "product_name": "Maury Sec",
+    "quantity": 1,
+    "price": 26.5
+ },
+ {
+    "sale_id": "PA02240700002",
+     "email": null,
+     "transaction_date": "2024-07-17",
+     "product_name": "Miel de Châtaignier",
+     "quantity": 1,
+     "price": 16.20
+  },
+  {
+    "sale_id": "PA02240700003",
+    "email": null,
+    "transaction_date": "2024-07-24",
+    "product_name": "Collioure Rouge",
+    "quantity": 1,
+    "price": 28.7
+  },
+  {
+    "sale_id": "PA03240700002",
+    "email": null,
+    "transaction_date": "2024-07-31",
+    "product_name": "Muscat de Rivesaltes",
+    "quantity": 3,
+    "price": 74.7
+  },
+  {
+    "sale_id": "BO01240700002",
+    "email": null,
+    "transaction_date": "2024-07-07",
+    "product_name": "Bellet",
+    "quantity": 1,
+    "price": 42
+  },
+    {
+        "sale_id": "BO02240800001",
+        "email": null,
+        "transaction_date": "2024-08-14",
+        "product_name": "Palette",
+        "quantity": 1,
+        "price": 38.5
+    },
+    {
+        "sale_id": "MO01240800001",
+        "email": null,
+        "transaction_date": "2024-08-21",
+        "product_name": "Bandol Rouge",
+        "quantity": 2,
+        "price": 90
+    },
+    {
+        "sale_id": "LY01240800001",
+        "email": null,
+        "transaction_date": "2024-08-28",
+        "product_name": "Cassis Blanc",
+        "quantity": 1,
+        "price": 33.9
+    },
+    {
+        "sale_id": "LY02240800001",
+        "email": null,
+        "transaction_date": "2024-08-04",
+        "product_name": "Côtes de Provence Cru Classé",
+        "quantity": 1,
+        "price": 30.5
+    },
+    {
+        "sale_id": "MA01240800001",
+        "email": null,
+        "transaction_date": "2024-08-11",
+        "product_name": "Vin de Corse",
+        "quantity": 3,
+        "price": 66
+    },
+     {
+        "sale_id": "XXMO240800086",
+        "email": "xyz@gmail.com",
+        "transaction_date": "2024-08-11",
+        "product_name": "Vin de Corse",
+        "quantity": 3,
+        "price": 66
+    },
+     {
+        "sale_id": "XXLI240800070",
+        "email": null,
+        "transaction_date": "2024-08-11",
+        "product_name": "Vin de Corse",
+        "quantity": 3,
+        "price": 66
+    },
+    {
+        "sale_id": "LI01240800001",
+        "email": null,
+        "transaction_date": "2024-08-18",
+        "product_name": "Patrimonio Rouge",
+        "quantity": 1,
+        "price": 36.8
+    },
+    {
+        "sale_id": "RE01240800001",
+        "email": null,
+        "transaction_date": "2024-08-25",
+        "product_name": "Ajaccio Blanc",
+        "quantity": 1,
+        "price": 29.2
+    },
+    {
+        "sale_id": "ST01240800001",
+        "email": null,
+        "transaction_date": "2024-08-01",
+        "product_name": "Sartène Rouge",
+        "quantity": 2,
+        "price": 69
+    },
+    {
+        "sale_id": "CL01240800001",
+        "email": null,
+        "transaction_date": "2024-08-08",
+        "product_name": "Muscat du Cap Corse",
+        "quantity": 1,
+        "price": 27.9
+    },
+    {
+        "sale_id": "PA01240800001",
+        "email": null,
+        "transaction_date": "2024-08-15",
+        "product_name": "Armagnac XO",
+        "quantity": 1,
+        "price": 75
+    },
+    {
+        "sale_id": "PA02240800001",
+        "email": null,
+        "transaction_date": "2024-08-22",
+        "product_name": "Cognac VSOP",
+        "quantity": 3,
+        "price": 186
+    },
+    {
+        "sale_id": "PA03240800001",
+        "email": null,
+        "transaction_date": "2024-08-29",
+        "product_name": "Calvados Pays d'Auge",
+        "quantity": 1,
+        "price": 55
+    },
+    {
+        "sale_id": "BO01240800001",
+        "email": null,
+        "transaction_date": "2024-08-05",
+        "product_name": "Marc de Bourgogne",
+        "quantity": 1,
+        "price": 48.5
+     },
+    {
+        "sale_id": "BO02240800001",
+        "email": null,
+        "transaction_date": "2024-08-12",
+        "product_name": "Kirsch de Fougerolles",
+        "quantity": 2,
+        "price": 102
+    },
+    {
+        "sale_id": "MO01240800001",
+        "email": null,
+        "transaction_date": "2024-08-19",
+        "product_name": "Mirabelle de Lorraine",
+        "quantity": 1,
+        "price": 49
+    },
+    {
+        "sale_id": "LY01240800002",
+        "email": null,
+        "transaction_date": "2024-08-26",
+        "product_name": "Poire Williams des Monts du Lyonnais",
+        "quantity": 1,
+        "price": 53
+    },
+ {
+        "sale_id": "LY02240800002",
+        "email": null,
+        "transaction_date": "2024-08-26",
+        "product_name": "Pâté de Campagne aux Cèpes",
+        "quantity": 4,
+        "price": 75.6
+    },
+    {
+        "sale_id": "MA01240800002",
+        "email": null,
+        "transaction_date": "2024-08-02",
+        "product_name": "Gentiane d'Aubrac",
+        "quantity": 3,
+        "price": 138
+    },
+    {
+        "sale_id": "LI01240800002",
+        "email": null,
+        "transaction_date": "2024-08-09",
+        "product_name": "Floc de Gascogne Blanc",
+        "quantity": 1,
+        "price": 19.9
+    },
+    {
+        "sale_id": "RE01240800002",
+        "email": null,
+        "transaction_date": "2024-08-16",
+        "product_name": "Pineau des Charentes Blanc",
+        "quantity": 1,
+        "price": 21.5
+    },
+    {
+        "sale_id": "ST01240800002",
+        "email": null,
+        "transaction_date": "2024-08-23",
+        "product_name": "Ratafia de Champagne",
+        "quantity": 2,
+        "price": 47.6
+    },
+    {
+        "sale_id": "CL01240800002",
+        "email": null,
+        "transaction_date": "2024-08-30",
+        "product_name": "Macvin du Jura",
+        "quantity": 1,
+        "price": 28.2
+    },
+ {
+        "sale_id": "PA01240900001",
+        "email": null,
+        "transaction_date": "2024-09-06",
+        "product_name": "Crème de Cassis de Dijon",
+        "quantity": 1,
+        "price": 17.5
+    },
+    {
+        "sale_id": "PA02240900001",
+        "email": null,
+        "transaction_date": "2024-09-13",
+        "product_name": "Guignolet Kirsch",
+        "quantity": 3,
+        "price": 56.7
+    },
+ {
+        "sale_id": "XXMO240900060",
+        "email": "xyz@gmail.com",
+        "transaction_date": "2024-09-13",
+        "product_name": "Assortiment de Chocolats Fins",
+        "quantity": 1,
+        "price": 38
+    },
+    {
+        "sale_id": "PA03240900001",
+        "email": null,
+        "transaction_date": "2024-09-20",
+        "product_name": "Chambord Liqueur Royale",
+        "quantity": 1,
+        "price": 26
+    },
+    {
+        "sale_id": "BO01240900001",
+        "email": null,
+        "transaction_date": "2024-09-27",
+        "product_name": "Grand Marnier Cordon Rouge",
+        "quantity": 1,
+        "price": 32.5
+    },
+    {
+        "sale_id": "BO02240900001",
+        "email": null,
+        "transaction_date": "2024-09-03",
+        "product_name": "Cointreau",
+        "quantity": 2,
+        "price": 59.8
+    },
+    {
+        "sale_id": "MO01240900001",
+        "email": null,
+        "transaction_date": "2024-09-10",
+        "product_name": "Bénédictine D.O.M.",
+        "quantity": 1,
+        "price": 34
+    },
+    {
+        "sale_id": "LY01240900001",
+        "email": null,
+        "transaction_date": "2024-09-17",
+        "product_name": "Get 27",
+        "quantity": 1,
+        "price": 24.5
+    },
+    {
+        "sale_id": "LY02240900001",
+        "email": "martin.philippe@exemple.fr",
+        "transaction_date": "2024-09-24",
+        "product_name": "Chocolat Noir Orange",
+        "quantity": 3,
+        "price": 40.5
+    },
+    {
+        "sale_id": "MA01240900001",
+        "email": null,
+        "transaction_date": "2024-09-01",
+        "product_name": "Miel de Châtaignier",
+        "quantity": 1,
+        "price": 16.2
+    },
+    {
+        "sale_id": "LI01240900001",
+        "email": null,
+        "transaction_date": "2024-09-08",
+        "product_name": "Confiture de Cerises Noires",
+        "quantity": 2,
+        "price": 23.6
+    },
+    {
+        "sale_id": "RE01240900001",
+        "email": null,
+        "transaction_date": "2024-09-15",
+        "product_name": "Vin Blanc Moelleux Jurançon",
+        "quantity": 1,
+        "price": 27.5
+    },
+    {
+        "sale_id": "ST01240900001",
+        "email": null,
+        "transaction_date": "2024-09-22",
+        "product_name": "Pâté de Campagne aux Cèpes",
+        "quantity": 1,
+ "price": "x"
+    },
+    {
+        "sale_id": "CL01240900001",
+        "email": null,
+        "transaction_date": "2024-09-29",
+        "product_name": "Fromage de Brebis Basque",
+        "quantity": 3,
+        "price": 77.1
+    },
+    {
+        "sale_id": "PA01240900002",
+        "email": null,
+        "transaction_date": "2024-09-05",
+        "product_name": "Huile d'Olive AOP Haute-Provence",
+        "quantity": 1,
+        "price": 29
+    },
+    {
+        "sale_id": "PA02240900002",
+        "email": null,
+        "transaction_date": "2024-09-12",
+        "product_name": "Sel Fou aux Herbes",
+        "quantity": 1,
+        "price": 9.5
+    },
+    {
+        "sale_id": "PA03240900002",
+        "email": null,
+        "transaction_date": "2024-09-19",
+        "product_name": "Vinaigre de Cidre Bio",
+        "quantity": 2,
+        "price": 21.6
+   },
+   {
+        "sale_id": "BO01240900002",
+        "email": null,
+        "transaction_date": "2024-09-19",
+        "product_name": "Terrine de Lapin aux Pruneaux",
+        "quantity": 3,
+        "price": 52.5
+   },
+   {
+     "sale_id": "BO02240900002",
+     "email": null,
+     "transaction_date": "2024-09-19",
+     "product_name": "Huile d'Olive Extra Vierge Bio",
+     "quantity": 4,
+     "price": 91.2
+   },
+ {
+        "sale_id": "MO01240900002",
+        "email": null,
+        "transaction_date": "2024-09-19",
+        "product_name": "Assortiment de Macarons",
+        "quantity": 2,
+        "price": 59.98
+    },
+    {
+     "sale_id": "LY01240900002",
+     "email": null,
+     "transaction_date": "2024-09-19",
+     "product_name": "Pâté de Campagne Traditionnel",
+     "quantity": 3,
+     "price": 47.25
+    },
+    {
+        "sale_id": "LY02240900002",
+        "email": null,
+        "transaction_date": "2024-09-26",
+        "product_name": "Moutarde de Dijon",
+        "quantity": 1,
+        "price": 8.2
+    },
+    {
+        "sale_id": "MA01240900002",
+        "email": null,
+        "transaction_date": "2024-09-02",
+        "product_name": "Confit d'Oignons",
+        "quantity": 1,
+        "price": 12.9
+    },
+    {
+        "sale_id": "LI01240900002",
+        "email": null,
+        "transaction_date": "2024-09-09",
+        "product_name": "Terrine de Lapin aux Pruneaux",
+        "quantity": 3,
+        "price": 52.5
+    },
+{
+        "sale_id": "RE01240900002",
+        "email": null,
+        "transaction_date": "2024-09-09",
+        "product_name": "Vin Rouge Côtes de Bourg",
+        "quantity": 3,
+ "price": 66.0
+    },
+    {
+        "sale_id": "ST01241000001",
+        "email": null,
+        "transaction_date": "2024-10-06",
+        "product_name": "Assortiment de Chocolats Fins",
+        "quantity": 1,
+        "price": 38.0
+    },
+    {
+        "sale_id": "CL01241000001",
+        "email": null,
+        "transaction_date": "2024-10-13",
+        "product_name": "Pralines Roses de Lyon",
+        "quantity": 2,
+        "price": 29.9
+    },
+    {
+        "sale_id": "PA01241000001",
+        "email": null,
+        "transaction_date": "2024-10-20",
+        "product_name": "Miel de Tilleul",
+        "quantity": 1,
+        "price": 15.5
+    },
+    {
+        "sale_id": "PA02241000001",
+        "email": null,
+        "transaction_date": "2024-10-27",
+        "product_name": "Confiture de Fraises Mara des Bois",
+        "quantity": 1,
+        "price": 12.2
+    },
+    {
+        "sale_id": "PA03241000001",
+        "email": null,
+        "transaction_date": "2024-10-03",
+        "product_name": "Vin Rosé de Bandol",
+        "quantity": 3,
+        "price": 93
+    },
+    {
+        "sale_id": "BO01241000001",
+        "email": null,
+        "transaction_date": "2024-10-10",
+        "product_name": "Saucisson Sec à la Truffe",
+        "quantity": 1,
+        "price": 29.5
+    },
+    {
+        "sale_id": "BO02241000001",
+        "email": null,
+        "transaction_date": "2024-10-17",
+        "product_name": "Camembert Fermier AOP",
+        "quantity": 1,
+        "price": 20.5
+    },
+    {
+        "sale_id": "MO01241000001",
+        "email": null,
+        "transaction_date": "2024-10-24",
+        "product_name": "Chocolat Noir 70% Madagascar",
+        "quantity": 2,
+        "price": 25
+    },
+    {
+        "sale_id": "LY01241000001",
+        "email": null,
+        "transaction_date": "2024-10-31",
+        "product_name": "Coffret Découverte Thés Rares",
+        "quantity": 1,
+        "price": 35
+    },
+    {
+        "sale_id": "LY02241000001",
+        "email": null,
+        "transaction_date": "2024-10-07",
+        "product_name": "Huile d'Olive Extra Vierge Bio",
+        "quantity": 1,
+        "price": 22.8
+    },
+    {
+        "sale_id": "MA01241000001",
+        "email": null,
+        "transaction_date": "2024-10-14",
+        "product_name": "Confiture Artisanale Abricot",
+        "quantity": 3,
+        "price": 32.7
+    },
+    {
+        "sale_id": "LI01241000001",
+        "email": null,
+        "transaction_date": "2024-10-21",
+        "product_name": "Vin Rouge Bordeaux Supérieur 2018",
+        "quantity": 1,
+        "price": 28.5
+    },
+    {
+        "sale_id": "RE01241000001",
+        "email": null,
+        "transaction_date": "2024-10-28",
+        "product_name": "Fromage de Chèvre Affiné",
+        "quantity": 1,
+        "price": 18.2
+    },
+ {
+        "sale_id": "RE01241000003",
+        "email": null,
+        "transaction_date": "2024-10-28",
+        "product_name": "Pâté de Campagne Traditionnel",
+        "quantity": 4,
+ "price": 63.0
+    },
+    {
+        "sale_id": "ST01241000002",
+        "email": "jean.maurice@gmail.com",
+        "transaction_date": "2024-10-04",
+        "product_name": "Miel de Lavande de Provence",
+        "quantity": 2,
+        "price": 29.9
+    },
+    {
+        "sale_id": "CL01241000002",
+        "email": null,
+        "transaction_date": "2024-10-11",
+        "product_name": "Terrine de Foie Gras de Canard",
+        "quantity": 1,
+        "price": 45
+    },
+    {
+        "sale_id": "PA01241000002",
+        "email": null,
+        "transaction_date": "2024-10-18",
+        "product_name": "Assortiment de Macarons",
+        "quantity": 1,
+        "price": 29.99
+    },
+    {
+        "sale_id": "PA02241000002",
+        "email": null,
+        "transaction_date": "2024-10-25",
+        "product_name": "Jambon Ibérique de Bellota",
+        "quantity": 3,
+        "price": 540
+    },
+    {
+        "sale_id": "PA03241000002",
+        "email": null,
+        "transaction_date": "2024-10-01",
+        "product_name": "Caviar d'Aquitaine",
+        "quantity": 1,
+        "price": 350
+    },
+    {
+        "sale_id": "BO01241000002",
+        "email": null,
+        "transaction_date": "2024-10-08",
+        "product_name": "Champagne Brut Millésimé",
+        "quantity": 1,
+        "price": 85
+    },
+    {
+        "sale_id": "BO02241000002",
+        "email": null,
+        "transaction_date": "2024-10-15",
+        "product_name": "Truffes Noires du Périgord",
+        "quantity": 2,
+        "price": 190
+    },
+    {
+        "sale_id": "MO01241000002",
+        "email": null,
+        "transaction_date": "2024-10-22",
+        "product_name": "Safran en Filaments",
+        "quantity": 1,
+        "price": 48
+    },
+    {
+        "sale_id": "LY01241000002",
+        "email": null,
+        "transaction_date": "2024-10-29",
+        "product_name": "Huîtres Spéciales de Claire",
+        "quantity": 1,
+        "price": 38.5
+    },
+ {
+        "sale_id": "LY02241000002",
+        "email": null,
+        "transaction_date": "2024-10-29",
+        "product_name": "Foie Gras d'Oie Entier",
+        "quantity": 3,
+        "price": 186.0
+    },
+    {
+        "sale_id": "MA01241000002",
+        "email": null,
+        "transaction_date": "2024-10-05",
+        "product_name": "Confiture de Figues Violettes",
+        "quantity": 1,
+        "price": 11.5
+    },
+  {
+    "sale_id": "LI01241100001",
+    "email": null,
+    "transaction_date": "2024-11-05",
+    "product_name": "Pain d'Épices Artisanal",
+    "quantity": 2,
+    "price": 30.0
+  },
+  {
+    "sale_id": "RE01241100001",
+    "email": null,
+    "transaction_date": "2024-11-12",
+    "product_name": "Moutarde à l'Ancienne",
+    "quantity": 1,
+    "price": 10.2
+  },
+  {
+    "sale_id": "ST01241100001",
+    "email": null,
+    "transaction_date": "2024-11-19",
+    "product_name": "Sel de Guérande",
+    "quantity": 1,
+    "price": 8.9
+  },
+  {
+    "sale_id": "CL01241100001",
+    "email": null,
+    "transaction_date": "2024-11-26",
+    "product_name": "Vinaigre de Xérès",
+    "quantity": 3,
+    "price": 58.5
+  },
+  {
+    "sale_id": "PA01241100001",
+    "email": null,
+    "transaction_date": "2024-11-02",
+    "product_name": "Olives Vertes de Provence",
+    "quantity": 1,
+    "price": 10.5
+  },
+  {
+    "sale_id": "PA02241100001",
+    "email": null,
+    "transaction_date": "2024-11-09",
+    "product_name": "Rillettes de Canard",
+    "quantity": 1,
+    "price": 14.25
+  },
+  {
+    "sale_id": "PA03241100001",
+    "email": null,
+    "transaction_date": "2024-11-16",
+    "product_name": "Comté 24 Mois d'Affinage",
+    "quantity": 2,
+    "price": 65.4
+  },
+  {
+    "sale_id": "BO01241100001",
+    "email": null,
+    "transaction_date": "2024-11-23",
+    "product_name": "Roquefort AOP",
+    "quantity": 1,
+    "price": 29.8
+  },
+  {
+    "sale_id": "BO02241100001",
+    "email": null,
+    "transaction_date": "2024-11-30",
+    "product_name": "Chorizo Ibérique",
+    "quantity": 1,
+    "price": 17.9
+  },
+    {
+        "sale_id": "BO02241100003",
+        "email": null,
+        "transaction_date": "2024-11-30",
+        "product_name": "Terrine de Sanglier aux Noisettes",
+        "quantity": 4,
+        "price": 67.2
+    },
+  {
+    "sale_id": "MO01241100001",
+    "email": null,
+    "transaction_date": "2024-11-06",
+    "product_name": "Saucisson Sec Artisanal",
+    "quantity": 3,
+    "price": 48
+  },
+  {
+    "sale_id": "LY01241100001",
+    "email": null,
+    "transaction_date": "2024-11-13",
+    "product_name": "Brie de Meaux AOP",
+    "quantity": 1,
+    "price": 21.5
+  },
+  {
+    "sale_id": "LY02241100001",
+    "email": null,
+    "transaction_date": "2024-11-20",
+    "product_name": "Munster Fermier AOP",
+    "quantity": 1,
+    "price": 24.3
+  },
+  {
+    "sale_id": "MA01241100001",
+    "email": null,
+    "transaction_date": "2024-11-27",
+    "product_name": "Vin Blanc Alsace Riesling",
+    "quantity": 2,
+    "price": 51.5
+  },
+    {
+        "sale_id": "MA01241100003",
+        "email": null,
+        "transaction_date": "2024-11-27",
+        "product_name": "Vin Rouge Côtes de Provence",
+        "quantity": 3,
+        "price": 56.7
+    },
+  {
+    "sale_id": "LI01241100002",
+    "email": null,
+    "transaction_date": "2024-11-03",
+    "product_name": "Vin Rouge Bourgogne Pinot Noir",
+    "quantity": 1,
+    "price": 42
+  },
+  {
+    "sale_id": "RE01241100002",
+    "email": null,
+    "transaction_date": "2024-11-10",
+    "product_name": "Vin Rosé Côtes de Provence",
+    "quantity": 1,
+    "price": 18.9
+  },
+  {
+    "sale_id": "ST01241100002",
+    "email": null,
+    "transaction_date": "2024-11-17",
+    "product_name": "Beaujolais Villages Nouveau",
+    "quantity": 3,
+    "price": 49.5
+  },
+ {
+        "sale_id": "ST01241100005",
+        "email": "jean.maurice@gmail.com",
+        "transaction_date": "2024-11-17",
+        "product_name": "Vin Rosé de Bandol",
+        "quantity": 3,
+        "price": 93.0
+ },
+  {
+    "sale_id": "CL01241100002",
+    "email": null,
+    "transaction_date": "2024-11-24",
+    "product_name": "Chablis Premier Cru",
+    "quantity": 1,
+    "price": 39.2
+  },
+ {
+    "sale_id": "PA01241100002",
+     "email": null,
+     "transaction_date": "2024-11-24",
+     "product_name": "Huile d'Olive AOP Haute-Provence",
+     "quantity": 4,
+     "price": 116.0
+ },
+  {
+    "sale_id": "PA02241100002",
+    "email": null,
+    "transaction_date": "2024-11-01",
+    "product_name": "Saint-Émilion Grand Cru",
+    "quantity": 1,
+    "price": 55
+  },
+  {
+    "sale_id": "PA03241100002",
+    "email": null,
+    "transaction_date": "2024-11-08",
+    "product_name": "Côtes du Rhône Villages",
+    "quantity": 2,
+    "price": 41.6
+    },
+{
+    "sale_id": "BO01241100002",
+     "email": null,
+     "transaction_date": "2024-11-08",
+     "product_name": "Confiture de Cerises Noires",
+     "quantity": 3,
+     "price": 35.4
+ },
+  {
+    "sale_id": "BO02241100002",
+    "email": null,
+    "transaction_date": "2024-11-15",
+    "product_name": "Crémant de Loire Brut",
+    "quantity": 1,
+    "price": 23.5
+  },
+  {
+    "sale_id": "MO01241100002",
+    "email": null,
+    "transaction_date": "2024-11-22",
+    "product_name": "Bière Artisanale Ambrée",
+    "quantity": 1,
+    "price": 12.8
+  },
+    {
+        "sale_id": "MO01241200001",
+        "email": null,
+        "transaction_date": "2024-12-05",
+        "product_name": "Eau de Vie de Poire Williams",
+        "quantity": 3,
+        "price": 145.5
+    },
+    {
+        "sale_id": "LY01241200001",
+        "email": null,
+        "transaction_date": "2024-12-12",
+        "product_name": "Liqueur de Chartreuse Verte",
+        "quantity": 1,
+        "price": 52
+    },
+    {
+        "sale_id": "LY02241200001",
+        "email": null,
+        "transaction_date": "2024-12-19",
+        "product_name": "Sirop d'Érable Bio",
+        "quantity": 1,
+        "price": 13.75
+    },
+    {
+        "sale_id": "MA01241200001",
+        "email": null,
+        "transaction_date": "2024-12-26",
+        "product_name": "Fleur de Sel de Camargue",
+        "quantity": 2,
+        "price": 19.6
+    },
+    {
+        "sale_id": "LI01241200001",
+        "email": null,
+        "transaction_date": "2024-12-02",
+        "product_name": "Piment d'Espelette AOP",
+        "quantity": 1,
+        "price": 17.2
+    },
+    {
+        "sale_id": "RE01241200001",
+        "email": null,
+        "transaction_date": "2024-12-09",
+        "product_name": "Épices pour Paella",
+        "quantity": 1,
+        "price": 11.9
+    },
+    {
+        "sale_id": "ST01241200001",
+        "email": null,
+        "transaction_date": "2024-12-16",
+        "product_name": "Herbes de Provence Label Rouge",
+        "quantity": 3,
+        "price": 25.5
+    },
+    {
+        "sale_id": "CL01241200001",
+        "email": null,
+        "transaction_date": "2024-12-23",
+        "product_name": "Thé Vert Sencha Bio",
+        "quantity": 1,
+        "price": 16.8
+    },
+     {
+        "sale_id": "CL01241200036",
+        "email": null,
+        "transaction_date": "2024-12-02",
+        "product_name": "Saucisson Sec Artisanal",
+        "quantity": 4,
+        "price": 64.0
+    },
+    {
+        "sale_id": "PA01241200001",
+        "email": null,
+        "transaction_date": "2024-12-30",
+        "product_name": "Café Arabica Bio en Grains",
+        "quantity": 1,
+        "price": 21.2
+    },
+    {
+        "sale_id": "PA02241200001",
+        "email": null,
+        "transaction_date": "2024-12-06",
+        "product_name": "Infusion Verveine Menthe",
+        "quantity": 2,
+        "price": 21
+    },
+    {
+        "sale_id": "PA03241200001",
+        "email": null,
+        "transaction_date": "2024-12-13",
+        "product_name": "Chocolat au Lait Caramel Beurre Salé",
+        "quantity": 1,
+        "price": 11.95
+    },
+    {
+        "sale_id": "BO01241200001",
+        "email": null,
+        "transaction_date": "2024-12-20",
+        "product_name": "Nougat de Montélimar",
+        "quantity": 1,
+        "price": 14.5
+    },
+    {
+        "sale_id": "BO02241200001",
+        "email": null,
+        "transaction_date": "2024-12-27",
+        "product_name": "Calissons d'Aix",
+        "quantity": 3,
+        "price": 57.599999999999994
+    },
+      {
+        "sale_id": "PA01241200064",
+        "email": null,
+        "transaction_date": "2024-12-03",
+        "product_name": "Crémant d'Alsace Rosé",
+        "quantity": 1,
+        "price": 24.70
+    },
+{
+        "sale_id": "PA01241200065",
+        "email": null,
+        "transaction_date": "2024-12-23",
+        "product_name": "Bénédictine D.O.M.",
+        "quantity": 1,
+        "price": 34
+    },
+    {
+        "sale_id": "MO01241200002",
+        "email": null,
+        "transaction_date": "2024-12-03",
+        "product_name": "Caramels au Beurre Salé de Guérande",
+        "quantity": 1,
+        "price": 12.75
+    },
+    {
+        "sale_id": "LY01241200002",
+        "email": null,
+        "transaction_date": "2024-12-10",
+        "product_name": "Pâtes de Fruits Assorties",
+        "quantity": 1,
+        "price": 15.9
+    },
+ {
+        "sale_id": "LY02241200047",
+        "email": null,
+        "transaction_date": "2024-12-10",
+        "product_name": "Foie Gras d'Oie Entier",
+        "quantity": 1,
+ "price": 62.0
+    },
+    {
+        "sale_id": "LY02241200002",
+        "email": null,
+        "transaction_date": "2024-12-17",
+        "product_name": "Marrons Glacés",
+        "quantity": 2,
+        "price": 64
+    },
+    {
+        "sale_id": "MA01241200002",
+        "email": null,
+        "transaction_date": "2024-12-24",
+        "product_name": "Biscuits Roses de Reims",
+        "quantity": 1,
+        "price": 9.8
+    },
+    {
+        "sale_id": "LI01241200002",
+        "email": null,
+        "transaction_date": "2024-12-31",
+        "product_name": "Madeleines Pur Beurre",
+        "quantity": 1,
+        "price": 13.5
+    },
+    {
+        "sale_id": "RE01241200002",
+        "email": null,
+        "transaction_date": "2024-12-07",
+        "product_name": "Sablés Bretons",
+        "quantity": 3,
+        "price": 30.75
+    },
+     {
+        "sale_id": "RE01241200053",
+        "email": null,
+        "transaction_date": "2024-12-04",
+        "product_name": "Pain d'Épices Artisanal",
+        "quantity": 2,
+        "price": 30.0
+    },
+    {
+        "sale_id": "ST01241200002",
+        "email": null,
+        "transaction_date": "2024-12-14",
+        "product_name": "Croquants aux Amandes",
+        "quantity": 1,
+        "price": 11.7
+    },
+    {
+        "sale_id": "CL01241200002",
+        "email": null,
+        "transaction_date": "2024-12-21",
+        "product_name": "Navettes de Marseille",
+        "quantity": 1,
+        "price": 14
+    },
+     {
+        "sale_id": "ST01241200059",
+        "email": "jean.maurice@gmail.com",
+        "transaction_date": "2024-12-13",
+        "product_name": "Vin Blanc Gewurztraminer 2020",
+        "quantity": 3,
+        "price": 75
+    },
+ {
+        "sale_id": "MA01241200112",
+        "email": "david.smith@gmail.com",
+        "transaction_date": "2024-12-11",
+        "product_name": "Olives Vertes de Provence",
+        "quantity": 2,
+        "price": 21.0
+    },
+    {
+        "sale_id": "PA01241200003",
+        "email": null,
+        "transaction_date": "2024-12-28",
+        "product_name": "Canelés de Bordeaux",
+        "quantity": 1,
+        "price": 18.5
+    },
+     {
+        "sale_id": "PA01241200063",
+        "email": null,
+        "transaction_date": "2024-12-28",
+        "product_name": "Miel de Lavande de Provence",
+        "quantity": 3,
+        "price": 44.85
+    },
+{
+        "sale_id": "PA01241200066",
+        "email": null,
+        "transaction_date": "2024-12-13",
+        "product_name": "Vin Rouge Bourgogne Pinot Noir",
+        "quantity": 1,
+        "price": 42
+    },
+    {
+        "sale_id": "PA02241200002",
+        "email": null,
+        "transaction_date": "2024-12-04",
+        "product_name": "Cidre Bouché Brut de Normandie",
+        "quantity": 1,
+        "price": 15.8
+    },
+ {
+        "sale_id": "PA02241200061",
+        "email": null,
+        "transaction_date": "2024-12-14",
+        "product_name": "Chocolat Noir 70% Madagascar",
+        "quantity": 4,
+        "price": 50
+    },
+    {
+        "sale_id": "PA03241200002",
+        "email": null,
+        "transaction_date": "2024-12-11",
+        "product_name": "Jus de Pomme Artisanal Bio",
+        "quantity": 2,
+        "price": 24.6
+    },
+     {
+        "sale_id": "PA03241200064",
+        "email": null,
+        "transaction_date": "2024-12-11",
+        "product_name": "Vin Rosé Côtes de Provence",
+        "quantity": 3,
+        "price": 56.7
+    },
+    {
+        "sale_id": "BO01241200002",
+        "email": null,
+        "transaction_date": "2024-12-18",
+        "product_name": "Limonade Artisanale",
+        "quantity": 1,
+        "price": 9.9
+    },
+{
+        "sale_id": "PA03241200065",
+        "email": null,
+        "transaction_date": "2024-12-01",
+        "product_name": "Terrine de Foie Gras de Canard",
+        "quantity": 1,
+        "price": 45
+    },
+    {
+        "sale_id": "BO02241200002",
+        "email": null,
+        "transaction_date": "2024-12-25",
+        "product_name": "Graines de Courge Grillées",
+        "quantity": 1,
+        "price": 10.8
+    },
+    {
+        "sale_id": "MO01241200003",
+        "email": null,
+        "transaction_date": "2024-12-01",
+        "product_name": "Noix de Cajou Bio",
+        "quantity": 3,
+        "price": 48.6
+    },
+    {
+        "sale_id": "LY01241200003",
+        "email": null,
+        "transaction_date": "2024-12-08",
+        "product_name": "Amandes Grillées Salées",
+        "quantity": 1,
+        "price": 14.75
+    },
+{
+        "sale_id": "LY01241200048",
+        "email": null,
+        "transaction_date": "2024-12-08",
+        "product_name": "Terrine de Sanglier aux Noisettes",
+        "quantity": 2,
+        "price": 33.6
+    },
+    {
+        "sale_id": "LY02241200003",
+        "email": null,
+        "transaction_date": "2024-12-15",
+        "product_name": "Pistaches d'Iran",
+        "quantity": 1,
+        "price": 22.5
+    },
+    {
+        "sale_id": "MA01241200003",
+        "email": null,
+        "transaction_date": "2024-12-22",
+        "product_name": "Mélange de Fruits Secs Bio",
+        "quantity": 2,
+        "price": 37.8
+    },
+     {
+        "sale_id": "LI01241200097",
+        "email": null,
+        "transaction_date": "2024-12-22",
+        "product_name": "Truffes Noires du Périgord",
+        "quantity": 1,
+        "price": 95.0
+    },
+    {
+        "sale_id": "LI01241200003",
+        "email": null,
+        "transaction_date": "2024-12-29",
+        "product_name": "Olives Noires de Nyons AOP",
+        "quantity": 1,
+        "price": 13.95
+    },
+    {
+     "sale_id": "RE01241200003",
+     "email": null,
+     "transaction_date": "2024-12-29",
+     "product_name": "Vin Rouge Bordeaux Supérieur 2018",
+     "quantity": 2,
+     "price": 57
+    }
+]

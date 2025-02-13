@@ -1,0 +1,31 @@
+sale_id,transaction_date,product_id,customer_id,customer_last_name,customer_first_name,customer_email,customer_address,customer_phone,email_optin,sms_optin
+S8b1c2,2024-01-03,P729345,8275941,Dupont,Isabelle,isabelle.dupont@gmail.com,"9 Rue de Rivoli, 75001 Paris",0612345678,true,false
+Sc9a5d,2024-01-15,P317496,3164057,Lefebvre,Thomas,thomas.lefebvre@yahoo.fr,"22 Avenue des Champs-Élysées, 75008 Paris",0198765432,true,true
+S1f7h4,2024-01-22,P946283,5480293,Moreau,Sophie,sophie.moreau@outlook.com,"15 Rue du Faubourg Saint-Honoré, 75008 Paris",,false,false
+S6k3j9,2024-01-08,P502618,1927358,Dubois,Marie,marie.dubois@free.fr,"4 Rue de la Paix, 75002 Paris",0789012345,true,true
+S0pgh6,2024-01-29,P210573,6701462,Roux,Marc,marc.roux@sfr.fr,"Bd de Paris, 62600 Berck",,false,true
+Sr8m5n,2024-01-11,P659104,4051729,Fournier,Céline,celine.fournier@gmail.com,"18 Rue du Temple, 75004 Paris",0623456789,true,false
+S4t7y1,2024-01-18,P183752,9632804,Bernard,Julien,julien.bernard@yahoo.fr,"5 Place Vendôme, 75001 Paris",,true,true
+S9v5w8,2024-01-05,P835027,6719035,Petit,Camille,camille.petit@outlook.com,"27 Rue Saint-Honoré, 75001 Paris",0134567890,false,false
+Sl0x3z,2024-01-26,P461809,4596280,Simon,Zoé,zoe.simon@wanadoo.fr,"2 Rue Henri Moissan, 51430 Bezannes",,true,false
+S5u6a7,2024-01-13,P294857,8123497,Girard,Laura,laura.girard@sfr.fr,"6 Rue Royale, 75008 Paris",0776543210,false,true
+S7z2b9,2024-01-07,P123456,5312075,Doumergues,Richard,rick.doumergues@gmail.com,"75 Rue Pierre Semard, 54000 Nancy",,true,true
+S3h8c4,2024-01-19,P789012,5048269,Martin,Chloé,chloe.martin@yahoo.fr,"8 Avenue Foch, 75116 Paris",0654321098,false,true
+Sy5n6p,2024-01-31,P456789,1762934,Robert,Alexandre,alexandre.robert@outlook.com,"20 Rue du Bac, 75007 Paris",,true,false
+S2q7o1,2024-01-10,P678901,6830542,Durand,Julie,julie.durand@free.fr,"3 Rue de l'Université, 75007 Paris",0798765432,false,false
+Sa6k8m,2024-01-23,P246803,1534620,Dufour,Victorine,victorine.dufour@sfr.fr,"1 Fbg Léon Bourgeois, 51300 Vitry-le-François",,true,true
+S5x9v3,2024-01-02,P567890,7502416,Lindström,Freya,freya.lindstrom@gmail.com,"23 Rue Boieldieu, 34500 Béziers",0785146502,false,false
+Sd4b7f,2024-01-16,P901234,6522483,Dessousa,Sophie,sophie.dessousa@yahoo.fr,"3 Vaurobert, 41700 Le Controis-en-Sologne",,true,true
+Si1h5n,2024-01-27,P345678,1024579,McCarthy,Saoirse,saoirse.mc@outlook.com,"61 Rte de Pommard, 21200 Beaune",0645309195,false,false
+S0g3q8,2024-01-09,P012345,7458231,Gauthier,Hugo,hugo.gauthier@free.fr,"9 Quai Voltaire, 75007 Paris",,true,false
+Sz7m1p,2024-01-20,P890123,3978165,Blanchard,Timothée,timothee.blanchard@sfr.fr,"25 Rue Bazoges, 17000 La Rochelle",,false,true
+S6c9a4,2024-01-04,P791358,4795108,Delaunay,Éloi,eloi.delaunay@gmail.com,"20 Rue le Mattre, 80000 Amiens",,true,true
+S8n5b2,2024-01-14,P987654,1093586,Chevalier,Manon,manon.chevalier@yahoo.fr,"4 Rue des Beaux-Arts, 75006 Paris",0678901234,false,false
+S1v7h9,2024-01-25,P357914,6240857,Perrier,Gabriel,gabriel.perrier@outlook.com,"19 Rue de Lille, 75007 Paris",,true,false
+S4o3z6,2024-01-06,P864205,9725130,Leroux,Inès,ines.leroux@free.fr,"28 Rue Jacob, 75006 Paris",0789012345,false,false
+S7hhm1,2024-01-17,P409627,3401785,Renaud,Arthur,arthur.renaud@sfr.fr,"5 Quai Malaquais, 75006 Paris",,true,true
+Sp5n9q,2024-01-28,P915836,8562049,Boucher,Léa,lea.boucher@gmail.com,"17 Rue de Seine, 75006 Paris",0612345678,false,true
+Sb2h88,2024-01-12,P572049,2138704,Garcia,Mathis,mathis.garcia@yahoo.fr,"30 Rue Mazarine, 75006 Paris",,true,true
+Sj9x3f,2024-01-01,P624078,9348523,Leclerc,Océane,oceane.leclerc@outlook.com,"10 Rue de l'Odéon, 75006 Paris",0144556677,false,false
+S678o8,2024-01-21,P183957,4081256,Cousin,Raphaël,raphael.cousin@free.fr,"6 Rue de Tournon, 75006 Paris",,true,false
+Sm3q1z,2024-01-30,P295186,1002349,Giraud,Maëva,maeva.giraud@sfr.fr,"32 Av. Paul Chandon, 51200 Épernay",0622546971,false,true

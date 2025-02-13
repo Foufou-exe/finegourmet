@@ -1,0 +1,11 @@
+sale_id,transaction_date,product_id,customer_id,customer_last_name,customer_first_name,customer_email,customer_address,customer_phone,email_optin,sms_optin
+Sj9x2f,2024-09-02,P660353,7531231,Sousa,Brigitte,b.sousa@free.fr,"1 Rue Lamarque, 65400 Saint-Savin",0435685942,false,false
+S6a7o5,2024-09-13,P231461,2437223,Benoit,Xavier,xav.ben@gmail.com,"20 Rue des Marquisats, 74000 Annecy",0783519410,true,false
+S2h5n8,2024-09-24,P772578,4970224,Lenoir,Goustan,goustan.lenoir@orange.fr,"5 Rue de la Halle, 18000 Bourges",,true,true
+S8n5b3,2024-09-05,P343686,7130594,Picot,Anaëlle,anaelle.picot@orange.fr,"33 Rue Groison, 37100 Tours",0729015349,true,false
+S1v7h7,2024-09-15,P884794,1025187,Nichols,Rob,rob.nichols@gmail.com,"5 Rte de Forcalquier, 84240 La Bastide-des-Jourdans",0673001212,true,false
+S4o3z1,2024-09-26,P455802,8201543,Simon,Noéline,noeline.simon@hotmail.com,"2 Pass. des Jardiniers, 85000 La Roche-sur-Yon",0741632585,true,false
+S7k8m4,2024-09-07,P996919,	4451217,Morel,Apolline,apolline.morel@gmail.com,"18 Rue des Récollets, 71110 Marcigny",,true,true
+Sp1nq,2024-09-18,P567027,2234377,Besson,Aurélien,aurelien.besson@gmail.com,"32 Rue Henri Barbusse, 63000 Clermont-Ferrand",,true,false
+Sabd5b,2024-09-29,P138135,7071526,Mas,Qyra,q.mas@wanadoo.fr,"21 Rue de la Mairie, 80970 Sailly-Flibeaucourt",0752368465,true,true
+S9m0n1,2024-09-12,P679243,7114585,Martin,Philippe,philippe.martin@gmail.com,"12 avenue des Lilas, 95100 Argenteuil",0677412369,true,false

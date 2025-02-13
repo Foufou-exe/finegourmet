@@ -1,0 +1,18 @@
+sale_id,transaction_date,product_id,customer_id,customer_last_name,customer_first_name,customer_email,customer_address,customer_phone,email_optin,sms_optin
+S3h5v3,2024-06-08,P727028,1634851,Benoit,Fabien,fabien.benoit@orange.fr,"46 Avenue Georges Hennequin, 36130 Déols",,true,false
+Sob67z,2024-06-19,P398136,4583107,Lacroix,Jean,jean.lacroix@gmail.com,"17 Rue des Fontaines, 63970 Aydate",,false,true
+S25nh8,2024-06-30,P839244,	3525490,Fournier,Ulysse,ulysse.fournier@gmail.com,"12 Voie du Prince, 10150 Lavau",0614220014,true,false
+S7k4m5,2024-06-11,P400352,3657723,Chevalier,Violette,violette.chevalier@orange.fr,"55 Rue Ponsardin, 51100 Reims",,false,false
+Spfn4q,2024-06-21,P941469,2585831,Lisbon,Theresa,t.lisbon@mentalist.com,"19 Rue Maréchal Joffre, 35000 Rennes",0622586435,true,true
+Sa8v2b,2024-06-02,P512577,	2437513,Kim,Huang Cho,hckim@gmail.com,"20 Rue Peiresc, 83000 Toulon",0684414410,false,true
+Sjjj5f,2024-06-13,P183685,3510247,Dufour,Capucine,capucine.dufour@orange.fr,"Av. de la Palmyre, 17570 Les Mathes",0685420167,true,true
+S4zlk4,2024-06-24,P624793,2489138,Martin,Phillippe,phillippe.martin@orange.fr,"33 Rue Saint-André des Arts, 75006 Paris",0777777777,false,false
+Smfg2k,2024-06-05,P295801,1011622,Lemoine,Emma,emma.lemoine@gmail.com,"60 Rue de la Pompe, 95200 Sarcelles",0646279145,false,true
+S9cvh6,2024-06-15,P736918,1011622,Lemoine,Emma,emma.lemoine@wanadoo.fr,"60 Rue de la Pompe, 95200 Sarcelles",0646279145,true,true
+Sr4p7f,2024-06-09,P848134,7114585,Martin,Philippe,philippe.martin@gmail.com,"12 avenue des Lilas, 95100 Argenteuil",0677412369,true,false
+S7g1o6,2024-06-29,P419242,4564563,Blin,Maxime,maxime.blin@hotmail.com,"45 Rue Leyteire, 33000 Bordeaux",0765164710,false,true
+Se9i2k,2024-06-20,P950359,6254687,Barbier,Chloé,chloe.barbier@gmail.com,"11 Avenue Foch, 16016 Paris",0348620187,false,true
+Sz5q1m,2024-06-04,P521467,9301526,Mirabeau,Hubert,hubert.m@wanadoo.fr,"1 Av. Robert Schuman, 13100 Aix-en-Provence",,true,true
+S3j8n9,2024-06-12, P192575,2489137,Dupuis,Jean,jean.dupuis@gmail.com,"33 Rue Saint-André des Arts, 75006 Paris",,false,true
+S0p2q6, 2024-06-01, P857024, 4189623, Philippe, Martin, philippe.martin@gmail.com,"12 avenue des Lilas 95100 Argenteuil",0677412369, true, false
+S7k8m1, 2024-06-19, P428132, 9745600, Caron, Justine, Justine.caron@free.fr,"5 Bis Rue des Troènes, 44600 Saint-Nazaire", 0671012469, false, true

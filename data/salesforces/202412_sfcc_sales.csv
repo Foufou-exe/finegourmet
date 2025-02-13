@@ -1,0 +1,42 @@
+sale_id,transaction_date,product_id,customer_id,customer_last_name,customer_first_name,customer_email,customer_address,customer_phone,email_optin,sms_optin
+S7f9o8,2024-12-24,P585807,8897551,Brun,Sophie,sophie.brun@gmail.com,"18 Rue de la Gare, 69002 Lyon",0478901234,true,true
+Sx6a6n,2024-12-05,P156915,7103598,Lefebvre,Salomé,salome.lefebvre@gmail.com,"27 Rue du Commandant René Mouchotte, 75014 Paris",0726550122,true,false
+S3l5v3,2024-12-16,P697023,9259333,Thiembjtrom,Umma,umma.thiembjtrom@orange.fr,"All. de l'Orme-Rond, 77700 Bailly-Romainvilliers",0635754521,false,false
+Soze1z,2024-12-27,P268131,8314022,Lemoine,Wisconsin,wisconsin.lemoine@wanadoo.fr,"11 Pl. Christiane Frahier, 78100 Saint-Germain-en-Laye",,true,false
+S2b6h9,2024-12-07,P709248,3751036,Gauthier,Émilien,emilien.gauthier@orange.fr,"253 Rte de Vaison, 84110 Sablet",0746220048,false,false
+S7k4m7,2024-12-18,P370356,6452331,Laville,Maud,maud.laville@gmail.com,"62 Rue Ronsard, 37100 Tours",0789446500,true,false
+Sp1n4q,2024-12-28, P811465,7537531,Smith,David,david.smith@gmail.com,"8 Rte de Trun, 14700 Falaise",0414587536,false,false
+Saj86b,2024-12-09, P482573,3544197,Niro,Barbara,barbara.niro@orange.fr,"61 Rue Pierre Semard, 54000 Nancy",0743822177,true,false
+Sj6x5f,2024-12-20, P923689,6703314,Finezzi,Karole,karole.finezzi@yahoo.fr,"15 Avenue Victor Hugo, 92290 Châtenay-Malabry",,true,false
+S477v4,2024-12-31, P594797,4564563,Blin,Maxime,maxime.blin@hotmail.com,"45 Rue Leyteire, 33000 Bordeaux",0765164710,false,true
+Sm1q2k,2024-12-11, P165805,7537531,Smith,David,david.smith@gmail.com,"8 Rte de Trun, 14700 Falaise",0414587536,false,false
+S97sw8,2024-12-24,P745937,7901543,Perrin,Léandre,leandre.perrin@gmail.com,"1 Pl. du Président Kennedy, 49100 Angers",,false,false
+Sc2p7k,2024-12-24,P629715,4575431,Holtz,Gerard,gerard.holtz@gmail.com,"Rue des Frères Michaud, 14700 Falaise",0685851269,true,true
+S1t6x9,2024-12-28,P925746,9345212,Legouste,Charlie,c.legouste@wanadoo.fr,"12 Chem. de la Tremblaye, 91160 Saulx-les-Chartreux",,true,false
+S6h4s8,2024-12-18,P266975,3182677,Bismark,Nathanael,n.bismark@orange.fr,"137 Rue Saint-Guirec, 22700 Perros-Guirec",0741342887,true,false
+S8b1c9,2024-12-03,P718138,4562227,Djog,In,in.djog@gmail.com,"10 Bd de la Croisette, 06400 Cannes",0722163420,true,true
+Sd1a5k,2024-12-15,P389246,6638522,Lacroix,Pierre,pierre.lacroix@orange.fr,"10 Avenue des Fleurs, 06000 Nice",0623456789,false,true
+S1f7h2,2024-12-26,P820354,	7552591,Bach,Dorian,d.bach@free.fr,"285 Av. Victor Hugo, 26000 Valence",0754589332,true,false
+S6k3j6,2024-12-08,P491462,7522261,Legaec,Fabienne,fabienne.l@gmail.com,"82 Av. des Druides, 56340 Carnac",0758783312,false,true
+S02fq7,2024-12-29,P932579,3018520,Dubois,Lysiane,lysiane.dubois@orange.fr,"121 Rue Maryse Bastié, 69500 Bron",,false,false
+S3dm5p,2024-12-11,P503687,8897551,Brun,Sophie,sophie.brun@gmail.com,"18 Rue de la Gare, 69002 Lyon",0478901234,true,true
+S4t7y4,2024-12-22,P174795,1677462,Bingham,Chuck,chuck.bingham@yahoo.fr,"137 Av du Grand Sud, 37170 Chambray-lès-Tours",,false,true
+S9h5w9,2024-12-03,P615803,7520314,Dorsenec,Michelle,michelle.dorsenec@yahoo.fr,"15 Rue du Commerce, 28480 Thiron-Gardais",,true,false
+Sl0x3y,2024-12-14,P286911,4739159,Jean,David,david.jean@gmail.com,"15 Rue de Marignan, 28240 Bretoncelles",0417486153,false,true
+S5u6a5,2024-12-25,P727028,9102423,Giraud,Romane,romane.giraud@gmail.com,"11 Rue Gresset, 44000 Nantes",0715302110,true,true
+S7z2b1,2024-12-06,P398136,	4452159,Cisse,Gaelle,gc.best@free.fr,"73 Av. Valéry Giscard d'Estaing, 80000 Amiens",0754481212,true,false
+S3h8c8,2024-12-17,P839244,3004227,Chopper,Alan,alan.chopper@gmail.com,"16 Quai Saint-Laurent, 45000 Orléans",0731522287,true,true
+Sy5n6s,2024-12-28,P400352,4753641,Roches,Jean,j.roches@gmail.com,"9 Rue du Dr Jean Vivares, 61290 Longny les Villages",0417789357,false,true
+S2q7o9,2024-12-09,P941469,2941055,KhanLong,Virasith,v.kl74@gmail.com,"28 Rue des Marquisats, 74000 Annecy",0643859972,false,true
+Sa6k8u,2024-12-19,P512577,3894156,Faure,Louis,louis.faure@yahoo.fr,"15 Avenue Victor Hugo, 92290 Châtenay-Malabry",0796962766,true,false
+S5x9v7,2024-12-30,P183685,6897413,Chavigny,Émilie,emilie.chavigny@gmail.com,"7 Rue de Sèvres, 66480 Maureillas-las-Illas",0284617410,true,true
+Sd4b7n,2024-12-10,P624793,8524227,Zhou,Lin,lin.zhou@free.fr,"13 Rue Albin Haller, 86000 Poitiers",0743250444,true,false
+Si1h5u,2024-12-21,P295801,3329239,Dupuis,Jean,jean.dupuis@free.fr,"45 Rue Leyteire, 33000 Bordeaux",0625468212,false,true
+S0g3q2,2024-12-02,P736918,9257460,Martins,Philippe,philippe.martin@free.fr,"12 avenue des Lilas, 95100 Argenteuil",0677412369,true,true
+Sz7m1x,2024-12-13,P307026,	5262730,Sims,Homer,hom.sims@gmail.com,"bourg, 29242 Ouessant",0733748312,false,false
+S6c9a7,2024-12-24,P848134,1011622,Lemoine,Emma,emma.lemoine@wanadoo.fr,"60 Rue de la Pompe, 95200 Sarcelles",0646279145,false,true
+S4o3z2,2024-12-25,P521467,1002549,Lemoine,Évariste,ev.lemoine@orange.fr,"35 Av. de la Motte-Picquet, 75015 Paris",0645621122,true,true
+S7k8m3,2024-12-06,P192575,8897551,Brun,Sophie,sophie.brun@sfr.fr,"18 Rue de la Gare, 69002 Lyon",0478901234,false,true
+Sp5n9v,2024-12-16,P633683,3019728,Huchard,Zinedine,zinedine13@gmail.com,"Rue de la Lavande, 13140 Miramas",0716257347,true,true
+Sb2h4p,2024-12-27,P204791,2574901,Marchand,Alban,alban.marchand@orange.fr,"112 Rue Jacquard, Rn 6, 71000 Mâcon",,false,false
+Sj9x9f,2024-12-07,P745808,3445201,Delacroix,Pierre,pierre.delacroix@yahoo.fr,"35 Bd Gambetta, 30220 Aigues-Mortes",,true,true

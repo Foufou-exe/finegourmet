@@ -1,0 +1,10 @@
+sale_id,transaction_date,product_id,customer_id,customer_last_name,customer_first_name,customer_email,customer_address,customer_phone,email_optin,sms_optin
+S7k4m8,2024-11-10,	P688133,5103496,Hourdin,Jacques,j.hourdin@gmail.com,"11 Bd de la Reine, 78000 Versailles",,true,true
+Sp1n2q,2024-11-21,	P259241,7630128,Royer,Faustine,faustine.royer@gmail.com,"10 Bd Maréchal Foch, 21200 Beaune",,true,true
+Sa8v5b,2024-11-01,	P790358,7542227,Wallon,Victoria,vic.wallon@orange.fr,"Av. du Brézet, 63100 Clermont-Ferrand",0753620287,false,true
+Sj6ccf,2024-11-12,	P361466,3524227,Gonzales,Yvan,yvan.gonzales@orange.fr,"12 Quai Rambaud, 69002 Lyon",0618349521,true,false
+S475v4,2024-11-23,	P802574,9257460,Martins,Philippe,philippe.martin@free.fr,"12 avenue des Lilas, 95100 Argenteuil",0677412369,false,true
+Sm552k,2024-11-04,	P473682,	4565790,Moreau,Sophie,sophie.m@sfr.fr,"32 Av. de la Tour, 33370 Sallebœuf",0655781022,true,true
+S9b5h6,2024-11-14,	P914799,2418632,Dora,Dora,dodo34@gmail.com,"Rue de l'Acropole, 34420 Villeneuve-lès-Béziers",0790741545,true,false
+S3j8n4, 2024-11-06,	P734156, 7415034, Boulanger, Théo, theo.boulanger@gmail.com,"89 Rte d'Auxerre, 10120 Saint-André-les-Vergers", 0645456301, true, true
+S0p2q5, 2024-11-24,	P561273, 4885941, Thor, Emma, et456@gmail.com,"Rue André Citroën, 03410 Saint-Victor", 0617965745, true, true

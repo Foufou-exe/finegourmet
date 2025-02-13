@@ -1,0 +1,16 @@
+sale_id,transaction_date,product_id,customer_id,customer_last_name,customer_first_name,customer_email,customer_address,customer_phone,email_optin,sms_optin
+S2q7o3,2024-08-10,P866914,3258676,Giraudeau,Thibault,thibault.giraudeau@orange.fr,"72 Cr Charlemagne, 69002 Lyon",,true,true
+Sa6k8o,2024-08-23,P437022,1239431,Solve,Marc,m.sol@gmail.com,"107 Av. du Colombier, 19600 Saint-Pantaléon-de-Larche",0512345678,false,true
+S5x9v1,2024-08-02,P978139,7751064,Andersson,Freya,andersson.brun@sfr.fr,"1 Rue Dhuoda, 30900 Nîmes",0478253187,true,false
+Sd4b7h,2024-08-16,P549247,2489138,Martin,Phillippe,phillippe.martin@orange.fr,"33 Rue Saint-André des Arts, 75006 Paris",0777777777,true,false
+Si1h5o,2024-08-27,P110355,6432101,Gosselin,Léontine,leontine.gosselin@orange.fr,"159 Av. du Petit Port, 73100 Aix-les-Bains",0723252779,false,true
+S0g3q4,2024-08-09,P651463,5374460,Lefèvre,Édouard,edouard.lefevre@sfr.fr,"25 Chem. des Alloues, 85300 Challans",0712856315,true,false
+Sz7m1r,2024-08-20,P222571,4533470,Delorme,Sacha,sacha.delorme@gmail.com,"18 Rue Principale, 36600 Fontguenand",,false,true
+S6c9a1,2024-08-04,P763688,5551222,Paul,Emma,emma.paul@gmail.com,"4 All. de la Pépinière, 80480 Dury",0745269145,true,false
+S8n5b9,2024-08-14,P334796,2467223,White,Walter,heinsenberg@free.fr,"1650 Rte du Bouchet, 74400 Chamonix-Mont-Blanc",0784545410,false,true
+S1v7h5,2024-08-25,P875804,2403567,Bigard,Leo,bigleo@yahoo.fr,"130 Chem. de la Chartreuse, 46000 Cahors",,true,true
+S4o3z3,2024-08-06,P446912,1264489,Vasseur,Maëlys,m.vasseur@gmail.com,"81 Cr du Médoc, 33300 Bordeaux",,false,true
+S7k8m7,2024-08-17,P987029,8525431,Olena,Lea,l.olena@yopmail.com,"33 Av. du Petit Port, 74940 Annecy",0348599745,false,false
+Sp5n9x,2024-08-28,P558137,4189623,Philippe,Martin,philippe.martin@gmail.com,"12 avenue des Lilas 95100 Argenteuil",0677412369,false,true
+Sb2h4s,2024-08-12,P129245,3499526,Morel,Gustave,gustave.morel@gmail.com,"Av. de la Palmyre, 17570 Les Mathes",,false,true
+

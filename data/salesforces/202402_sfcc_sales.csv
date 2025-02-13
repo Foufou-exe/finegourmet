@@ -1,0 +1,27 @@
+sale_id,transaction_date,product_id,customer_id,customer_last_name,customer_first_name,customer_email,customer_address,customer_phone,email_optin,sms_optin
+S1g7h2,2024-02-02,P736294,7534002,Lefebvre,Ouran,Ouran.lefebvre@yahoo.fr,"12 Rue Jules Supervielle, 24330 Boulazac Isle Manoire",0745918801,true,true
+S8n4b9,2024-02-14,P848523,6830542,Durand,Julie,julie.durand@free.fr,"3 Rue de l'Université, 75007 Paris",0798765432,true,false
+Sv2m6q,2024-02-26,P419631,5796104,Millos,Tara,tara.millos@gmail.com,"44 Rue de la 1ère Armée Française, 68190 Ensisheim",,false,true
+S5o7p1,2024-02-08,P950748,1927358,Dubois,Marie,marie.dubois@free.fr,"4 Rue de la Paix, 75002 Paris",0789012345,false,true
+Sz3h8c,2024-02-19,P521856,9632804,Bernard,Julien,julien.bernard@yahoo.fr,"5 Place Vendôme, 75001 Paris",,false,true
+S7k4m9,2024-02-04,P192964,4051729,Fournier,Céline,celine.fournier@gmail.com,"18 Rue du Temple, 75004 Paris",0623456789,true,false
+Sp1n5q,2024-02-23,P633087,8275941,Dupont,Isabelle,isabelle.dupont@gmail.com,"9 Rue de Rivoli, 75001 Paris",0612345678,false,true
+Sa8thb,2024-02-06,P204195,3252098,Van der Meer,Anouk,anouk.vdm@outlook.com,"27 Rue Louis Loucheur, 69009 Lyon",0612954002,true,false
+Sj6x9f,2024-02-17,P745306,5480293,Moreau,Sophie,sophie.moreau@outlook.com,"15 Rue du Faubourg Saint-Honoré, 75008 Paris",,true,true
+S4a2o7,2024-02-29,P316414,7801463,Moreau,Ophélie,ophelie.moreau@sfr.fr,"306 Rue Geneviève Anthonioz de Gaulle, 59000 Lille",,true,false
+S9m5k8,2024-02-10,P857522,2845160,Simon,Nicolas,nicolas.simon@free.fr,"10 Avenue Montaigne, 75008 Paris",,false,false
+Sp3n1q,2024-02-21,P428639,1534975,Gosselin,Théo,theo.gosselin@sfr.fr,"15 Av. de Verdun, 52100 Saint-Dizier",,true,true
+Sb9v7h,2024-02-01,P969747,4283615,Lemoine,Sarah,sarah.lemoine@gmail.com,"11 Rue de Vaugirard, 75006 Paris",0611223344,true,false
+Sj6x4f,2024-02-13,P530855,5302482,Ornov,Dimitri,dim.ornov@yahoo.fr,"11 Av. Edouard VII, 64200 Biarritz",,false,true
+S5a2o8,2024-02-24,P101963,1762934,Robert,Alexandre,alexandre.robert@outlook.com,"20 Rue du Bac, 75007 Paris",,true,true
+Sm3q9z,2024-02-07,P642071,1675046,Vauclair,Amélie,amelie.vauclair@yahoo.fr,"104 Av. de Lodeve, 34070 Montpellier",,false,true
+S2h9v1,2024-02-18,P213189,9462001,Poget,Paul,paul.poget@outlook.com,"10 Av. Marcellin Berthelot, 60200 Compiègne",,false,false
+S8n5b6,2024-02-03,P754297,7458231,Gauthier,Hugo,hugo.gauthier@free.fr,"9 Quai Voltaire, 75007 Paris",,true,true
+S1v7h3,2024-02-28,P325405,1520347,Patel,Ravi,ravi.patel@sfr.fr,"6 Rue Georges Gonnet, 13730 Saint-Victoret",0612546302,false,true
+S6c9a2,2024-02-12,P866513,4754625, Cheval,Margot,margot.cheval@gmail.com, "11 Rue des Fontaines, 76260 Eu",,true,true
+Sk7m8p,2024-02-25,P978738,2489138,Martin,Phillippe,phillippe.martin@orange.fr,"33 Rue Saint-André des Arts, 75006 Paris",0777777777,false,false
+Ss3n6q,2024-02-09,P437621,9348523,Leclerc,Océane,oceane.leclerc@outlook.com,"10 Rue de l'Odéon, 75006 Paris",0144556677,true,false
+Sb2h4v,2024-02-22,P549846,8347413,Murray,Jamal,jamal.murray@gmail.com,"19 Rue Maréchal Joffre, 35000 Rennes",0785511210,false,true
+Sj9x1f,2024-02-05,P110954,1599231,Solfege,Arman,arman.sol@gmail.com,"Moulin de Vilaine, 36000 Châteauroux",0617759745,true,true
+S6a7o8,2024-02-16,P651062,2630176,Mance,Bagger,b.mance@wanadoo.fr,"1 Rte du Tour de France, 85100 Les Sables-d'Olonne",,true,false
+S2h5n9,2024-02-27,P222179,7106188,Faure,Fabien,ff13@gmail.com,"5 Rue Diderot, 13200 Arles",0471523246,false,true

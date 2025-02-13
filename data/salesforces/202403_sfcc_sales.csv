@@ -1,0 +1,24 @@
+sale_id,transaction_date,product_id,customer_id,customer_last_name,customer_first_name,customer_email,customer_address,customer_phone,email_optin,sms_optin
+S4z8v6,2024-03-05,P763287,1003247,Carpentier,Émilie,emilie.carpentier@sfr.fr,"11 Pl. de la République, 51000 Châlons-en-Champagne",0645632597,true,true
+Sm1q7k,2024-03-18,P334395,9348523,Leclerc,Océane,oceane.leclerc@outlook.com,"10 Rue de l'Odéon, 75006 Paris",0144556677,false,true
+S9b5h2,2024-03-29,P875503,7591313,Benasser,Karim,kb1313@gmail.com,"27 Rue de Forbin, 13002 Marseille",0684252510,true,false
+S7f9o4,2024-03-10,P446711,6728431,Guillaume,Zoe,zoe.guillaume@gmail.com,"247 Rue Giraudeau, 37000 Tours",0654851269,false,false
+Sx6a8n,2024-03-21,P987829,1011622,Lemoine,Emma,emma.lemoine@wanadoo.fr,"60 Rue de la Pompe, 95200 Sarcelles",0646279145,true,true
+S3h5v1,2024-03-02,P558937,8211165,Malbec,Ginette,ginette.malbec@wanadoo.fr,"25 route de la Croisette, 48400 Florac-Trois-Rivières",,true,true
+So9q7z,2024-03-13,P129045,5106230, Dufresne,Soren,soren.dufresne@gmail.com, "362 Bd Jean Moulin, 62400 Béthune",0745951048,false,true
+S2b6h8,2024-03-24,P660153,2489138,Martin,Phillippe,phillippe.martin@orange.fr,"33 Rue Saint-André des Arts, 75006 Paris",0777777777,true,false
+S74dm5,2024-03-06,P231261,2684905,Fontaine,Clara,clara.fontaine@sfr.fr,"22 Rue du Dragon, 75006 Paris",0765432109,true,false
+Sp1n9q,2024-03-16,P772378,7458231,Gauthier,Hugo,hugo.gauthier@free.fr,"9 Quai Voltaire, 75007 Paris",,false,false
+Sa8v3b,2024-03-27,P343486,1032740,Eriksson,Leif,leif.eriksson@outlook.com,"171 Av. Victor Hugo, 26000 Valence",0645952034,false,false
+Sj6x2f,2024-03-08,P884594,8075192,Bertrand,Théo,theo.bertrand@yahoo.fr,"25 Rue de Rennes, 75006 Paris",,true,false
+S4a2o6,2024-03-20,P455802,1954302,Nakamura,Kira,kira.nakamura@gmail.com,"2 Rue André Benoît, 13200 Arles",0651240344,false,true
+Sm3q8z,2024-03-01,P996919,1345902,O'Sullivan,Aisling,aisling.osullivan@sfr.fr,"31 Rue Mareschal, 52000 Chaumont",,true,true
+S2h9v5,2024-03-12,P567027,4315860,Simone,Ethopie,ethiopie.simone@free.fr,"12 Porte des Princes, 08200 Sedan",,true,false
+S8n5b4,2024-03-23,P138136,7308462,Roux,Antoine,antoine.roux@sfr.fr,"33 Boulevard Haussmann, 75009 Paris",,false,false
+S1v7h1,2024-03-04,P679243,5480293,Moreau,Sophie,sophie.moreau@outlook.com,"15 Rue du Faubourg Saint-Honoré, 75008 Paris",,false,false
+S6c9a9,2024-03-14,P240351,4051729,Fournier,Céline,celine.fournier@gmail.com,"18 Rue du Temple, 75004 Paris",0623456789,false,false
+Sk7m6p,2024-03-26,P781468,1927358,Dubois,Marie,marie.dubois@free.fr,"4 Rue de la Paix, 75002 Paris",0789012345,true,true
+Ss3n4q,2024-03-07,P352576,8463255,Petit,Adrien,adrien.petit?outlook.com,"3 Rue de l'Église, 80400 Sancourt",,true,true
+Sb2h2v,2024-03-17,P893684,9632804,Bernard,Julien,julien.bernard@yahoo.fr,"5 Place Vendôme, 75001 Paris",,false,true
+Sj9x7f,2024-03-28,P464792,8275941,Dupont,Isabelle,isabelle.dupont@gmail.com,"9 Rue de Rivoli, 75001 Paris",0612345678,true,true
+S4z8v1,2024-03-09,P905809,7304066,Arylinko,Paloma,paloma.arylinko@yahoo.fr,"24 Rue Albert Einstein, 03100 Montluçon",0723459612,false,true

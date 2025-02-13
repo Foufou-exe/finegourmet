@@ -1,0 +1,12 @@
+sale_id,transaction_date,product_id,customer_id,customer_last_name,customer_first_name,customer_email,customer_address,customer_phone,email_optin,sms_optin
+Sjl38f,2024-10-04, P679243, 4567891,Belotte,Lydia,lydia.belotte@gmail.com,"25 Av. Frédéric Mistral, 30240 Le Grau-du-Roi",0625759623,true,false
+S4pmv9,2024-10-15, P240351, 3372493,Dupond,Charlotte,c.dupond@gmail.com,"34 Rue Bergère, 75009 Paris",0783547963,false,true
+Smh73k,2024-10-26, P781468, 3400195,Ferreau,Gustave,gustave.ferreau@orange.fr,"72 Rue Albert Einstein, 03100 Montluçon",,true,false
+S9b5h7,2024-10-06, P352576, 6695410,Marchal,Timéo,timeo.marchal@orange.fr,"16 Quai Saint-Laurent, 45000 Orléans",0642697501,true,true
+S8a9o2,2024-10-17, P893684, 4301850,Maréchal,Solène,solene.marechal@orange.fr,"124 Prte de France, 06500 Menton",,false,true
+Sx6a4n,2024-10-28, P464792, 3150137,Valla,Theo,theo.valla@free.fr,"239 Chem. de Lesdier, 05200 Baratier",0725103450,true,true
+S3h115,2024-10-09, P905809,9257460,Martins,Philippe,philippe.martin@free.fr,"12 avenue des Lilas, 95100 Argenteuil",0677412369,true,false
+So0s1z,2024-10-20, P576917,	1148565,Boucher,Florent,florent.boucher@gmail.com,"19 rue grande Flandres, 76270 Neufchâte-en-bray",0743571002,true,false
+S2b6h2,2024-10-31, P147025, 4569622,Connors,Sarah,s.connors@yopmail.fr,"61 Rue Pierre Semard, 54000 Nancy",0758699225,true,false
+S1v7h4, 2024-10-01, P853921, 4630218, Henri, Hugo, hugo.henri@gmail.com,"12, rue du Château de, La Fosse, 71490 Saint-Jean-de-Trézy",, false, true
+S5u6a8, 2024-10-29, P416857, 7114585, Martin, Philippe, philippe.martin@gmail.com,"12 avenue des Lilas, 95100 Argenteuil", 0677412369, false, false
