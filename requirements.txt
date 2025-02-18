@@ -1,3 +1,5 @@
 mysql-connector-python
 py4j
 pyspark
+python-dotenv
+setuptools
