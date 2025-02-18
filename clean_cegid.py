@@ -104,7 +104,7 @@ store_ids = ["PA01", "PA02", "PA03", "BO01", "BO02", "MO01", "LY01", "LY02", "MA
 # 🏪 Correction FORCÉE des store_id mal formés
 df = df.withColumn("store_id_from_sale", substring(col("sale_id"), 1, 4))  # Prendre toujours les 4 premiers caractères
 
-df = df.withColumn("store_id_corrected",
+df = df.withColumn("store_id",
     when(col("store_id_from_sale").isin(store_ids), col("store_id_from_sale"))  # Si déjà correct, on garde
     .when(col("store_id_from_sale").startswith("XXMO"), "MO01")
     .when(col("store_id_from_sale").startswith("XXCL"), "CL01")
@@ -120,21 +120,21 @@ df = df.withColumn("store_id_corrected",
 
 # ✅ Vérification après correction des store_id
 print("\n✅ Vérification après correction FORCÉE des store_id :")
-df.select("sale_id", "store_id_from_sale", "store_id_corrected").show(10, truncate=False)
+df.select("sale_id", "store_id_from_sale", "store_id").show(10, truncate=False)
 
 
 
 
 # 🎯 Correction du `sale_id` avec `YYMM`
 df = df.withColumn("sale_id",
-    when(col("store_id_corrected") == "UNKNOWN", col("sale_id"))  # Si inconnu, ne change rien
-    .otherwise(concat_ws("", col("store_id_corrected"), col("year_month_yy"), lpad(substring(col("sale_id"), -5, 5), 5, "0")))
+    when(col("store_id") == "UNKNOWN", col("sale_id"))  # Si inconnu, ne change rien
+    .otherwise(concat_ws("", col("store_id"), col("year_month_yy"), lpad(substring(col("sale_id"), -5, 5), 5, "0")))
 )
 
 
 # ✅ Vérification après correction du sale_id
 print("\n✅ Vérification après correction finale du sale_id :")
-df.select("sale_id", "store_id_from_sale", "store_id_corrected", "year_month_yy").show(10, truncate=False)
+df.select("sale_id", "store_id_from_sale", "store_id", "year_month_yy").show(10, truncate=False)
 
 
 
@@ -220,7 +220,7 @@ df = df.withColumn("price", col("price").cast("double"))  # Garde price en float
 df = df.withColumn("quantity", col("quantity").cast("int"))  # Convertir en int (moins de mémoire)
 df = df.withColumn("transaction_date", to_date(col("transaction_date"), "yyyy-MM-dd"))  # Date propre
 df = df.withColumn("year_month_yy", col("year_month_yy").cast("string"))  # Garde en string
-df = df.withColumn("store_id_corrected", col("store_id_corrected").cast("string"))  # Garde en string
+df = df.withColumn("store_id", col("store_id").cast("string"))  # Garde en string
 df = df.withColumn("sale_id", col("sale_id").cast("string"))  # Garde en string
 df = df.withColumn("email", col("email").cast("string"))  # Garde en string
 df = df.withColumn("product_name", col("product_name").cast("string"))  # Garde en string
@@ -239,6 +239,14 @@ df.select("transaction_date").show(10, truncate=False)
 
 # 🏷️ Vérifier le schéma final
 df.printSchema()
+
+# 🏷️ Supprimer la colonne year_month_yy à la fin
+df = df.drop("year_month_yy")
+
+# ✅ Vérification après suppression
+print("\n✅ Vérification du schéma après suppression de year_month_yy :")
+df.printSchema()
+
 
 
 #############################################################################################
