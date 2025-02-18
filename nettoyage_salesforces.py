@@ -8,8 +8,8 @@ from pyspark.sql.functions import col, trim, regexp_replace
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Définir les chemins relatifs au script
-input_folder = os.path.join(script_dir)  # Tous les fichiers CSV sont dans le même dossier
-output_file = os.path.join(script_dir, "sfcc_cleaned.csv")  # Fichier nettoyé dans le même dossier
+input_folder = os.path.join(script_dir, "data/salesforces")  # Tous les fichiers CSV sont dans le même dossier
+output_file = os.path.join(script_dir, "data/salesforces/sfcc_cleaned.csv")  # Fichier nettoyé dans le même dossier
 
 def clean_sfcc_data(input_folder, output_file):
     """
