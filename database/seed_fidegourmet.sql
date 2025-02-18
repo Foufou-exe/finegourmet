@@ -14,7 +14,8 @@ CREATE TABLE
   `Dim_Product` (
     `Product_ID` VARCHAR(50) PRIMARY KEY,
     `Name` VARCHAR(255) NOT NULL,
-    `Category` VARCHAR(255)
+    `Category` VARCHAR(255),
+    `Price` DECIMAL(10, 2) NOT NULL	
   );
 
 CREATE TABLE
