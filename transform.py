@@ -70,7 +70,7 @@ class DataTransformer:
         df_sfcc.show(10, truncate=False)
 
         return df_sfcc
-
+##### Code transformation Thomas #######
     def transform_cegid(self, df_cegid):
         # Transformation similaire à SFCC si besoin.
         df_cegid = df_cegid.withColumnRenamed("quantity", "Quantity") \
