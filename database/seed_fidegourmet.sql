@@ -30,7 +30,6 @@ CREATE TABLE
     `Price` DECIMAL(10, 2) NOT NULL,
     `Type` VARCHAR(50) NOT NULL,
     `Date` DATE NOT NULL,
-    `FK_Date_ID` INT NOT NULL,
     `FK_Client_ID` INT,
     `FK_Product_ID` VARCHAR(50) NOT NULL,
     `FK_Store_ID` VARCHAR(50)

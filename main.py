@@ -6,8 +6,11 @@ from transform import DataTransformer
 from loader import DataLoader
 from pyspark.sql.functions import col, to_date, lit, monotonically_increasing_id
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 logger = logging.getLogger(__name__)
+
 
 def main():
     # ----------------------------------------------------------------
@@ -30,7 +33,13 @@ def main():
     # ----------------------------------------------------------------
     extractor = DataExtractor(app_name="FineGourmet_ETL")
     transformer = DataTransformer()
-    loader = DataLoader(jdbc_url=jdbc_url, user=jdbc_user, password=jdbc_password, database="finegourmet", driver=jdbc_driver)
+    loader = DataLoader(
+        jdbc_url=jdbc_url,
+        user=jdbc_user,
+        password=jdbc_password,
+        database="finegourmet",
+        driver=jdbc_driver,
+    )
 
     # ----------------------------------------------------------------
     # 3) EXTRACT : Charger les données
@@ -70,31 +79,37 @@ def main():
 
     if df_sfcc is not None:
         # Dimension Client (à partir de df_sfcc)
-        dim_clients = df_sfcc.select("Email", "Last_Name", "First_Name", "Phone").dropna() \
-                        .dropDuplicates() \
-                        .withColumn("Client_ID", monotonically_increasing_id())
-                        
+        dim_clients = (
+            df_sfcc.select("Email", "Last_Name", "First_Name", "Phone")
+            .dropna()
+            .dropDuplicates()
+            .withColumn("Client_ID", monotonically_increasing_id())
+        )
+
     # Dimension Client (à partir de df_cegid)
     if df_cegid is not None:
-        dim_clients = df_cegid.select("Email").dropna() \
-                        .dropDuplicates() \
-                        .withColumn("Client_ID", monotonically_increasing_id())
+        dim_clients = (
+            df_cegid.select("Email")
+            .dropna()
+            .dropDuplicates()
+            .withColumn("Client_ID", monotonically_increasing_id())
+        )
     else:
         dim_clients = None
 
     # Dimension Date (à partir de df_cegid, colonne transaction_date)
     if df_cegid is not None:
-        dim_time = df_cegid.select(to_date(col("transaction_date"), "yyyy-MM-dd").alias("Date")) \
-                    .withColumn("Date_ID", monotonically_increasing_id())
+        dim_time = df_cegid.select(
+            to_date(col("transaction_date"), "yyyy-MM-dd").alias("Date")
+        ).withColumn("Date_ID", monotonically_increasing_id())
     else:
         dim_time = None
 
     # Dimension Channel statique
     spark = extractor.spark  # Utilisation de la session Spark existante
-    dim_channels = spark.createDataFrame([
-        (1, "En ligne"),
-        (2, "En magasin")
-    ], ["Channel_ID", "Type"])
+    dim_channels = spark.createDataFrame(
+        [(1, "En ligne"), (2, "En magasin")], ["Channel_ID", "Type"]
+    )
 
     # Table de faits Fact_Sales (fusion des données SFCC et CEGID)
     fact_sales = None
@@ -107,23 +122,20 @@ def main():
 
     if fact_sales is not None:
         fact_sales = fact_sales.select(
-            "Sale_ID",
-            "Quantity",
-            "Price",
-            "Transaction_Date",
-            "Product_ID",
-            "Email"
+            "Sale_ID", "Quantity", "Price", "Transaction_Date", "Product_ID", "Email"
         )
         # Jointure avec Dim_Date pour obtenir FK_Date_ID
         if dim_time is not None:
-            fact_sales = fact_sales.join(dim_time.select("Date_ID", "Date"),
-                                         fact_sales.Transaction_Date == dim_time.Date,
-                                         "left")
+            fact_sales = fact_sales.join(
+                dim_time.select("Date_ID", "Date"),
+                fact_sales.Transaction_Date == dim_time.Date,
+                "left",
+            )
         # Jointure avec Dim_Client pour obtenir FK_Client_ID
         if dim_clients is not None:
-            fact_sales = fact_sales.join(dim_clients.select("Client_ID", "Email"),
-                                         on="Email",
-                                         how="left")
+            fact_sales = fact_sales.join(
+                dim_clients.select("Client_ID", "Email"), on="Email", how="left"
+            )
         # On attribue une valeur statique pour FK_Channel_ID (par exemple 2 pour CEGID)
         fact_sales = fact_sales.withColumn("FK_Channel_ID", lit(2))
         # Pour les ventes en ligne, FK_Store_ID = NULL
@@ -137,7 +149,7 @@ def main():
             "Client_ID as FK_Client_ID",
             "Product_ID as FK_Product_ID",
             "FK_Channel_ID",
-            "FK_Store_ID"
+            "FK_Store_ID",
         )
     else:
         logger.warning("Aucune donnée factuelle disponible pour Fact_Sales.")
@@ -164,6 +176,7 @@ def main():
     # ----------------------------------------------------------------
     extractor.stop()
     logger.info("✅ ETL terminé avec succès.")
+
 
 if __name__ == "__main__":
     main()
