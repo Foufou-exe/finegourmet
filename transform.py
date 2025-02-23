@@ -28,6 +28,9 @@ class DataTransformer:
         # mais on peut l'appliquer de nouveau ici si besoin.
 
         # Nettoyage général des valeurs : suppression des espaces, tabulations et sauts de ligne en trop
+
+        df_sfcc = df_sfcc.withColumn("Quantity", lit(1).cast("integer"))
+
         for column in df_sfcc.columns:
             df_sfcc = df_sfcc.withColumn(column, trim(regexp_replace(col(column), r"[\t\r\n]+", " ")))
 
