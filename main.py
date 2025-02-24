@@ -44,6 +44,9 @@ def main():
     df_products = extractor.extract_products(products_file)
     df_boutiques = extractor.extract_boutiques(boutiques_file)
 
+    df_cegid.groupBy("Sale_ID").count().filter(col("count") > 1).show()
+    df_sfcc.groupBy("Sale_ID").count().filter(col("count") > 1).show()
+
     # Ajout d'une colonne "Source" pour différencier les ventes en ligne (sfcc) et physiques (cegid)
     if df_sfcc is not None:
         df_sfcc = df_sfcc.withColumn("Source", lit("sfcc"))
@@ -54,9 +57,9 @@ def main():
     # 4) TRANSFORM : Appliquer les transformations
     # ----------------------------------------------------------------
     if df_sfcc is not None:
-        df_sfcc = transformer.transform_sfcc(df_sfcc)
+        df_sfcc = transformer.transform_sfcc(df_sfcc, df_products)
     if df_cegid is not None:
-        df_cegid = transformer.transform_cegid(df_cegid)
+        df_cegid = transformer.transform_cegid(df_cegid, df_products)
     if df_products is not None:
         df_products = transformer.transform_products(df_products)
     if df_boutiques is not None:
@@ -130,6 +133,8 @@ def main():
 
         # Sélection finale
         fact_sales = fact_sales.select("Sale_ID", "Quantity", "Price", "Date", "FK_Client_ID", "FK_Product_ID", "FK_Store_ID")
+
+        fact_sales.groupBy("Sale_ID").count().filter(col("count") > 1).show(10, truncate=False)
 
     # ----------------------------------------------------------------
     # 6) LOAD : Chargement dans MySQL

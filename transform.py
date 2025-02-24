@@ -13,7 +13,7 @@ class DataTransformer:
     def __init__(self):
         pass
 
-    def transform_sfcc(self, df_sfcc):
+    def transform_sfcc(self, df_sfcc, df_products):
         """
         Transforme le DataFrame SFCC :
          - Mise en minuscules de l'email
@@ -71,12 +71,21 @@ class DataTransformer:
         if "Customer_ID" in df_sfcc.columns:
             df_sfcc = df_sfcc.withColumn("Customer_ID", col("Customer_ID").cast(IntegerType()))
 
+
+                # 🎯 Ajout du prix en récupérant `Price` depuis `df_products`
+        if df_products is not None:
+            df_sfcc = df_sfcc.join(
+                df_products.select(col("Product_ID").alias("prod_id"), "Price"),
+                df_sfcc["Product_ID"] == col("prod_id"),
+                "left"
+            ).drop("prod_id")
+        df_sfcc = df_sfcc.withColumn("Price", col("Price").cast("double"))
         df_sfcc.show(10, truncate=False)
 
         return df_sfcc
 
 ##### Code transformation Thomas #######
-    def transform_cegid(self, df_cegid):
+    def transform_cegid(self, df_cegid, df_products):
         # Transformation similaire à SFCC si besoin.
         df_cegid = df_cegid.withColumnRenamed("quantity", "Quantity") \
                             .withColumnRenamed("sale_id", "Sale_ID") \
@@ -116,19 +125,33 @@ class DataTransformer:
             # 🏷️ Joindre la table des prix de référence sur le DataFrame principal
             df_cegid = df_cegid.join(df_price_lookup, on="Product_Name", how="left")
 
-            # 🏷️ Remplacer les valeurs invalides de Price par ref_price_unitaire * Quantity
-            df_cegid = df_cegid.withColumn("Price",
+          # 🏷️ Jointure avec df_products pour récupérer le prix des produits si non présent dans df_cegid
+            df_cegid = df_cegid.join(
+                df_products.select(col("Product_Name").alias("prod_name"), col("Price").alias("unit_price")),
+                df_cegid["Product_Name"] == col("prod_name"),
+                "left"
+            ).drop("prod_name")
+
+            # 🏷️ Calcul du prix unitaire de référence (si non présent dans df_cegid)
+            df_cegid = df_cegid.withColumn(
+                "ref_price_unitaire",
                 when(
-                    (col("Price").isNull()) |
-                    (trim(col("Price")) == "") |
-                    (col("Price") == "X") |
-                    (col("Price").cast("double").isNull()),
+                    (col("Price").isNotNull()) & (~isnan(col("Price"))) & (trim(col("Price")) != "") & (col("Price") != "X") & (col("Price").cast("double").isNotNull()),
+                    col("Price").cast("double") / col("Quantity")  # Calcul du prix unitaire si déjà existant
+                ).otherwise(col("unit_price"))  # Sinon, prendre le prix de df_products
+            )
+
+            # 🏷️ Remplacement des valeurs invalides et calcul du prix total
+            df_cegid = df_cegid.withColumn(
+                "Price",
+                when(
+                    (col("Price").isNull()) | (trim(col("Price")) == "") | (col("Price") == "X") | (col("Price").cast("double").isNull()),
                     round(col("ref_price_unitaire") * col("Quantity"), 2)  # Remplacement par `price_unitaire * Quantity`
                 ).otherwise(col("Price").cast("double"))  # Sinon, garder la valeur existante
             )
 
-            # 🏷️ Supprimer la colonne temporaire ref_price_unitaire
-            df_cegid = df_cegid.drop("ref_price_unitaire")
+            # 🏷️ Suppression de la colonne temporaire ref_price_unitaire et unit_price
+            df_cegid = df_cegid.drop("ref_price_unitaire", "unit_price")
 
         #############################################################################################
         ######################### Fin transformation de Price #######################################
