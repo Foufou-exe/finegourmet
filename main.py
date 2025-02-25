@@ -7,7 +7,7 @@ import logging
 from extract import DataExtractor
 from transform import DataTransformer
 from loader import DataLoader
-from pyspark.sql.functions import col, to_date, lit, monotonically_increasing_id, when, coalesce
+from pyspark.sql.functions import col, to_date, lit, monotonically_increasing_id, when, coalesce, first
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
@@ -44,6 +44,8 @@ def main():
     df_products = extractor.extract_products(products_file)
     df_boutiques = extractor.extract_boutiques(boutiques_file)
 
+    # Vérification des doublons
+    print("Vérification des doublons avant transformation :")
     df_cegid.groupBy("Sale_ID").count().filter(col("count") > 1).show()
     df_sfcc.groupBy("Sale_ID").count().filter(col("count") > 1).show()
 
@@ -65,6 +67,12 @@ def main():
     if df_boutiques is not None:
         df_boutiques = transformer.transform_boutiques(df_boutiques)
 
+
+    # Vérification des doublons
+    print("Vérification des doublons après transformation :")
+    df_cegid.groupBy("Sale_ID").count().filter(col("count") > 1).show()
+    df_sfcc.groupBy("Sale_ID").count().filter(col("count") > 1).show()
+
     # ----------------------------------------------------------------
     # 5) UNIFICATION ET CREATION DES DIMENSIONS ET DE LA TABLE DE FAITS
     # ----------------------------------------------------------------
@@ -83,21 +91,41 @@ def main():
             .withColumn("First_Name", lit(None).cast("string")) \
             .withColumn("Phone", lit(None).cast("string")) \
             .withColumn("Address", lit(None).cast("string"))
+
+        # Fusion des deux sources et suppression des doublons
         dim_clients = clients_sfcc.unionByName(clients_cegid, allowMissingColumns=True) \
-                                  .dropDuplicates() \
-                                  .withColumn("Client_ID", monotonically_increasing_id())
+                                .groupBy("Email").agg(
+                                    first("Last_Name", ignorenulls=True).alias("Last_Name"),
+                                    first("First_Name", ignorenulls=True).alias("First_Name"),
+                                    first("Phone", ignorenulls=True).alias("Phone"),
+                                    first("Address", ignorenulls=True).alias("Address")
+                                ) \
+                                .withColumn("Client_ID", monotonically_increasing_id())
+
     elif df_sfcc is not None:
         dim_clients = df_sfcc.select("Email", "Last_Name", "First_Name", "Phone", "Address") \
-                             .dropDuplicates() \
-                             .withColumn("Client_ID", monotonically_increasing_id())
+                            .groupBy("Email").agg(
+                                first("Last_Name", ignorenulls=True).alias("Last_Name"),
+                                first("First_Name", ignorenulls=True).alias("First_Name"),
+                                first("Phone", ignorenulls=True).alias("Phone"),
+                                first("Address", ignorenulls=True).alias("Address")
+                            ) \
+                            .withColumn("Client_ID", monotonically_increasing_id())
+
     elif df_cegid is not None:
         dim_clients = df_cegid.select("Email") \
             .withColumn("Last_Name", lit(None).cast("string")) \
             .withColumn("First_Name", lit(None).cast("string")) \
             .withColumn("Phone", lit(None).cast("string")) \
             .withColumn("Address", lit(None).cast("string")) \
-            .dropDuplicates() \
+            .groupBy("Email").agg(
+                first("Last_Name", ignorenulls=True).alias("Last_Name"),
+                first("First_Name", ignorenulls=True).alias("First_Name"),
+                first("Phone", ignorenulls=True).alias("Phone"),
+                first("Address", ignorenulls=True).alias("Address")
+            ) \
             .withColumn("Client_ID", monotonically_increasing_id())
+
 
     # Table de faits Fact_Sales
     fact_sales = None
@@ -115,9 +143,11 @@ def main():
         fact_sales = fact_sales.withColumn("FK_Store_ID", when(col("Source") == "cegid", lit("DEFAULT_STORE")).otherwise(lit(None)))
 
         # **Correction ici** : Jointure avec Dim_Client et renommage correct
+        # Correction de FK_Client_ID pour éviter les doublons
         if dim_clients is not None:
             fact_sales = fact_sales.join(dim_clients.select("Client_ID", "Email"), on="Email", how="left") \
-                                  .withColumnRenamed("Client_ID", "FK_Client_ID")
+                                .withColumnRenamed("Client_ID", "FK_Client_ID")
+
 
         # Jointure avec Dim_Product
         if dim_products is not None:
@@ -134,11 +164,29 @@ def main():
         # Sélection finale
         fact_sales = fact_sales.select("Sale_ID", "Quantity", "Price", "Date", "FK_Client_ID", "FK_Product_ID", "FK_Store_ID")
 
-        fact_sales.groupBy("Sale_ID").count().filter(col("count") > 1).show(10, truncate=False)
+        # Vérification des doublons après unification
+        print("🔎 Vérification détaillée des doublons après unification :")
+
+        df_duplicates = fact_sales.groupBy("Sale_ID").count().filter(col("count") > 1)
+
+        # Afficher les Sale_ID en doublon avec toutes leurs colonnes
+        df_duplicated_sales = fact_sales.join(df_duplicates, on="Sale_ID", how="inner")
+
+        import pandas as pd
+        df_pandas = df_duplicated_sales.toPandas()
+        pd.set_option('display.max_rows', None)  # Afficher toutes les lignes
+        pd.set_option('display.max_columns', None)  # Afficher toutes les colonnes
+        pd.set_option('display.width', None)  # Éviter la coupure des lignes
+
+    print(df_pandas)
 
     # ----------------------------------------------------------------
     # 6) LOAD : Chargement dans MySQL
     # ----------------------------------------------------------------
+    print("Vérification des valeurs nulles dans Fact_Sales :")
+    fact_sales.filter(col("Price").isNull()).show(truncate=False)
+
+
     logger.info("=== Chargement des données dans MySQL ===")
     if dim_products is not None:
         loader.load_dim_product(dim_products)
