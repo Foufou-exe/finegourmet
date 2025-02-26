@@ -58,12 +58,12 @@ def main():
     # ----------------------------------------------------------------
     # 4) TRANSFORM : Appliquer les transformations
     # ----------------------------------------------------------------
+    if df_products is not None:
+        df_products = transformer.transform_products(df_products)
     if df_sfcc is not None:
         df_sfcc = transformer.transform_sfcc(df_sfcc, df_products)
     if df_cegid is not None:
         df_cegid = transformer.transform_cegid(df_cegid, df_products)
-    if df_products is not None:
-        df_products = transformer.transform_products(df_products)
     if df_boutiques is not None:
         df_boutiques = transformer.transform_boutiques(df_boutiques)
 
@@ -153,7 +153,7 @@ def main():
         if dim_products is not None:
             fact_sales = fact_sales.join(
                 dim_products.select(col("Product_ID").alias("prod_id"), col("Name").alias("prod_name")),
-                fact_sales.Product_Name == col("prod_name"),
+                fact_sales["Product_ID"] == col("prod_id"),
                 "left"
             )
             fact_sales = fact_sales.withColumn("FK_Product_ID", coalesce(col("Product_ID"), col("prod_id")))
