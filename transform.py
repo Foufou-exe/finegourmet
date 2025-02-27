@@ -153,7 +153,7 @@ class DataTransformer:
         df_cegid = df_cegid.withColumn("Email", lower(col("Email")))
 
         # 🚀 **8. Sélection finale**
-        df_cegid = df_cegid.select("Product_ID", "Email", "Price", "Quantity", "Sale_ID", "Transaction_Date", "store_id")
+        df_cegid = df_cegid.select("Product_ID", "Email", "Price", "Quantity", "Sale_ID", "Transaction_Date", "store_id", "Product_Name")
 
         print("✅ Transformation CEGID terminée.")
         df_cegid.show(10, truncate=False)
@@ -190,3 +190,4 @@ class DataTransformer:
         logger.info("Transformation des boutiques terminée.")
         df_boutiques.show(10, truncate=False)
         return df_boutiques
+

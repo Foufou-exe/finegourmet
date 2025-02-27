@@ -1,13 +1,15 @@
 # main.py
-
 import os
-
 import logging
 
+# Import des classes de l'ETL
 from extract import DataExtractor
 from transform import DataTransformer
 from loader import DataLoader
-from pyspark.sql.functions import col, to_date, lit, monotonically_increasing_id, when, coalesce, first
+
+# Import des fonctions et classes Spark
+from pyspark.sql.functions import col, to_date, lit, monotonically_increasing_id, when, coalesce, first, col, sum as _sum, row_number, format_string, coalesce
+from pyspark.sql import Window
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
@@ -64,9 +66,56 @@ def main():
         df_sfcc = transformer.transform_sfcc(df_sfcc, df_products)
     if df_cegid is not None:
         df_cegid = transformer.transform_cegid(df_cegid, df_products)
+        df_cegid.show(100, truncate=False )
     if df_boutiques is not None:
         df_boutiques = transformer.transform_boutiques(df_boutiques)
 
+    # TODO : Ajouter les produits manquants dans df_products
+    if df_products is not None and df_cegid is not None:
+        # Identifier les produits manquants dans df_cegid (lorsqu'aucun Product_ID n'a été trouvé)
+        missing_names = df_cegid.filter(col("Product_ID").isNull()).select("Product_Name").distinct()
+        if missing_names.count() > 0:
+            # Extraire les ventes correspondant aux produits manquants et calculer le prix unitaire
+            new_products = df_cegid.join(missing_names, on="Product_Name") \
+                                    .groupBy("Product_Name") \
+                                    .agg((_sum("Price") / _sum("Quantity")).alias("Price"))
+            # Attribuer la catégorie en fonction du nom du produit
+            new_products = new_products.withColumn(
+                "Category",
+                when(col("Product_Name") == "Vin Blanc Gewurztraminer 2020", lit("vin"))
+                .when(col("Product_Name") == "Vin Rouge Côtes de Provence", lit("vin"))
+                .when(col("Product_Name") == "Terrine de Sanglier aux Noisettes", lit("charcuterie"))
+                .otherwise(lit("divers"))
+            )
+            # Générer un Product_ID unique au format "P000001"
+            window_spec = Window.orderBy("Product_Name")
+            new_products = new_products.withColumn("rn", row_number().over(window_spec))
+            new_products = new_products.withColumn("Product_ID", format_string("P%06d", col("rn")))
+            new_products = new_products.select("Product_ID", col("Product_Name").alias("Name"), "Category", "Price")
+
+            # Fusionner ces nouveaux produits avec le DataFrame existant de produits
+            df_products = df_products.unionByName(new_products)
+            logger.info("Les produits manquants ont été ajoutés au référentiel produits.")
+            df_products.show(truncate=False)
+
+            # Optionnel : actualiser df_cegid pour réaffecter le Product_ID aux lignes concernées
+            # (Si vous souhaitez réexécuter la jointure pour remplir les Product_ID manquants)
+            df_cegid = transformer.transform_cegid(df_cegid.drop("Product_ID"), df_products)
+
+    # Réaffecter le Product_ID dans df_cegid à partir du référentiel enrichi df_products
+    if df_cegid is not None and df_products is not None:
+        # On supprime l'ancienne colonne Product_ID de df_cegid (qui contient des null)
+        df_cegid = df_cegid.drop("Product_ID")
+        # Réaliser la jointure sur Product_Name (df_cegid) et Name (df_products)
+        df_cegid = df_cegid.join(
+            df_products.select(col("Name").alias("ref_product_name"), "Product_ID"),
+            df_cegid["Product_Name"] == col("ref_product_name"),
+            "left"
+        ).drop("ref_product_name")
+        # (Optionnel) Vérifier que les Product_ID ne sont plus null
+        df_cegid.filter(col("Product_ID").isNull()).show(truncate=False)
+
+    df_cegid.show(200, truncate=False )
 
     # Vérification des doublons
     print("Vérification des doublons après transformation :")
@@ -75,6 +124,7 @@ def main():
 
     # ----------------------------------------------------------------
     # 5) UNIFICATION ET CREATION DES DIMENSIONS ET DE LA TABLE DE FAITS
+
     # ----------------------------------------------------------------
     # Dimension Produit (à partir de df_products)
     dim_products = df_products.select("Product_ID", "Name", "Category", "Price") if df_products else None
@@ -188,14 +238,14 @@ def main():
 
 
     logger.info("=== Chargement des données dans MySQL ===")
-    if dim_products is not None:
-        loader.load_dim_product(dim_products)
-    if dim_stores is not None:
-        loader.load_dim_store(dim_stores)
-    if dim_clients is not None:
-        loader.load_dim_client(dim_clients)
-    if fact_sales is not None:
-        loader.load_fact_sales(fact_sales)
+    # if dim_products is not None:
+    #     loader.load_dim_product(dim_products)
+    # if dim_stores is not None:
+    #     loader.load_dim_store(dim_stores)
+    # if dim_clients is not None:
+    #     loader.load_dim_client(dim_clients)
+    # if fact_sales is not None:
+    #     loader.load_fact_sales(fact_sales)
 
     # ----------------------------------------------------------------
     # 7) Arrêt de Spark
@@ -205,3 +255,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    exit(0)
