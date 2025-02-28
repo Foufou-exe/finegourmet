@@ -178,26 +178,34 @@ def main():
 
 
     # Table de faits Fact_Sales
-    fact_sales = None
-    if df_sfcc is not None and df_cegid is not None:
-        fact_sales = df_sfcc.unionByName(df_cegid, allowMissingColumns=True)
-    elif df_sfcc is not None:
-        fact_sales = df_sfcc
-    elif df_cegid is not None:
-        fact_sales = df_cegid
+    # fact_sales = None
+    # if df_sfcc is not None and df_cegid is not None:
+    #     fact_sales = df_sfcc.unionByName(df_cegid, allowMissingColumns=True)
+    # elif df_sfcc is not None:
+    #     fact_sales = df_sfcc
+    # elif df_cegid is not None:
+    #     fact_sales = df_cegid
+
+    fact_sales = df_sfcc.unionByName(df_cegid, allowMissingColumns=True)
+
+
+    print("Lecture cegid")
+    # fact_sales.show(500, truncate=False)
 
     if fact_sales is not None:
         fact_sales = fact_sales.withColumnRenamed("Transaction_Date", "Date")
 
+        # TODO: Permet de recupérer ID de la boutique poru le lier à la vente
         # Correction du FK_Store_ID pour les ventes physiques
-        fact_sales = fact_sales.withColumn("FK_Store_ID", when(col("Source") == "cegid", lit("DEFAULT_STORE")).otherwise(lit(None)))
+        if df_cegid is not None:
+            fact_sales = fact_sales.withColumn("FK_Store_ID", col("Store_ID"))
+
 
         # **Correction ici** : Jointure avec Dim_Client et renommage correct
         # Correction de FK_Client_ID pour éviter les doublons
         if dim_clients is not None:
             fact_sales = fact_sales.join(dim_clients.select("Client_ID", "Email"), on="Email", how="left") \
                                 .withColumnRenamed("Client_ID", "FK_Client_ID")
-
 
         # Jointure avec Dim_Product
         if dim_products is not None:
@@ -222,21 +230,26 @@ def main():
         # Afficher les Sale_ID en doublon avec toutes leurs colonnes
         df_duplicated_sales = fact_sales.join(df_duplicates, on="Sale_ID", how="inner")
 
-        import pandas as pd
-        df_pandas = df_duplicated_sales.toPandas()
-        pd.set_option('display.max_rows', None)  # Afficher toutes les lignes
-        pd.set_option('display.max_columns', None)  # Afficher toutes les colonnes
-        pd.set_option('display.width', None)  # Éviter la coupure des lignes
+    #     import pandas as pd
+    #     df_pandas = df_duplicated_sales.toPandas()
+    #     pd.set_option('display.max_rows', None)  # Afficher toutes les lignes
+    #     pd.set_option('display.max_columns', None)  # Afficher toutes les colonnes
+    #     pd.set_option('display.width', None)  # Éviter la coupure des lignes
 
-    print(df_pandas)
+    # print(df_pandas)
+
+
+
+
+    print("Vérification des valeurs nulles dans Fact_Sales :")
+    # fact_sales.filter(col("Price").isNull()).show(truncate=False)
+    fact_sales.show(500, truncate=False )
+
+
 
     # ----------------------------------------------------------------
     # 6) LOAD : Chargement dans MySQL
     # ----------------------------------------------------------------
-    print("Vérification des valeurs nulles dans Fact_Sales :")
-    fact_sales.filter(col("Price").isNull()).show(truncate=False)
-
-
     logger.info("=== Chargement des données dans MySQL ===")
     # if dim_products is not None:
     #     loader.load_dim_product(dim_products)
