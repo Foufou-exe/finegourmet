@@ -1,6 +1,7 @@
 # loader.py
 import logging
 import mysql.connector
+from pyspark.sql.functions import when, col, lit
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -8,10 +9,13 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 class DataLoader:
     """
     Classe pour charger les DataFrames dans MySQL via JDBC, en respectant le schéma en étoile.
-    Elle désactive temporairement les vérifications de clés étrangères pour permettre
-    l'utilisation du mode "overwrite" sur les tables référencées par des clés étrangères.
-    """
+    Les données sont ajoutées en mode append (ajout sans écrasement) et
+    les vérifications des clés étrangères sont temporairement désactivées.
 
+    Pour la table Fact_Sales, la colonne "Type" est ajoutée :
+      - "Online" si FK_Store_ID est null
+      - "Store" sinon.
+    """
     def __init__(self, jdbc_url, user, password, database, driver="com.mysql.cj.jdbc.Driver"):
         self.jdbc_url = jdbc_url
         self.user = user
@@ -20,16 +24,14 @@ class DataLoader:
         self.driver = driver
 
     def load_dim_date(self, df_dim_date, mode="append"):
-        self._load(df_dim_date, "Dim_Date", mode)
+        # Plus utilisée avec le nouveau schéma
+        pass
 
     def load_dim_client(self, df_dim_client, mode="append"):
         self._load(df_dim_client, "Dim_Client", mode)
 
     def load_dim_product(self, df_dim_product, mode="append"):
         self._load(df_dim_product, "Dim_Product", mode)
-
-    def load_dim_channel(self, df_dim_channel, mode="append"):
-        self._load(df_dim_channel, "Dim_Channel", mode)
 
     def load_dim_store(self, df_dim_store, mode="append"):
         self._load(df_dim_store, "Dim_Store", mode)
@@ -39,16 +41,22 @@ class DataLoader:
 
     def _load(self, df, table_name, mode):
         """
-        Méthode interne qui réalise l'écriture JDBC dans MySQL.
-        Avant l'écriture, on désactive les vérifications de clés étrangères pour éviter
-        les problèmes liés aux contraintes FK (ex: DROP TABLE sur une table référencée).
+        Réalise l'écriture JDBC dans MySQL.
+        Pour Fact_Sales, on ajoute la colonne "Type" en fonction de FK_Store_ID.
         """
+        if table_name == "Fact_Sales":
+            # On s'assure de ne pas avoir de colonnes superflues (par ex. FK_Channel_ID)
+            if "FK_Channel_ID" in df.columns:
+                df = df.drop("FK_Channel_ID")
+            # Ajout de la colonne Type
+            df = df.withColumn("Type", when(col("FK_Store_ID").isNull(), lit("Online")).otherwise(lit("Store")))
+
         props = {
             "user": self.user,
             "password": self.password,
             "driver": self.driver
         }
-        # Désactivation des vérifications FK via une connexion MySQL
+        # Désactivation temporaire des contraintes FK
         try:
             conn = mysql.connector.connect(
                 host=self._get_host_from_jdbc(),
@@ -57,12 +65,7 @@ class DataLoader:
                 password=self.password
             )
             cursor = conn.cursor()
-            self._extracted_from__load_21(
-                cursor,
-                "SET FOREIGN_KEY_CHECKS=0;",
-                conn,
-                "Foreign key checks disabled.",
-            )
+            self._execute_sql(cursor, "SET FOREIGN_KEY_CHECKS=0;", conn, "Foreign key checks disabled.")
         except Exception as e:
             logger.error(f"Erreur lors de la désactivation des contraintes FK: {str(e)}")
             conn = None
@@ -73,33 +76,21 @@ class DataLoader:
         except Exception as e:
             logger.error(f"Erreur lors du chargement dans la table {table_name} : {str(e)}")
         finally:
-            # Réactivation des vérifications FK
             if conn is not None:
                 try:
-                    self._extracted_from__load_21(
-                        cursor,
-                        "SET FOREIGN_KEY_CHECKS=1;",
-                        conn,
-                        "Foreign key checks enabled.",
-                    )
+                    self._execute_sql(cursor, "SET FOREIGN_KEY_CHECKS=1;", conn, "Foreign key checks enabled.")
                     cursor.close()
                     conn.close()
                 except Exception as ex:
                     logger.error(f"Erreur lors de la réactivation des contraintes FK: {str(ex)}")
 
-    # TODO Rename this here and in `_load`
-    def _extracted_from__load_21(self, cursor, arg1, conn, arg3):
-        cursor.execute(arg1)
+    def _execute_sql(self, cursor, sql_statement, conn, success_message):
+        cursor.execute(sql_statement)
         conn.commit()
-        logger.info(arg3)
+        logger.info(success_message)
 
     def _get_host_from_jdbc(self):
-        """
-        Extrait l'hôte de l'URL JDBC. Par exemple, pour "jdbc:mysql://localhost:3306/finegourmet",
-        renvoie "localhost".
-        """
         try:
-            # Supposons le format jdbc:mysql://host:port/database
             url_without_prefix = self.jdbc_url.split("://")[1]
             host_port = url_without_prefix.split("/")[0]
             return host_port.split(":")[0]
