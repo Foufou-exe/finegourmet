@@ -1,3 +1,4 @@
+#transform.py
 import logging
 from pyspark.sql.functions import (
     col, trim, regexp_replace, lower, to_date, when, length, lit, concat, row_number,
@@ -122,6 +123,19 @@ class DataTransformer:
             df_cegid["Product_Name"] == col("prod_name"),
             "left"
         ).drop("prod_name")
+
+        # 🚀 **4.1 Correction des prix manquants**
+        df_cegid = df_cegid.join(
+            df_products.select(col("Name").alias("prod_name"), col("Price").alias("Correct_Price")),
+            df_cegid["Product_Name"] == col("prod_name"),
+            "left"
+        ).drop("prod_name")
+
+        df_cegid = df_cegid.withColumn(
+            "Price",
+            when(col("Price").isNull(), col("Correct_Price"))  # Remplace les valeurs NULL par le prix du produit
+            .otherwise(col("Price"))
+        ).drop("Correct_Price")
 
         # **⚠️ Vérification des produits non trouvés**
         missing_products = df_cegid.filter(col("Product_ID").isNull())

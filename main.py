@@ -241,10 +241,24 @@ def main():
 
 
 
-    print("Vérification des valeurs nulles dans Fact_Sales :")
-    # fact_sales.filter(col("Price").isNull()).show(truncate=False)
-    fact_sales.show(500, truncate=False )
+    print("Vérification des valeurs nulles filtre prix dans Fact_Sales :")
+    fact_sales.filter(col("Price").isNull()).show(500, truncate=False)
+    # fact_sales.show(500, truncate=False )
 
+
+    print("Vérification des valeurs nulles dans Dim_Product :")
+    # Récupérer les Product_ID manquants dans df_products
+    missing_products = fact_sales.filter(col("Price").isNull()).select("FK_Product_ID").distinct()
+
+    # Vérifier si ces Product_ID existent dans df_products
+    df_missing_products = missing_products.join(
+        df_products.select("Product_ID"),
+        on=missing_products["FK_Product_ID"] == df_products["Product_ID"],
+        how="left"
+    ).filter(col("Product_ID").isNull())
+
+    # Afficher les Product_ID manquants
+    df_missing_products.select("FK_Product_ID").show(truncate=False)
 
 
     # ----------------------------------------------------------------
