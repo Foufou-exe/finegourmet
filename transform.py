@@ -79,6 +79,8 @@ class DataTransformer:
         # Conversion du Price en double
         df_sfcc = df_sfcc.withColumn("Price", col("Price").cast(DoubleType()))
 
+        df_sfcc = df_sfcc.filter(col("Price").isNotNull())
+
         logger.info("Transformation SFCC terminée.")
         df_sfcc.show(10, truncate=False)
         return df_sfcc
@@ -144,18 +146,43 @@ class DataTransformer:
             missing_products.show(truncate=False)
 
         # 🚀 **5. Transformation de Sale_ID et Store_ID**
-        df_cegid = df_cegid.withColumn("store_id", substring(col("Sale_ID"), 1, 4))
-
-        # Correction pour ne garder que les boutiques valides
-        valid_stores = ["PA01", "PA02", "PA03", "BO01", "BO02", "MO01", "LY01", "LY02", "MA01", "LI01", "RE01", "ST01", "CL01"]
+        df_cegid = df_cegid.withColumn("store_id_from_sale", substring(col("Sale_ID"), 1, 4))
+        # 🚀 **Correction du Sale_ID pour remplacer "XXMO" par "MO01" et autres codes similaires**
         df_cegid = df_cegid.withColumn(
-            "store_id",
-            when(col("store_id").isin(valid_stores), col("store_id"))
-            .otherwise(None)  # Si le Store_ID n'existe pas, on le met à NULL (pour diagnostic)
+            "Sale_ID",
+            when(col("Sale_ID").startswith("XXMO"), concat(lit("MO01"), col("Sale_ID").substr(6, 100)))
+            .when(col("Sale_ID").startswith("XXCL"), concat(lit("CL01"), col("Sale_ID").substr(6, 100)))
+            .when(col("Sale_ID").startswith("XXLI"), concat(lit("LI01"), col("Sale_ID").substr(6, 100)))
+            .when(col("Sale_ID").startswith("XXRE"), concat(lit("RE01"), col("Sale_ID").substr(6, 100)))
+            .when(col("Sale_ID").startswith("XXST"), concat(lit("ST01"), col("Sale_ID").substr(6, 100)))
+            .when(col("Sale_ID").startswith("XXPA"), concat(lit("PA01"), col("Sale_ID").substr(6, 100)))
+            .when(col("Sale_ID").startswith("XXBO"), concat(lit("BO01"), col("Sale_ID").substr(6, 100)))
+            .when(col("Sale_ID").startswith("XXLY"), concat(lit("LY01"), col("Sale_ID").substr(6, 100)))
+            .otherwise(col("Sale_ID"))
         )
 
+
+
+
+    # 🚀 **5.1 Correction des store_id invalides**
+        store_ids = ["PA01", "PA02", "PA03", "BO01", "BO02", "MO01", "LY01", "LY02", "MA01", "LI01", "RE01", "ST01", "CL01"]
+
+        df_cegid = df_cegid.withColumn(
+            "store_id",
+            when(col("store_id_from_sale").isin(store_ids), col("store_id_from_sale"))
+            .when(col("store_id_from_sale").startswith("XXMO"), "MO01")
+            .when(col("store_id_from_sale").startswith("XXCL"), "CL01")
+            .when(col("store_id_from_sale").startswith("XXLI"), "LI01")
+            .when(col("store_id_from_sale").startswith("XXRE"), "RE01")
+            .when(col("store_id_from_sale").startswith("XXST"), "ST01")
+            .when(col("store_id_from_sale").startswith("XXPA"), "PA01")
+            .when(col("store_id_from_sale").startswith("XXBO"), "BO01")
+            .when(col("store_id_from_sale").startswith("XXLY"), "LY01")
+            .otherwise("UNKNOWN")  # Pour diagnostic, permet d'identifier les erreurs
+        ).drop("store_id_from_sale")
+
         # 🚀 **6. Correction des doublons `Sale_ID`**
-        window_spec = Window.partitionBy("Sale_ID").orderBy("Transaction_Date")
+        window_spec = Window.partitionBy("Sale_ID", "store_id").orderBy("Transaction_Date")
         df_cegid = df_cegid.withColumn("row_num", row_number().over(window_spec))
         df_cegid = df_cegid.withColumn(
             "Sale_ID",

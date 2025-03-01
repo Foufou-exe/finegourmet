@@ -265,14 +265,14 @@ def main():
     # 6) LOAD : Chargement dans MySQL
     # ----------------------------------------------------------------
     logger.info("=== Chargement des données dans MySQL ===")
-    # if dim_products is not None:
-    #     loader.load_dim_product(dim_products)
-    # if dim_stores is not None:
-    #     loader.load_dim_store(dim_stores)
-    # if dim_clients is not None:
-    #     loader.load_dim_client(dim_clients)
-    # if fact_sales is not None:
-    #     loader.load_fact_sales(fact_sales)
+    if dim_products is not None:
+        loader.load_dim_product(dim_products)
+    if dim_stores is not None:
+        loader.load_dim_store(dim_stores)
+    if dim_clients is not None:
+        loader.load_dim_client(dim_clients)
+    if fact_sales is not None:
+        loader.load_fact_sales(fact_sales)
 
     # ----------------------------------------------------------------
     # 7) Arrêt de Spark
