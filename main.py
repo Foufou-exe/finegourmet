@@ -88,7 +88,7 @@ def main():
                 .otherwise(lit("divers"))
             )
             # Générer un Product_ID unique au format "P000001"
-            window_spec = Window.orderBy("Product_Name")
+            window_spec = Window.partitionBy(lit(1)).orderBy("Product_Name")
             new_products = new_products.withColumn("rn", row_number().over(window_spec))
             new_products = new_products.withColumn("Product_ID", format_string("P%06d", col("rn")))
             new_products = new_products.select("Product_ID", col("Product_Name").alias("Name"), "Category", "Price")
