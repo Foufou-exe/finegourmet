@@ -3,3 +3,4 @@ py4j
 pyspark
 python-dotenv
 setuptools
+pandas

@@ -23,9 +23,6 @@ class DataLoader:
         self.database = database
         self.driver = driver
 
-    def load_dim_date(self, df_dim_date, mode="append"):
-        # Plus utilisée avec le nouveau schéma
-        pass
 
     def load_dim_client(self, df_dim_client, mode="append"):
         self._load(df_dim_client, "Dim_Client", mode)

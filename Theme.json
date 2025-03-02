@@ -1,1 +1,30 @@
-﻿{"name":"Custom","textClasses":{"label":{"fontFace":"'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif","fontSize":10},"callout":{"fontSize":20,"fontFace":"'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif"},"header":{"fontFace":"wf_standard-font, helvetica, arial, sans-serif"},"title":{"fontFace":"'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif"}},"dataColors":["#DCE5ED","#445469","#BFBFBF","#5E9AD7","#13678A","#127369","#34517B","#15274B"],"bad":"#BF372A","neutral":"#D9CA00","good":"#127369"}
+﻿{
+  "name": "Custom",
+  "textClasses": {
+    "label": {
+      "fontFace": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+      "fontSize": 10
+    },
+    "callout": {
+      "fontSize": 20,
+      "fontFace": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif"
+    },
+    "header": { "fontFace": "wf_standard-font, helvetica, arial, sans-serif" },
+    "title": {
+      "fontFace": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif"
+    }
+  },
+  "dataColors": [
+    "#DCE5ED",
+    "#445469",
+    "#BFBFBF",
+    "#5E9AD7",
+    "#13678A",
+    "#127369",
+    "#34517B",
+    "#15274B"
+  ],
+  "bad": "#BF372A",
+  "neutral": "#D9CA00",
+  "good": "#127369"
+}

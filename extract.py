@@ -11,13 +11,13 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 
 class DataExtractor:
     def __init__(self, app_name="DataExtraction", master="local[*]"):
-        self.spark = SparkSession.builder \
-            .appName(app_name) \
-            .master(master) \
-            .config("spark.driver.host", "127.0.0.1") \
-            .config("spark.driver.extraClassPath", "./database/connector/mysql-connector-j-9.1.0.jar") \
-            .config("spark.hadoop.fs.file.impl", "org.apache.hadoop.fs.LocalFileSystem") \
-            .getOrCreate()
+            self.spark = SparkSession.builder \
+                .appName(app_name) \
+                .master(master) \
+                .config("spark.driver.host", "127.0.0.1") \
+                .config("spark.driver.extraClassPath", "./database/connector/mysql-connector-j-9.1.0.jar") \
+                .config("spark.hadoop.fs.file.impl", "org.apache.hadoop.fs.LocalFileSystem") \
+                .getOrCreate()
 
     def extract_sfcc(self, sfcc_folder):
         """
@@ -25,20 +25,7 @@ class DataExtractor:
         et renvoie un DataFrame unifié.
         """
         sfcc_files = [os.path.join(sfcc_folder, f) for f in os.listdir(sfcc_folder) if f.endswith("_sfcc_sales.csv")]
-
-        sfcc_schema = StructType([
-            StructField("sale_id", StringType(), True),
-            StructField("transaction_date", DateType(), True),
-            StructField("product_id", StringType(), True),
-            StructField("customer_id", StringType(), True),
-            StructField("customer_email", StringType(), True),
-            StructField("customer_last_name", StringType(), True),
-            StructField("customer_first_name", StringType(), True),
-            StructField("customer_phone", StringType(), True),
-            StructField("customer_address", StringType(), True),
-            StructField("email_optin", BooleanType(), True),
-            StructField("sms_optin", BooleanType(), True)
-        ])
+        
         df_sfcc = None
         for path in sfcc_files:
             if os.path.exists(path):

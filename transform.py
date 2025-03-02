@@ -79,7 +79,8 @@ class DataTransformer:
         # Conversion du Price en double
         df_sfcc = df_sfcc.withColumn("Price", col("Price").cast(DoubleType()))
 
-        df_sfcc = df_sfcc.filter(col("Price").isNotNull())
+        # TODO : Filtre les prix nuls
+        # df_sfcc = df_sfcc.filter(col("Price").isNotNull())
 
         logger.info("Transformation SFCC terminée.")
         df_sfcc.show(10, truncate=False)
