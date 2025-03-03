@@ -10,23 +10,16 @@ from loader import DataLoader
 # Import des fonctions et classes Spark
 from pyspark.sql.functions import (
     col,
-    to_date,
     lit,
     monotonically_increasing_id,
-    when,
     coalesce,
     first,
     col,
     sum as _sum,
-    row_number,
-    format_string,
     coalesce,
-    concat,
-    rand,
+    regexp_replace,
     round as spark_round,
 )
-from pyspark.sql import Window
-from pyspark.sql import SparkSession
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
@@ -176,7 +169,7 @@ def main():
     if fact_sales is not None:
         fact_sales = fact_sales.withColumnRenamed("Transaction_Date", "Date")
 
-        # TODO: Permet de recupérer ID de la boutique poru le lier à la vente
+        # TODO: Permet de recupérer ID de la boutique pour le lier à la vente
         # Correction du FK_Store_ID pour les ventes physiques
         if df_cegid is not None:
             fact_sales = fact_sales.withColumn("FK_Store_ID", col("Store_ID"))
@@ -187,6 +180,10 @@ def main():
             fact_sales = fact_sales.join(
                 dim_clients.select("Client_ID", "Email"), on="Email", how="left"
             ).withColumnRenamed("Client_ID", "FK_Client_ID")
+            # Correction ici : Assurez-vous que FK_Client_ID correspond à l'ID du client
+            fact_sales = fact_sales.withColumn(
+                "FK_Client_ID", col("FK_Client_ID").cast("string")
+            )
 
         # Jointure avec Dim_Product
         if dim_products is not None:
@@ -225,8 +222,17 @@ def main():
         # Afficher les Sale_ID en doublon avec toutes leurs colonnes
         df_duplicated_sales = fact_sales.join(df_duplicates, on="Sale_ID", how="inner")
 
+        # Afficher les doublons
         df_duplicated_sales.show(10, truncate=False)
 
+
+    # TODO: Permet de supprimer les caractères spéciaux dans les emails
+    dim_clients = dim_clients.withColumn(
+        "Email", regexp_replace(col("Email"), r"[^a-zA-Z0-9._%+-@]+", "")
+    )
+
+
+    # Affichage des 1000 premières lignes du fact_sales
     fact_sales.show(1000, truncate=False)
 
     # ----------------------------------------------------------------
@@ -235,19 +241,19 @@ def main():
     logger.info("=== Chargement des données dans MySQL ===")
 
     # Dimension produits
-    if dim_products is not None:
-        loader.load_dim_product(dim_products)
-    # Dimension boutiques
-    if dim_stores is not None:
-        loader.load_dim_store(dim_stores)
+    # if dim_products is not None:
+    #     loader.load_dim_product(dim_products)
+    # # Dimension boutiques
+    # if dim_stores is not None:
+    #     loader.load_dim_store(dim_stores)
 
-    # Dimension clients
-    if dim_clients is not None:
-        loader.load_dim_client(dim_clients)
+    # # Dimension clients
+    # if dim_clients is not None:
+    #     loader.load_dim_client(dim_clients)
 
-    # Table de faits - approche par mini-batches
-    if fact_sales is not None:
-        loader.load_fact_sales(fact_sales)
+    # # Table de faits - approche par mini-batches
+    # if fact_sales is not None:
+    #     loader.load_fact_sales(fact_sales)
 
     # ----------------------------------------------------------------
     # 7) Arrêt de Spark
