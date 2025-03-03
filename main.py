@@ -41,7 +41,7 @@ def main():
     path_data = "./data"
     sfcc_folder = os.path.join(path_data, "salesforces")
     cegid_file = os.path.join(path_data, "cegid", "2024_cegid_sales.json")
-    products_file = os.path.join(path_data, "product", "2025_product_reference.csv")
+    products_file = os.path.join(path_data, "product")
     boutiques_file = os.path.join(path_data, "boutiques", "2025_boutiques.csv")
 
     # JDBC MySQL
@@ -73,10 +73,10 @@ def main():
     df_products = extractor.extract_products(products_file)
     df_boutiques = extractor.extract_boutiques(boutiques_file)
 
-    # # Vérification des doublons
-    # print("Vérification des doublons avant transformation :")
-    # df_cegid.groupBy("Sale_ID").count().filter(col("count") > 1).show(10)
-    # df_sfcc.groupBy("Sale_ID").count().filter(col("count") > 1).show(10)
+    # Vérification des doublons
+    print("Vérification des doublons avant transformation :")
+    df_cegid.groupBy("Sale_ID").count().filter(col("count") > 1).show(10)
+    df_sfcc.groupBy("Sale_ID").count().filter(col("count") > 1).show(10)
 
     # Ajout d'une colonne "Source" pour différencier les ventes en ligne (sfcc) et physiques (cegid)
     if df_sfcc is not None:
@@ -96,78 +96,8 @@ def main():
     if df_boutiques is not None:
         df_boutiques = transformer.transform_boutiques(df_boutiques)
 
-    # TODO : Ajouter les produits manquants dans df_products
-    if df_products is not None and df_cegid is not None:
-        # Identifier les produits manquants dans df_cegid (lorsqu'aucun Product_ID n'a été trouvé)
-        missing_names = (
-            df_cegid.filter(col("Product_ID").isNull())
-            .select("Product_Name")
-            .distinct()
-        )
-        if missing_names.count() > 0:
-            # Extraire les ventes correspondant aux produits manquants et calculer le prix unitaire
-            new_products = (
-                df_cegid.join(missing_names, on="Product_Name")
-                .groupBy("Product_Name")
-                .agg((_sum("Price") / _sum("Quantity")).alias("Price"))
-            )
-            # Attribuer la catégorie en fonction du nom du produit
-            new_products = new_products.withColumn(
-                "Category",
-                when(col("Product_Name") == "Vin Blanc Gewurztraminer 2020", lit("vin"))
-                .when(col("Product_Name") == "Vin Rouge Côtes de Provence", lit("vin"))
-                .when(
-                    col("Product_Name") == "Terrine de Sanglier aux Noisettes",
-                    lit("charcuterie"),
-                )
-                .otherwise(lit("divers")),
-            )
-            # Générer un Product_ID unique au format "P000001"
-            window_spec = Window.partitionBy(lit(1)).orderBy("Product_Name")
-            new_products = new_products.withColumn("rn", row_number().over(window_spec))
-            new_products = new_products.withColumn(
-                "Product_ID", format_string("P%06d", col("rn"))
-            )
-            new_products = new_products.select(
-                "Product_ID", col("Product_Name").alias("Name"), "Category", "Price"
-            )
-
-            # Fusionner ces nouveaux produits avec le DataFrame existant de produits
-            df_products = df_products.unionByName(new_products)
-            logger.info(
-                "Les produits manquants ont été ajoutés au référentiel produits."
-            )
-            df_products.show(10, truncate=False)
-
-            # Optionnel : actualiser df_cegid pour réaffecter le Product_ID aux lignes concernées
-            # (Si vous souhaitez réexécuter la jointure pour remplir les Product_ID manquants)
-            df_cegid = transformer.transform_cegid(
-                df_cegid.drop("Product_ID"), df_products
-            )
-
-    # Réaffecter le Product_ID dans df_cegid à partir du référentiel enrichi df_products
-    if df_cegid is not None and df_products is not None:
-        # On supprime l'ancienne colonne Product_ID de df_cegid (qui contient des null)
-        df_cegid = df_cegid.drop("Product_ID")
-        # Réaliser la jointure sur Product_Name (df_cegid) et Name (df_products)
-        df_cegid = df_cegid.join(
-            df_products.select(col("Name").alias("ref_product_name"), "Product_ID"),
-            df_cegid["Product_Name"] == col("ref_product_name"),
-            "left",
-        ).drop("ref_product_name")
-        # (Optionnel) Vérifier que les Product_ID ne sont plus null
-        df_cegid.filter(col("Product_ID").isNull()).show(10, truncate=False)
-
-    df_cegid.show(10, truncate=False)
-
-    # Vérification des doublons
-    print("Vérification des doublons après transformation :")
-    df_cegid.groupBy("Sale_ID").count().filter(col("count") > 1).show(10)
-    df_sfcc.groupBy("Sale_ID").count().filter(col("count") > 1).show(10)
-
     # ----------------------------------------------------------------
     # 5) UNIFICATION ET CREATION DES DIMENSIONS ET DE LA TABLE DE FAITS
-
     # ----------------------------------------------------------------
     # Dimension Produit (à partir de df_products)
     dim_products = (
@@ -295,126 +225,9 @@ def main():
         # Afficher les Sale_ID en doublon avec toutes leurs colonnes
         df_duplicated_sales = fact_sales.join(df_duplicates, on="Sale_ID", how="inner")
 
-    print("Lecture Produit")
-    dim_products.show(10, truncate=False)
+        df_duplicated_sales.show(10, truncate=False)
 
-    print("Vérification des valeurs nulles filtre prix dans Fact_Sales :")
-    # Limiter le nombre de lignes pour éviter les timeouts
-    fact_sales.filter(col("Price").isNull()).limit(10).show(truncate=False)
-
-    # Récupérer les FK_Product_ID qui existent dans fact_sales mais pas dans dim_products
-    missing_product_ids = (
-        fact_sales.filter(col("Price").isNull()).select("FK_Product_ID").distinct()
-    )
-
-    # Vérifier si ces FK_Product_ID existent dans dim_products
-    df_missing_products = missing_product_ids.join(
-        dim_products.select("Product_ID"),
-        on=missing_product_ids["FK_Product_ID"] == dim_products["Product_ID"],
-        how="left",
-    ).filter(col("Product_ID").isNull())
-
-    # Créer de nouveaux produits pour les FK_Product_ID manquants
-    if df_missing_products.count() > 0:
-        print("Création de produits pour les FK_Product_ID manquants :")
-        df_missing_products.show(truncate=False)
-
-        # Récupérer la liste des FK_Product_ID manquants
-        missing_ids = [row.FK_Product_ID for row in df_missing_products.collect()]
-        print(f"IDs manquants : {missing_ids}")
-
-        # Créer une liste de tuples (Product_ID, Name, Category, Price)
-        product_data = []
-
-
-        # Définir les produits manquants
-        for product_id in missing_ids:
-            # Convertir en chaîne de caractères pour éviter les problèmes de type
-            product_id_str = str(product_id)
-
-            # D'abord vérifier si c'est un produit connu
-            if product_id_str == "P138136":
-                product_data.append(
-                    (product_id_str, "Foie Gras de Canard Entier", "luxe", 45.50)
-                )
-            elif product_id_str == "P473682":
-                product_data.append(
-                    (product_id_str, "Comté AOP 24 Mois", "fromage", 28.90)
-                )
-            elif product_id_str == "P370356":
-                product_data.append(
-                    (product_id_str, "Vin Rouge Pomerol 2018", "vin", 65.00)
-                )
-            elif product_id_str == "P482573":
-                product_data.append(
-                    (product_id_str, "Saucisson Sec Artisanal", "charcuterie", 18.50)
-                )
-            elif product_id_str == "P277821":
-                product_data.append(
-                    (product_id_str, "Chocolat Noir Grand Cru 75%", "confiserie", 12.90)
-                )
-            elif product_id_str == "P811465":
-                product_data.append(
-                    (product_id_str, "Huile d'Olive Extra Vierge Bio", "divers", 22.50)
-                )
-            elif product_id_str == "P925746":
-                product_data.append(
-                    (product_id_str, "Champagne Brut Premier Cru", "vin", 38.00)
-                )
-            elif product_id_str == "P266975":
-                product_data.append(
-                    (
-                        product_id_str,
-                        "Terrine de Canard à l'Orange",
-                        "charcuterie",
-                        16.75,
-                    )
-                )
-            elif product_id_str == "P629715":
-                product_data.append(
-                    (product_id_str, "Roquefort AOP Vieille Réserve", "fromage", 24.50)
-                )
-            elif product_id_str == "P765937":
-                product_data.append(
-                    (product_id_str, "Truffe Noire du Périgord", "luxe", 85.00)
-                )
-
-            # Utiliser pandas pour créer le DataFrame
-            import pandas as pd
-
-            # Créer un DataFrame pandas avec les colonnes appropriées
-            pandas_df = pd.DataFrame(
-                product_data, columns=["Product_ID", "Name", "Category", "Price"]
-            )
-
-            # Convertir le DataFrame pandas en DataFrame Spark
-            new_products = extractor.spark.createDataFrame(pandas_df)
-
-            # Ajouter ces nouveaux produits à dim_products
-            dim_products = dim_products.unionByName(new_products)
-            logger.info(
-                "Les produits manquants ont été ajoutés au référentiel produits."
-            )
-
-            # Mettre à jour les prix dans fact_sales
-            # Joindre les nouveaux produits avec fact_sales
-            fact_sales = fact_sales.join(
-                new_products.select("Product_ID", "Price").withColumnRenamed(
-                    "Price", "Unit_Price"
-                ),
-                fact_sales["FK_Product_ID"] == new_products["Product_ID"],
-                "left",
-            )
-
-            # Calculer le prix total en multipliant le prix unitaire par la quantité
-            fact_sales = fact_sales.withColumn(
-                "Price",
-                when(
-                    col("Price").isNull(), col("Unit_Price") * col("Quantity")
-                ).otherwise(col("Price")),
-            ).drop("Unit_Price", "Product_ID")
-
-        fact_sales.show(500, truncate=False)
+    fact_sales.show(1000, truncate=False)
 
     # ----------------------------------------------------------------
     # 6) LOAD : Chargement dans MySQL
@@ -422,19 +235,19 @@ def main():
     logger.info("=== Chargement des données dans MySQL ===")
 
     # Dimension produits
-    # if dim_products is not None:
-    #     loader.load_dim_product(dim_products)
-    # # Dimension boutiques
-    # if dim_stores is not None:
-    #     loader.load_dim_store(dim_stores)
+    if dim_products is not None:
+        loader.load_dim_product(dim_products)
+    # Dimension boutiques
+    if dim_stores is not None:
+        loader.load_dim_store(dim_stores)
 
-    # # Dimension clients
-    # if dim_clients is not None:
-    #     loader.load_dim_client(dim_clients)
+    # Dimension clients
+    if dim_clients is not None:
+        loader.load_dim_client(dim_clients)
 
-    # # Table de faits - approche par mini-batches
-    # if fact_sales is not None:
-    #     loader.load_fact_sales(fact_sales)
+    # Table de faits - approche par mini-batches
+    if fact_sales is not None:
+        loader.load_fact_sales(fact_sales)
 
     # ----------------------------------------------------------------
     # 7) Arrêt de Spark

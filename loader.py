@@ -42,9 +42,6 @@ class DataLoader:
         Pour Fact_Sales, on ajoute la colonne "Type" en fonction de FK_Store_ID.
         """
         if table_name == "Fact_Sales":
-            # On s'assure de ne pas avoir de colonnes superflues (par ex. FK_Channel_ID)
-            if "FK_Channel_ID" in df.columns:
-                df = df.drop("FK_Channel_ID")
             # Ajout de la colonne Type
             df = df.withColumn("Type", when(col("FK_Store_ID").isNull(), lit("Online")).otherwise(lit("Store")))
 
@@ -62,7 +59,7 @@ class DataLoader:
                 password=self.password
             )
             cursor = conn.cursor()
-            self._execute_sql(cursor, "SET FOREIGN_KEY_CHECKS=0;", conn, "Foreign key checks disabled.")
+            # self._execute_sql(cursor, "SET FOREIGN_KEY_CHECKS=0;", conn, "Foreign key checks disabled.")
         except Exception as e:
             logger.error(f"Erreur lors de la désactivation des contraintes FK: {str(e)}")
             conn = None
@@ -72,14 +69,14 @@ class DataLoader:
             logger.info(f"Données chargées dans la table {table_name} avec succès.")
         except Exception as e:
             logger.error(f"Erreur lors du chargement dans la table {table_name} : {str(e)}")
-        finally:
-            if conn is not None:
-                try:
-                    self._execute_sql(cursor, "SET FOREIGN_KEY_CHECKS=1;", conn, "Foreign key checks enabled.")
-                    cursor.close()
-                    conn.close()
-                except Exception as ex:
-                    logger.error(f"Erreur lors de la réactivation des contraintes FK: {str(ex)}")
+        # finally:
+        #     if conn is not None:
+        #         try:
+        #             self._execute_sql(cursor, "SET FOREIGN_KEY_CHECKS=1;", conn, "Foreign key checks enabled.")
+        #             cursor.close()
+        #             conn.close()
+        #         except Exception as ex:
+        #             logger.error(f"Erreur lors de la réactivation des contraintes FK: {str(ex)}")
 
     def _execute_sql(self, cursor, sql_statement, conn, success_message):
         cursor.execute(sql_statement)

@@ -1,7 +1,7 @@
 # extract.py
 import os
 from pyspark.sql import SparkSession
-from pyspark.sql.types import StructType, StructField, StringType, DateType, BooleanType
+from pyspark.sql.types import BooleanType
 from pyspark.sql.functions import col, to_date
 
 import logging
@@ -25,7 +25,7 @@ class DataExtractor:
         et renvoie un DataFrame unifié.
         """
         sfcc_files = [os.path.join(sfcc_folder, f) for f in os.listdir(sfcc_folder) if f.endswith("_sfcc_sales.csv")]
-        
+
         df_sfcc = None
         for path in sfcc_files:
             if os.path.exists(path):
@@ -72,18 +72,31 @@ class DataExtractor:
 
     def extract_products(self, products_file):
         """
-        Charge le fichier CSV des produits.
+        Charge tous les fichiers CSV des produits dans le dossier donné
+        et renvoie un DataFrame unifié.
         """
-        if os.path.exists(products_file):
-            logger.info(f"Extraction du fichier produits : {products_file}")
-            return (
-                self.spark.read.option("header", "true")
-                .option("inferSchema", "true")
-                .csv(products_file)
-            )
-        else:
-            logger.error(f"Fichier produits non trouvé : {products_file}")
-            return None
+        product_files = [os.path.join(products_file, f) for f in os.listdir(products_file) if f.endswith(".csv")]
+
+        df_products = None
+        for path in product_files:
+            if os.path.exists(path):
+                logger.info(f"Traitement du fichier produit : {path}")
+                df_temp = (
+                    self.spark.read.option("header", "true")
+                    .option("inferSchema", "true")
+                    .csv(path)
+                )
+
+                # Union par nom de colonne en gérant les colonnes manquantes
+                if df_products is None:
+                    df_products = df_temp
+                else:
+                    df_products = df_products.unionByName(df_temp, allowMissingColumns=True)
+
+        if df_products is None:
+            logger.error(f"Aucun fichier produit trouvé dans : {products_file}")
+
+        return df_products
 
     def extract_boutiques(self, boutiques_file):
         """

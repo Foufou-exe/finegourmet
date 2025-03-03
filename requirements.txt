@@ -4,3 +4,4 @@ pyspark
 python-dotenv
 setuptools
 pandas
+black

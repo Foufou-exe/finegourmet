@@ -214,6 +214,9 @@ class DataTransformer:
                                   .withColumnRenamed("price", "Price") \
                                   .withColumnRenamed("category", "Category")
         df_products = df_products.withColumn("Price", col("Price").cast(DoubleType()))
+
+        # TODO: Supprimer les produits en double
+        df_products = df_products.dropDuplicates(["Product_ID"])
         logger.info("Transformation des produits terminée.")
         df_products.show(10, truncate=False)
         return df_products
