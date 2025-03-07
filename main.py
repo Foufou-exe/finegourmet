@@ -19,7 +19,12 @@ from pyspark.sql.functions import (
     coalesce,
     regexp_replace,
     round as spark_round,
+    lower,
+    trim,
+    regexp_replace,
+    row_number
 )
+from pyspark.sql.window import Window
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
@@ -118,9 +123,11 @@ def main():
             .withColumn("Address", lit(None).cast("string"))
         )
 
-        # Fusion des deux sources et suppression des doublons
+
+        # Fusion des clients SFCC et CEGID en évitant les NULL
         dim_clients = (
             clients_sfcc.unionByName(clients_cegid, allowMissingColumns=True)
+            .filter(col("Email").isNotNull())  # Exclure les clients sans email
             .groupBy("Email")
             .agg(
                 first("Last_Name", ignorenulls=True).alias("Last_Name"),
@@ -128,8 +135,11 @@ def main():
                 first("Phone", ignorenulls=True).alias("Phone"),
                 first("Address", ignorenulls=True).alias("Address"),
             )
-            .withColumn("Client_ID", monotonically_increasing_id())
         )
+
+        # Ajout d'un ID unique fiable avec row_number()
+        window_spec = Window.orderBy("Email")
+        dim_clients = dim_clients.withColumn("Client_ID", row_number().over(window_spec))
 
     elif df_sfcc is not None:
         dim_clients = (
@@ -169,21 +179,49 @@ def main():
     if fact_sales is not None:
         fact_sales = fact_sales.withColumnRenamed("Transaction_Date", "Date")
 
-        # TODO: Permet de recupérer ID de la boutique pour le lier à la vente
-        # Correction du FK_Store_ID pour les ventes physiques
-        if df_cegid is not None:
-            fact_sales = fact_sales.withColumn("FK_Store_ID", col("Store_ID"))
+    # TODO: Permet de récupérer l'ID de la boutique pour le lier à la vente
+    # Correction du FK_Store_ID pour les ventes physiques
+    if df_cegid is not None:
+        fact_sales = fact_sales.withColumn("FK_Store_ID", col("Store_ID"))
 
-        # **Correction ici** : Jointure avec Dim_Client et renommage correct
-        # Correction de FK_Client_ID pour éviter les doublons
-        if dim_clients is not None:
-            fact_sales = fact_sales.join(
-                dim_clients.select("Client_ID", "Email"), on="Email", how="left"
-            ).withColumnRenamed("Client_ID", "FK_Client_ID")
-            # Correction ici : Assurez-vous que FK_Client_ID correspond à l'ID du client
-            fact_sales = fact_sales.withColumn(
-                "FK_Client_ID", col("FK_Client_ID").cast("string")
-            )
+    # ✅ Correction : Normalisation des emails pour éviter les erreurs de jointure
+    if dim_clients is not None:
+        # Normalisation des emails dans Dim_Client
+        dim_clients = dim_clients.withColumn(
+            "Email", lower(trim(regexp_replace(col("Email"), r"[^a-zA-Z0-9._%+-@]+", "")))
+        )
+
+        # Normalisation des emails dans Fact_Sales avant la jointure
+        fact_sales = fact_sales.withColumn(
+            "Email", lower(trim(regexp_replace(col("Email"), r"[^a-zA-Z0-9._%+-@]+", "")))
+        )
+
+        # Normalisation des emails AVANT la jointure pour éviter les erreurs
+        dim_clients = dim_clients.withColumn(
+            "Email", lower(trim(regexp_replace(col("Email"), r"[^a-zA-Z0-9._%+-@]+", "")))
+        )
+
+        fact_sales = fact_sales.withColumn(
+            "Email", lower(trim(regexp_replace(col("Email"), r"[^a-zA-Z0-9._%+-@]+", "")))
+        )
+
+        # Faire la jointure en évitant les erreurs d'association
+        fact_sales = fact_sales.join(
+            dim_clients.select("Client_ID", "Email"), on="Email", how="left"
+        ).withColumnRenamed("Client_ID", "FK_Client_ID")
+
+        # S'assurer que FK_Client_ID a bien été attribué
+        fact_sales = fact_sales.withColumn(
+            "FK_Client_ID", col("FK_Client_ID").cast("string")
+        )
+
+        # Vérification des cas problématiques (DEBUG)
+        fact_sales.filter(col("FK_Client_ID").isNull()).show(20, truncate=False)
+
+        # ✅ Correction du type de FK_Client_ID pour éviter d'éventuelles erreurs
+        fact_sales = fact_sales.withColumn(
+            "FK_Client_ID", col("FK_Client_ID").cast("string")
+        )
 
         # Jointure avec Dim_Product
         if dim_products is not None:
@@ -231,6 +269,13 @@ def main():
         "Email", regexp_replace(col("Email"), r"[^a-zA-Z0-9._%+-@]+", "")
     )
 
+    # ----------------------------------------------------------------
+    # AFFICHAGE DES CLIENTS APRÈS TRANSFORMATION
+    # ----------------------------------------------------------------
+    if dim_clients is not None:
+        logger.info("=== Aperçu des Clients (Dim_Client) ===")
+        dim_clients.show(50, truncate=False)  # Affichage des 50 premiers clients
+        logger.info(f"Nombre total de clients dans Dim_Client : {dim_clients.count()}")
 
     # Affichage des 1000 premières lignes du fact_sales
     fact_sales.show(1000, truncate=False)
@@ -241,19 +286,19 @@ def main():
     logger.info("=== Chargement des données dans MySQL ===")
 
     # Dimension produits
-    # if dim_products is not None:
-    #     loader.load_dim_product(dim_products)
-    # # Dimension boutiques
-    # if dim_stores is not None:
-    #     loader.load_dim_store(dim_stores)
+    if dim_products is not None:
+        loader.load_dim_product(dim_products)
+    # Dimension boutiques
+    if dim_stores is not None:
+        loader.load_dim_store(dim_stores)
 
-    # # Dimension clients
-    # if dim_clients is not None:
-    #     loader.load_dim_client(dim_clients)
+    # Dimension clients
+    if dim_clients is not None:
+        loader.load_dim_client(dim_clients)
 
-    # # Table de faits - approche par mini-batches
-    # if fact_sales is not None:
-    #     loader.load_fact_sales(fact_sales)
+    # Table de faits - approche par mini-batches
+    if fact_sales is not None:
+        loader.load_fact_sales(fact_sales)
 
     # ----------------------------------------------------------------
     # 7) Arrêt de Spark
