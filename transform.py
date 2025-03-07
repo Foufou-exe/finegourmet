@@ -20,6 +20,7 @@ from pyspark.sql.functions import (
     expr,
     date_format,
     regexp_extract,
+    coalesce
 )
 from pyspark.sql.types import IntegerType, DoubleType
 from pyspark.sql import Window
@@ -28,7 +29,6 @@ logger = logging.getLogger(__name__)
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
-
 
 class DataTransformer:
     def __init__(self):
@@ -57,10 +57,9 @@ class DataTransformer:
                 column, trim(regexp_replace(col(column), r"[\t\r\n]+", " "))
             )
 
-        # Uniformisation de l'email en minuscules et suppresion des caractères spéciaux
+        # Uniformisation de l'email en minuscules et suppression des caractères spéciaux
         if "Email" in df_sfcc.columns:
             df_sfcc = df_sfcc.withColumn("Email", lower(col("Email")))
-
 
         # Nettoyage de l'adresse (suppression des guillemets et espaces en début/fin)
         if "Address" in df_sfcc.columns:
@@ -147,7 +146,7 @@ class DataTransformer:
                 | (trim(col("Price")) == "")
                 | (col("Price") == "X")
                 | (col("Price").cast("double").isNull()),
-                None,  # Si le prix est invalide, il sera NULL (on pourra l'exclure ou le corriger après)
+                None,  # Si le prix est invalide, il sera NULL
             ).otherwise(col("Price").cast(DoubleType())),
         )
 
@@ -169,11 +168,7 @@ class DataTransformer:
 
         df_cegid = df_cegid.withColumn(
             "Price",
-            when(
-                col("Price").isNull(), col("Correct_Price")
-            ).otherwise(  # Remplace les valeurs NULL par le prix du produit
-                col("Price")
-            ),
+            when(col("Price").isNull(), col("Correct_Price")).otherwise(col("Price")),
         ).drop("Correct_Price")
 
         # **⚠️ Vérification des produits non trouvés**
@@ -223,7 +218,7 @@ class DataTransformer:
                 col("Sale_ID").startswith("XXLY"),
                 concat(lit("LY01"), col("Sale_ID").substr(6, 100)),
             )
-            .otherwise(col("Sale_ID")),
+            .otherwise(col("Sale_ID"))
         )
 
         # 🚀 **5.1 Correction des store_id invalides**
@@ -254,13 +249,11 @@ class DataTransformer:
             .when(col("store_id_from_sale").startswith("XXPA"), "PA01")
             .when(col("store_id_from_sale").startswith("XXBO"), "BO01")
             .when(col("store_id_from_sale").startswith("XXLY"), "LY01")
-            .otherwise(None),  # Pour diagnostic, permet d'identifier les erreurs
+            .otherwise(None),
         ).drop("store_id_from_sale")
 
         # 🚀 **6. Correction des doublons `Sale_ID`**
-        window_spec = Window.partitionBy("Sale_ID", "store_id").orderBy(
-            "Transaction_Date"
-        )
+        window_spec = Window.partitionBy("Sale_ID", "store_id").orderBy("Transaction_Date")
         df_cegid = df_cegid.withColumn("row_num", row_number().over(window_spec))
         df_cegid = df_cegid.withColumn(
             "Sale_ID",
@@ -303,8 +296,7 @@ class DataTransformer:
             .withColumnRenamed("category", "Category")
         )
         df_products = df_products.withColumn("Price", col("Price").cast(DoubleType()))
-
-        # TODO: Supprimer les produits en double
+        # Suppression des doublons sur Product_ID
         df_products = df_products.dropDuplicates(["Product_ID"])
         logger.info("Transformation des produits terminée.")
         df_products.show(10, truncate=False)
@@ -324,3 +316,104 @@ class DataTransformer:
         logger.info("Transformation des boutiques terminée.")
         df_boutiques.show(10, truncate=False)
         return df_boutiques
+
+    # ---------------------------------------------------------------------------
+    # Création de la dimension Clients
+    # ---------------------------------------------------------------------------
+    def create_dim_clients(self, df_sfcc, df_cegid):
+        """
+        Construit Dim_Client à partir des données SFCC et/ou CEGID.
+        """
+        from pyspark.sql.functions import lit
+
+        if df_sfcc is not None and df_cegid is not None:
+            clients_sfcc = df_sfcc.select("Email", "Last_Name", "First_Name", "Phone", "Address")
+            clients_cegid = df_cegid.select("Email") \
+                .withColumn("Last_Name", lit(None).cast("string")) \
+                .withColumn("First_Name", lit(None).cast("string")) \
+                .withColumn("Phone", lit(None).cast("string")) \
+                .withColumn("Address", lit(None).cast("string"))
+            dim_clients = clients_sfcc.unionByName(clients_cegid, allowMissingColumns=True) \
+                .filter(col("Email").isNotNull()) \
+                .groupBy("Email") \
+                .agg(
+                    first("Last_Name", ignorenulls=True).alias("Last_Name"),
+                    first("First_Name", ignorenulls=True).alias("First_Name"),
+                    first("Phone", ignorenulls=True).alias("Phone"),
+                    first("Address", ignorenulls=True).alias("Address")
+                )
+            window_spec = Window.orderBy("Email")
+            dim_clients = dim_clients.withColumn("Client_ID", row_number().over(window_spec))
+        elif df_sfcc is not None:
+            dim_clients = df_sfcc.select("Email", "Last_Name", "First_Name", "Phone", "Address") \
+                .groupBy("Email") \
+                .agg(
+                    first("Last_Name", ignorenulls=True).alias("Last_Name"),
+                    first("First_Name", ignorenulls=True).alias("First_Name"),
+                    first("Phone", ignorenulls=True).alias("Phone"),
+                    first("Address", ignorenulls=True).alias("Address")
+                ) \
+                .withColumn("Client_ID", row_number().over(Window.orderBy("Email")))
+        elif df_cegid is not None:
+            dim_clients = df_cegid.select("Email") \
+                .withColumn("Last_Name", lit(None).cast("string")) \
+                .withColumn("First_Name", lit(None).cast("string")) \
+                .withColumn("Phone", lit(None).cast("string")) \
+                .withColumn("Address", lit(None).cast("string")) \
+                .groupBy("Email") \
+                .agg(
+                    first("Last_Name", ignorenulls=True).alias("Last_Name"),
+                    first("First_Name", ignorenulls=True).alias("First_Name"),
+                    first("Phone", ignorenulls=True).alias("Phone"),
+                    first("Address", ignorenulls=True).alias("Address")
+                ) \
+                .withColumn("Client_ID", row_number().over(Window.orderBy("Email")))
+        else:
+            dim_clients = None
+
+        # Normalisation des emails dans Dim_Client
+        if dim_clients is not None:
+            dim_clients = dim_clients.withColumn("Email", lower(trim(regexp_replace(col("Email"), r"[^a-zA-Z0-9._%+-@]+", ""))))
+        return dim_clients
+
+    # ---------------------------------------------------------------------------
+    # Création de la table de faits Fact_Sales
+    # ---------------------------------------------------------------------------
+    def create_fact_sales(self, df_sfcc, df_cegid, dim_clients, dim_products):
+        """
+        Construit Fact_Sales en unifiant les ventes SFCC et CEGID et en effectuant les jointures
+        avec Dim_Client et Dim_Product.
+        """
+        # Unification des ventes
+        fact_sales = df_sfcc.unionByName(df_cegid, allowMissingColumns=True)
+        fact_sales = fact_sales.withColumnRenamed("Transaction_Date", "Date")
+        # Pour les ventes physiques, récupérer l'ID de la boutique
+        if df_cegid is not None:
+            fact_sales = fact_sales.withColumn("FK_Store_ID", col("Store_ID"))
+        # Normalisation des emails dans Fact_Sales
+        fact_sales = fact_sales.withColumn("Email", lower(trim(regexp_replace(col("Email"), r"[^a-zA-Z0-9._%+-@]+", ""))))
+        # Jointure avec Dim_Client pour récupérer FK_Client_ID
+        fact_sales = fact_sales.join(dim_clients.select("Client_ID", "Email"), on="Email", how="left") \
+                               .withColumnRenamed("Client_ID", "FK_Client_ID")
+        fact_sales = fact_sales.withColumn("FK_Client_ID", col("FK_Client_ID").cast("string"))
+        # Jointure avec Dim_Product pour récupérer FK_Product_ID
+        if dim_products is not None:
+            fact_sales = fact_sales.join(
+                dim_products.select(col("Product_ID").alias("prod_id"), col("Name").alias("prod_name")),
+                fact_sales["Product_ID"] == col("prod_id"),
+                "left"
+            )
+            fact_sales = fact_sales.withColumn("FK_Product_ID", coalesce(col("Product_ID"), col("prod_id")))
+            fact_sales = fact_sales.drop("Product_Name").drop("prod_id").drop("prod_name")
+        else:
+            fact_sales = fact_sales.withColumnRenamed("Product_ID", "FK_Product_ID")
+        fact_sales = fact_sales.select(
+            "Sale_ID",
+            "Quantity",
+            "Price",
+            "Date",
+            "FK_Client_ID",
+            "FK_Product_ID",
+            "FK_Store_ID"
+        )
+        return fact_sales

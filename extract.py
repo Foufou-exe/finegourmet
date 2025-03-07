@@ -18,6 +18,8 @@ class DataExtractor:
                 .config("spark.driver.extraClassPath", "./database/connector/mysql-connector-j-9.1.0.jar") \
                 .config("spark.hadoop.fs.file.impl", "org.apache.hadoop.fs.LocalFileSystem") \
                 .getOrCreate()
+            self.spark.sparkContext.setLogLevel("ERROR")
+
 
     def extract_sfcc(self, sfcc_folder):
         """
