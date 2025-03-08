@@ -1,6 +1,6 @@
 <div align="center">
 
-finegourmet logo](./docs/images/logo_finegourmet.png)
+![finegourmet logo](./docs/images/logo_finegourmet.png)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub last commit](https://img.shields.io/github/last-commit/Foufou-exe/finegourmet)]()
