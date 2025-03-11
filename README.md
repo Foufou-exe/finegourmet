@@ -131,7 +131,7 @@ Contributions are welcome! If you would like to improve the project, please subm
 
 ## Authors
 
-- @Foufou-exe](https://github.com/Foufou-exe)
+- [@Foufou-exe](https://github.com/Foufou-exe)
 - [@ml704457](https://github.com/ml704457)
 - [@Keods30](https://github.com/Keods30)
 - [@JonathanDS30](https://github.com/JonathanDS30)
