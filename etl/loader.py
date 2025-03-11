@@ -2,9 +2,16 @@
 import logging
 import mysql.connector
 from pyspark.sql.functions import when, col, lit
+import os
 
+# Import de la librairie dotenv pour charger les variables d'environnement
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Configuration du logger
+logging.basicConfig(level=os.getenv('LOGGING_LEVEL'), format=os.getenv('LOGGING_FORMAT'), datefmt=os.getenv('LOGGING_DATE_FORMAT'))
 logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 class DataLoader:
     """
@@ -26,15 +33,19 @@ class DataLoader:
 
     def load_dim_client(self, df_dim_client, mode="append"):
         self._load(df_dim_client, "Dim_Client", mode)
+        logger.info("✨ Chargement des données dans la table Dim_Client terminé ✨")
 
     def load_dim_product(self, df_dim_product, mode="append"):
         self._load(df_dim_product, "Dim_Product", mode)
+        logger.info("✨ Chargement des données dans la table Dim_Product terminé ✨")
 
     def load_dim_store(self, df_dim_store, mode="append"):
         self._load(df_dim_store, "Dim_Store", mode)
+        logger.info("✨ Chargement des données dans la table Dim_Store terminé ✨")
 
     def load_fact_sales(self, df_fact_sales, mode="append"):
         self._load(df_fact_sales, "Fact_Sales", mode)
+        logger.info("✨ Chargement des données dans la table Fact_Sales terminé ✨")
 
     def _load(self, df, table_name, mode):
         """
@@ -66,17 +77,10 @@ class DataLoader:
 
         try:
             df.write.jdbc(url=self.jdbc_url, table=table_name, mode=mode, properties=props)
-            logger.info(f"Données chargées dans la table {table_name} avec succès.")
+            logger.info(f"⚡ Données chargées dans la table {table_name} avec succès.")
         except Exception as e:
-            logger.error(f"Erreur lors du chargement dans la table {table_name} : {str(e)}")
-        # finally:
-        #     if conn is not None:
-        #         try:
-        #             self._execute_sql(cursor, "SET FOREIGN_KEY_CHECKS=1;", conn, "Foreign key checks enabled.")
-        #             cursor.close()
-        #             conn.close()
-        #         except Exception as ex:
-        #             logger.error(f"Erreur lors de la réactivation des contraintes FK: {str(ex)}")
+            logger.error(f"⛔ Erreur lors du chargement dans la table {table_name} : {str(e)}")
+
 
     def _execute_sql(self, cursor, sql_statement, conn, success_message):
         cursor.execute(sql_statement)

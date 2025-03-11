@@ -1,6 +1,5 @@
 # transform.py
 import logging
-import re
 from pyspark.sql.functions import (
     col,
     trim,
@@ -15,20 +14,20 @@ from pyspark.sql.functions import (
     substring,
     concat_ws,
     first,
-    isnan,
-    round,
-    expr,
-    date_format,
-    regexp_extract,
     coalesce
 )
 from pyspark.sql.types import IntegerType, DoubleType
 from pyspark.sql import Window
+import os
 
+# Import de la librairie dotenv pour charger les variables d'environnement
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Configuration du logger
+logging.basicConfig(level=os.getenv('LOGGING_LEVEL'), format=os.getenv('LOGGING_FORMAT'), datefmt=os.getenv('LOGGING_DATE_FORMAT'))
 logger = logging.getLogger(__name__)
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
-)
 
 class DataTransformer:
     def __init__(self):
@@ -104,9 +103,8 @@ class DataTransformer:
             ).drop("prod_id")
         # Conversion du Price en double
         df_sfcc = df_sfcc.withColumn("Price", col("Price").cast(DoubleType()))
-
-        logger.info("Transformation SFCC terminée.")
-        df_sfcc.show(10, truncate=False)
+        df_sfcc.show(truncate=False)
+        logger.info("✅ Transformation des ventes SFCC terminée.")
         return df_sfcc
 
     # ---------------------------------------------------------------------------
@@ -276,10 +274,8 @@ class DataTransformer:
             "store_id",
             "Product_Name",
         )
-
-        print("✅ Transformation CEGID terminée.")
-        df_cegid.show(10, truncate=False)
-
+        df_cegid.show(truncate=False)
+        logger.info("✅ Transformation des ventes CEGID terminée.")
         return df_cegid
 
     # ---------------------------------------------------------------------------
@@ -298,7 +294,7 @@ class DataTransformer:
         df_products = df_products.withColumn("Price", col("Price").cast(DoubleType()))
         # Suppression des doublons sur Product_ID
         df_products = df_products.dropDuplicates(["Product_ID"])
-        logger.info("Transformation des produits terminée.")
+        logger.info("✅ Transformation des produits terminée.")
         df_products.show(10, truncate=False)
         return df_products
 
@@ -313,7 +309,7 @@ class DataTransformer:
             df_boutiques = df_boutiques.withColumn(
                 "Address", trim(regexp_replace(col("Address"), r'^[\s"]+|[\s"]+$', ""))
             )
-        logger.info("Transformation des boutiques terminée.")
+        logger.info("✅ Transformation des boutiques terminée.")
         df_boutiques.show(10, truncate=False)
         return df_boutiques
 
@@ -374,6 +370,9 @@ class DataTransformer:
         # Normalisation des emails dans Dim_Client
         if dim_clients is not None:
             dim_clients = dim_clients.withColumn("Email", lower(trim(regexp_replace(col("Email"), r"[^a-zA-Z0-9._%+-@]+", ""))))
+
+        dim_clients.show(truncate=False)
+        logger.info("✅ Création de la dimension Clients terminée.")
         return dim_clients
 
     # ---------------------------------------------------------------------------
@@ -416,4 +415,6 @@ class DataTransformer:
             "FK_Product_ID",
             "FK_Store_ID"
         )
+        fact_sales.show(truncate=False)
+        logger.info("✅ Création de la table de faits Fact_Sales terminée.")
         return fact_sales

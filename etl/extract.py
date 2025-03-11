@@ -1,15 +1,46 @@
-# extract.py
 import os
 from pyspark.sql import SparkSession
 from pyspark.sql.types import BooleanType
 from pyspark.sql.functions import col, to_date
-
 import logging
 
+# Import de la librairie dotenv pour charger les variables d'environnement
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Configuration du logger
+logging.basicConfig(level=os.getenv('LOGGING_LEVEL'), format=os.getenv('LOGGING_FORMAT'), datefmt=os.getenv('LOGGING_DATE_FORMAT'))
 logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 class DataExtractor:
+    """DataExtractor is a class responsible for extracting data from various sources such as CSV files, JSON files, and text files.
+    It uses Apache Spark for data processing and provides methods to load and preprocess data from different formats.
+
+    Methods
+    -------
+    __init__(app_name="DataExtraction", master="local[*]"):
+        Initializes the Spark session with the given application name and master configuration.
+
+    extract_sfcc(sfcc_folder):
+        Loads all CSV files ending with "_sfcc_sales.csv" from the given folder and returns a unified DataFrame.
+        Normalizes column names and converts data types as needed.
+
+    extract_cegid(cegid_file):
+        Loads the CEGID JSON file and returns a DataFrame.
+        Logs an error if the file is not found.
+
+    extract_products(products_file):
+        Loads all CSV files from the given folder and returns a unified DataFrame.
+        Logs an error if no product files are found.
+
+    extract_boutiques(boutiques_file):
+        Loads the boutiques file using text reading and regex extraction.
+        Logs an error if the file is not found.
+
+    stop():
+        Stops the Spark session.
+    """
     def __init__(self, app_name="DataExtraction", master="local[*]"):
             self.spark = SparkSession.builder \
                 .appName(app_name) \
@@ -31,7 +62,7 @@ class DataExtractor:
         df_sfcc = None
         for path in sfcc_files:
             if os.path.exists(path):
-                logger.info(f"Traitement du fichier : {path}")
+                logger.info(f"🤖 Traitement du fichier SFCC : {path}")
                 df_temp = self.spark.read.option("header", "true") \
                                     .option("inferSchema", "true") \
                                     .csv(path)
@@ -66,10 +97,10 @@ class DataExtractor:
         Charge le fichier JSON CEGID.
         """
         if os.path.exists(cegid_file):
-            logger.info(f"Extraction du fichier CEGID : {cegid_file}")
+            logger.info(f"🤖 Extraction du fichier CEGID : {cegid_file}")
             return self.spark.read.option("multiline", "true").json(cegid_file)
         else:
-            logger.error(f"Fichier CEGID non trouvé : {cegid_file}")
+            logger.error(f" ⛔Fichier CEGID non trouvé : {cegid_file}")
             return None
 
     def extract_products(self, products_file):
@@ -82,7 +113,7 @@ class DataExtractor:
         df_products = None
         for path in product_files:
             if os.path.exists(path):
-                logger.info(f"Traitement du fichier produit : {path}")
+                logger.info(f"🤖 Traitement du fichier produit : {path}")
                 df_temp = (
                     self.spark.read.option("header", "true")
                     .option("inferSchema", "true")
@@ -105,7 +136,7 @@ class DataExtractor:
         Charge le fichier boutiques à l'aide de la lecture en texte et extraction par regex.
         """
         if os.path.exists(boutiques_file):
-            logger.info(f"Extraction du fichier boutiques : {boutiques_file}")
+            logger.info(f"🤖 Extraction du fichier boutiques : {boutiques_file}")
             df_raw = self.spark.read.text(boutiques_file)  # Chaque ligne dans la colonne "value"
             # Suppression de la ligne d'en-tête
             header = df_raw.first()[0]
@@ -118,7 +149,7 @@ class DataExtractor:
                 regexp_extract("value", regex_pattern, 3).alias("Address"),
             )
         else:
-            logger.error(f"Fichier boutiques non trouvé : {boutiques_file}")
+            logger.error(f"⛔ Fichier boutiques non trouvé : {boutiques_file}")
             return None
 
     def stop(self):
