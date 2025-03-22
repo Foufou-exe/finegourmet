@@ -1,23 +1,56 @@
-# extract.py
 import os
 from pyspark.sql import SparkSession
-from pyspark.sql.types import StructType, StructField, StringType, DateType, BooleanType
+from pyspark.sql.types import BooleanType
 from pyspark.sql.functions import col, to_date
-
 import logging
 
+# Import de la librairie dotenv pour charger les variables d'environnement
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Configuration du logger
+logging.basicConfig(level=os.getenv('LOGGING_LEVEL'), format=os.getenv('LOGGING_FORMAT'), datefmt=os.getenv('LOGGING_DATE_FORMAT'))
 logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 class DataExtractor:
+    """DataExtractor is a class responsible for extracting data from various sources such as CSV files, JSON files, and text files.
+    It uses Apache Spark for data processing and provides methods to load and preprocess data from different formats.
+
+    Methods
+    -------
+    __init__(app_name="DataExtraction", master="local[*]"):
+        Initializes the Spark session with the given application name and master configuration.
+
+    extract_sfcc(sfcc_folder):
+        Loads all CSV files ending with "_sfcc_sales.csv" from the given folder and returns a unified DataFrame.
+        Normalizes column names and converts data types as needed.
+
+    extract_cegid(cegid_file):
+        Loads the CEGID JSON file and returns a DataFrame.
+        Logs an error if the file is not found.
+
+    extract_products(products_file):
+        Loads all CSV files from the given folder and returns a unified DataFrame.
+        Logs an error if no product files are found.
+
+    extract_boutiques(boutiques_file):
+        Loads the boutiques file using text reading and regex extraction.
+        Logs an error if the file is not found.
+
+    stop():
+        Stops the Spark session.
+    """
     def __init__(self, app_name="DataExtraction", master="local[*]"):
-        self.spark = SparkSession.builder \
-            .appName(app_name) \
-            .master(master) \
-            .config("spark.driver.host", "127.0.0.1") \
-            .config("spark.driver.extraClassPath", "./database/connector/mysql-connector-j-9.1.0.jar") \
-            .config("spark.hadoop.fs.file.impl", "org.apache.hadoop.fs.LocalFileSystem") \
-            .getOrCreate()
+            self.spark = SparkSession.builder \
+                .appName(app_name) \
+                .master(master) \
+                .config("spark.driver.host", "127.0.0.1") \
+                .config("spark.driver.extraClassPath", "./database/connector/mysql-connector-j-9.1.0.jar") \
+                .config("spark.hadoop.fs.file.impl", "org.apache.hadoop.fs.LocalFileSystem") \
+                .getOrCreate()
+            self.spark.sparkContext.setLogLevel("ERROR")
+
 
     def extract_sfcc(self, sfcc_folder):
         """
@@ -26,23 +59,10 @@ class DataExtractor:
         """
         sfcc_files = [os.path.join(sfcc_folder, f) for f in os.listdir(sfcc_folder) if f.endswith("_sfcc_sales.csv")]
 
-        sfcc_schema = StructType([
-            StructField("sale_id", StringType(), True),
-            StructField("transaction_date", DateType(), True),
-            StructField("product_id", StringType(), True),
-            StructField("customer_id", StringType(), True),
-            StructField("customer_email", StringType(), True),
-            StructField("customer_last_name", StringType(), True),
-            StructField("customer_first_name", StringType(), True),
-            StructField("customer_phone", StringType(), True),
-            StructField("customer_address", StringType(), True),
-            StructField("email_optin", BooleanType(), True),
-            StructField("sms_optin", BooleanType(), True)
-        ])
         df_sfcc = None
         for path in sfcc_files:
             if os.path.exists(path):
-                logger.info(f"Traitement du fichier : {path}")
+                logger.info(f"🤖 Traitement du fichier SFCC : {path}")
                 df_temp = self.spark.read.option("header", "true") \
                                     .option("inferSchema", "true") \
                                     .csv(path)
@@ -77,33 +97,46 @@ class DataExtractor:
         Charge le fichier JSON CEGID.
         """
         if os.path.exists(cegid_file):
-            logger.info(f"Extraction du fichier CEGID : {cegid_file}")
+            logger.info(f"🤖 Extraction du fichier CEGID : {cegid_file}")
             return self.spark.read.option("multiline", "true").json(cegid_file)
         else:
-            logger.error(f"Fichier CEGID non trouvé : {cegid_file}")
+            logger.error(f" ⛔Fichier CEGID non trouvé : {cegid_file}")
             return None
 
     def extract_products(self, products_file):
         """
-        Charge le fichier CSV des produits.
+        Charge tous les fichiers CSV des produits dans le dossier donné
+        et renvoie un DataFrame unifié.
         """
-        if os.path.exists(products_file):
-            logger.info(f"Extraction du fichier produits : {products_file}")
-            return (
-                self.spark.read.option("header", "true")
-                .option("inferSchema", "true")
-                .csv(products_file)
-            )
-        else:
-            logger.error(f"Fichier produits non trouvé : {products_file}")
-            return None
+        product_files = [os.path.join(products_file, f) for f in os.listdir(products_file) if f.endswith(".csv")]
+
+        df_products = None
+        for path in product_files:
+            if os.path.exists(path):
+                logger.info(f"🤖 Traitement du fichier produit : {path}")
+                df_temp = (
+                    self.spark.read.option("header", "true")
+                    .option("inferSchema", "true")
+                    .csv(path)
+                )
+
+                # Union par nom de colonne en gérant les colonnes manquantes
+                if df_products is None:
+                    df_products = df_temp
+                else:
+                    df_products = df_products.unionByName(df_temp, allowMissingColumns=True)
+
+        if df_products is None:
+            logger.error(f"Aucun fichier produit trouvé dans : {products_file}")
+
+        return df_products
 
     def extract_boutiques(self, boutiques_file):
         """
         Charge le fichier boutiques à l'aide de la lecture en texte et extraction par regex.
         """
         if os.path.exists(boutiques_file):
-            logger.info(f"Extraction du fichier boutiques : {boutiques_file}")
+            logger.info(f"🤖 Extraction du fichier boutiques : {boutiques_file}")
             df_raw = self.spark.read.text(boutiques_file)  # Chaque ligne dans la colonne "value"
             # Suppression de la ligne d'en-tête
             header = df_raw.first()[0]
@@ -116,7 +149,7 @@ class DataExtractor:
                 regexp_extract("value", regex_pattern, 3).alias("Address"),
             )
         else:
-            logger.error(f"Fichier boutiques non trouvé : {boutiques_file}")
+            logger.error(f"⛔ Fichier boutiques non trouvé : {boutiques_file}")
             return None
 
     def stop(self):

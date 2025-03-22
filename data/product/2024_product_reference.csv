@@ -1,0 +1,197 @@
+product_id,product_name,price,category
+P294857,Chocolat Noir 70% Madagascar,12.50,confiserie
+P183752,Huile d'Olive Extra Vierge Bio,22.80,divers
+P659104,Confiture Artisanale Abricot,10.90,confiserie
+P502618,Pâté de Campagne Traditionnel,15.75,charcuterie
+P729345,Miel de Lavande de Provence,14.95,divers
+P210573,Assortiment de Macarons,29.99,confiserie
+P987654,Jambon Ibérique de Bellota,180.00,charcuterie
+P370356,Vin Blanc Gewurztraminer 2020,12.90,vin
+P345678,Caviar d'Aquitaine,350.00,luxe
+P789012,Truffes Noires du Périgord,95.00,luxe
+P890123,Huîtres Spéciales de Claire,38.50,divers
+P456789,Foie Gras d'Oie Entier,62.00,luxe
+P012345,Confiture de Figues Violettes,11.50,confiserie
+P317496,Fromage de Chèvre Affiné,18.20,fromage
+P567890,Pain d'Épices Artisanal,15.00,confiserie
+P901234,Moutarde à l'Ancienne,10.20,divers
+P135792,Vinaigre de Xérès,19.50,divers
+P802469,Olives Vertes de Provence,10.50,divers
+P791358,Comté 24 Mois d'Affinage,32.70,fromage
+P325405,Caramels au Beurre Salé de Guérande,12.75,confiserie
+P864205,Chorizo Ibérique,17.90,charcuterie
+P266975,Saint-Nectaire fermier au lait cru AOP,21.60,fromage
+P734156,Vinaigre de Cidre Bio,10.80,divers
+P915836,Brie de Meaux AOP,21.50,fromage
+P649502,Terrine de Lapin aux Pruneaux,17.50,charcuterie
+P183957,Vin Blanc Alsace Riesling,25.75,vin
+P624078,Vin Rouge Bourgogne Pinot Noir,42.00,vin
+P204195,Sirop d'Érable Bio,13.75,divers
+P736294,Beaujolais Villages Nouveau,16.50,vin
+P307026,Château-Chalon,92.00,vin
+P848523,Saint-Émilion Grand Cru,55.00,vin
+P419631,Côtes du Rhône Villages,20.80,vin
+P950748,Crémant de Loire Brut,23.50,vin
+P192964,Eau de Vie de Poire Williams,48.50,divers
+P633087,Liqueur de Chartreuse Verte,52.00,divers
+P745306,Fleur de Sel de Camargue,9.80,divers
+P316414,Piment d'Espelette AOP,17.20,divers
+P428639,Herbes de Provence Label Rouge,8.50,divers
+P969747,Thé Vert Sencha Bio,16.80,divers
+P428132,Savennières,36.00,vin
+P101963,Infusion Verveine Menthe,10.50,divers
+P234567,Safran en Filaments,48.00,divers
+P642071,Chocolat au Lait Caramel Beurre Salé,11.95,confiserie
+P213189,Nougat de Montélimar,14.50,confiserie
+P754297,Calissons d'Aix,19.20,confiserie
+P866513,Pâtes de Fruits Assorties,15.90,confiserie
+P978738,Biscuits Roses de Reims,9.80,confiserie
+P549846,Madeleines Pur Beurre,13.50,confiserie
+P110954,Sablés Bretons,10.25,confiserie
+P651062,Croquants aux Amandes,11.70,confiserie
+P138136,Terrine de Sanglier aux Noisettes,15.80,charcuterie
+P222179,Navettes de Marseille,14.00,confiserie
+P763287,Canelés de Bordeaux,18.50,confiserie
+P567027,Mousse de Canard au Porto,17.30,charcuterie
+P875503,Jus de Pomme Artisanal Bio,12.30,divers
+P446711,Limonade Artisanale,9.90,divers
+P987829,Graines de Courge Grillées,10.80,divers
+P558937,Noix de Cajou Bio,16.20,divers
+P129045,Amandes Grillées Salées,14.75,divers
+P660153,Pistaches d'Iran,22.50,divers
+P772378,Olives Noires de Nyons AOP,13.95,divers
+P343486,Tapenade d'Olives Noires,13.25,divers
+P123456,Champagne Brut Millésimé,85.00,vin
+P455802,Caviar d'Aubergines,12.90,divers
+P996919,Houmous Traditionnel,11.80,divers
+P679244,Rillettes de Saumon,19.50,charcuterie
+P240352,Pâté de Foie de Volaille,14.00,charcuterie
+P781469,Magret de Canard Séché,28.70,charcuterie
+P857522,Épices pour Paella,11.90,divers
+P352577,Coppa Corse,25.90,charcuterie
+P893685,Lonzu Corse,27.50,charcuterie
+P464793,Figatelli,18.20,charcuterie
+P678901,Sel de Guérande,8.90,divers
+P482573,Le coffret cadeau Gastronomie Sud-Ouest,29.95,divers
+P277021,Malle géante Trésors de la Gastronomie,180.00,divers
+P576918,Saucisse Sèche de Lyon,21.80,charcuterie
+P688134,Boudin Noir aux Oignons,15.50,charcuterie
+P259242,Cervelas Lyonnais Pistaché,23.00,charcuterie
+P790359,Fromage de Tête Maison,13.80,charcuterie
+P361467,Gouda Vieux Affiné,26.50,fromage
+P802575,Parmesan Reggiano AOP,34.90,fromage
+P594797,Pineau des Charentes Blanc,21.50,divers
+P914790,Mozzarella di Bufala Campana DOP,24.80,fromage
+P585808,Gorgonzola Dolce DOP,27.90,fromage
+P129245,Vin de Savoie Abymes,18.70,vin
+P697024,Cheddar Affiné,23.70,fromage
+P268132,Edam Hollandais,18.50,fromage
+P370355,Ossau-Iraty AOP,28.80,fromage
+P811466,Morbier AOP,22.90,fromage
+P482574,Salers Tradition AOP,30.50,fromage
+P923683,Livarot AOP,24.10,fromage
+P594795,Pont-l'Évêque AOP,26.70,fromage
+P606915,Langres AOP,28.90,fromage
+P277025,Chaource AOP,21.50,fromage
+P718139,Sainte-Maure-de-Touraine AOP,19.80,fromage
+P745937,Vin Rouge Côtes de Provence,18.50,vin
+P389256,Valençay AOP,23.40,fromage
+P820354,Crottin de Chavignol AOP,17.90,fromage
+P491462,Picodon AOP,16.50,fromage
+P240351,Côtes du Roussillon Villages,20.20,vin
+P503687,Banon AOP,18.80,fromage
+P174795,Bleu des Causses AOP,24.50,fromage
+P615803,Fourme d'Ambert AOP,22.70,fromage
+P286911,Bleu de Gex Haut-Jura AOP,26.30,fromage
+P398136,Laguiole AOP,31.80,fromage
+P839244,Tomme de Savoie IGP,23.50,fromage
+P400352,Abondance AOP,27.20,fromage
+P941469,Raclette de Savoie IGP,25.80,fromage
+P512577,Emmental Français Est-Central IGP,19.90,fromage
+P709245,Reblochon Fermier AOP,25.20,fromage
+P183685,Mont d'Or AOP,35.50,fromage
+P624793,Vin Jaune du Jura,78.00,vin
+P295801,Côtes du Jura Chardonnay,29.50,vin
+P736918,Arbois Pupillin Savagnin,38.20,vin
+P848134,Côtes de Toul Gris,17.80,vin
+P419242,Champagne Rosé Brut,98.00,vin
+P521467,Sancerre Blanc,34.90,vin
+P192575,Pouilly-Fumé,32.50,vin
+P633683,Vouvray Sec,21.90,vin
+P204791,Chinon Rouge,26.80,vin
+P402135,Confiture de Fraises Mara des Bois,12.20,confiserie
+P316916,Muscadet Sèvre et Maine sur Lie,18.50,vin
+P857024,Anjou Villages Rouge,20.70,vin
+P969249,Cahors Malbec,28.30,vin
+P530357,Madiran,24.90,vin
+P101465,Jurançon Sec,22.50,vin
+P213681,Gaillac Blanc Sec,19.20,vin
+P754798,Fronton,17.50,vin
+P325806,Côtes de Gascogne Blanc,16.90,vin
+P866914,Tavel Rosé,25.50,vin
+P978139,Gigondas,45.00,vin
+P549247,Vacqueyras,39.50,vin
+P110355,Côtes du Rhône Blanc,21.20,vin
+P651463,Crozes-Hermitage Rouge,37.80,vin
+P222571,Saint-Joseph Rouge,42.50,vin
+P334796,Côte-Rôtie,99.00,vin
+P875804,Hermitage Blanc,105.00,vin
+P446912,Cornas,72.00,vin
+P642573,Irouléguy Rouge,30.80,vin
+P558137,Clairette de Die Tradition,20.50,vin
+P660353,Roussette de Savoie,24.30,vin
+P231461,Crépy,19.90,vin
+P343686,Bugey Cerdon Méthode Ancestrale,22.80,vin
+P884794,Corbières Rouge,19.50,vin
+P455803,Faugères,23.90,vin
+P996912,Minervois,21.70,vin
+P720958,Confiture de Cerises Noires,11.80,confiserie
+P138135,Pic Saint-Loup,27.50,vin
+P679243,Terrasses du Larzac,29.80,vin
+P781468,Banyuls Grand Cru,48.00,vin
+P352576,Maury Sec,26.50,vin
+P893684,Collioure Rouge,28.70,vin
+P464792,Muscat de Rivesaltes,24.90,vin
+P905809,Bellet,42.00,vin
+P763688,Condrieu,85.00,vin
+P147025,Bandol Rouge,45.00,vin
+P688133,Cassis Blanc,33.90,vin
+P259241,Côtes de Provence Cru Classé,30.50,vin
+P790358,Vin de Corse,22.00,vin
+P361466,Patrimonio Rouge,36.80,vin
+P473683,Sartène Rouge,34.50,vin
+P914799,Muscat du Cap Corse,27.90,vin
+P585807,Armagnac XO,75.00,divers
+P697023,Calvados Pays d'Auge,55.00,divers
+P268131,Marc de Bourgogne,48.50,divers
+P709248,Kirsch de Fougerolles,51.00,divers
+P370357,Mirabelle de Lorraine,49.00,divers
+P925746,Crozets de Savoie natures,3.90,divers
+P811465,Crozets au sarrasin,4.10,divers
+P473682,Crozet à l'ail des ours,4.70,divers
+P482572,Gentiane d'Aubrac,46.00,divers
+P923689,Floc de Gascogne Blanc,19.90,divers
+P165805,Ratafia de Champagne,23.80,divers
+P606913,Macvin du Jura,28.20,divers
+P277020,Crème de Cassis de Dijon,17.50,divers
+P853921,Huile d'Olive AOP Haute-Provence,29.00,divers
+P389246,Chambord Liqueur Royale,26.00,divers
+P820355,Grand Marnier Cordon Rouge,32.50,divers
+P491463,Cointreau,29.90,divers
+P503684,Get 27,24.50,divers
+P673922,Chocolat Noir Orange,13.50,confiserie
+P185746,Miel de Châtaignier,16.20,divers
+P354169,Vin Blanc Moelleux Jurançon,27.50,vin
+P811464,Poire Williams des Monts du Lyonnais,53.00,divers
+P416857,Fromage de Brebis Basque,25.70,fromage
+P297048,Sel Fou aux Herbes,9.50,divers
+P561273,Moutarde de Dijon,8.20,divers
+P108394,Confit d'Oignons,12.90,divers
+P280619,Vin Rouge Côtes de Bourg,22.00,vin
+P815736,Assortiment de Chocolats Fins,38.00,confiserie
+P349852,Pralines Roses de Lyon,14.95,confiserie
+P976018,Miel de Tilleul,15.50,divers
+P139257,Vin Rosé de Bandol,31.00,vin
+P670364,Saucisson Sec à la Truffe,29.50,charcuterie
+P205481,Camembert Fermier AOP,20.50,fromage
+P629715,Tome fraîche au lait cru de l'Aubrac,16.50,fromage
