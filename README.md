@@ -54,13 +54,13 @@ Students will:
 
 ## Table of contents
 
-- FineGourmet](#finegourmet)
-  - Context and presentation of the company](#contexte-et-présentation-de-l'entreprise)
-    - Problematic](#problematic)
-    - Data provided](#data-provided)
-  - General objectives of the case study](#objectifs-généraux-de-létude-de-cas)
-  - Table of contents](#table-des-matières)
-  - Features](#features)
+- [FineGourmet](#finegourmet)
+  - [Context and presentation of the company](#contexte-et-présentation-de-l'entreprise)
+    - [Problematic](#problematic)
+    - [Data provided](#data-provided)
+  - [General objectives of the case study](#objectifs-généraux-de-létude-de-cas)
+  - [Table of contents](#table-des-matières)
+  - [Features](#features)
   - [Technologies used](#technologies-utilisées)
   - [Installation](#installation)
   - [Use](#use)
