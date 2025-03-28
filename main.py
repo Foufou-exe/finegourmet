@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configuration du logger
-logging.basicConfig(level=os.getenv('LOGGING_LEVEL'), format=os.getenv('LOGGING_FORMAT'), datefmt=os.getenv('LOGGING_DATE_FORMAT'))
+logging.basicConfig(level=logging.INFO, format=os.getenv('LOGGING_FORMAT'), datefmt=os.getenv('LOGGING_DATE_FORMAT'))
 logger = logging.getLogger(__name__)
 
 def main():
@@ -57,7 +57,7 @@ def main():
     # ----------------------------------------------------------------
     # 2) Initialisation des objets ETL
     # ----------------------------------------------------------------
-    extractor = DataExtractor(app_name=os.getenv('SPARK_APP_NAME'), master=os.getenv('SPARK_MASTER'))
+    extractor = DataExtractor()
     transformer = DataTransformer()
     loader = DataLoader(
         jdbc_url=os.getenv('JDBC_URL'),
