@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configuration du logger
-logging.basicConfig(level=os.getenv('LOGGING_LEVEL'), format=os.getenv('LOGGING_FORMAT'), datefmt=os.getenv('LOGGING_DATE_FORMAT'))
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", datefmt="[%Y-%m-%d - %H:%M:%S]")
 logger = logging.getLogger(__name__)
 
 class DataLoader:
